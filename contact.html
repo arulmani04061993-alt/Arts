@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Studio Visit — STACKLY Art & Design Institute</title>
+  <meta name="description" content="Connect with STACKLY admissions counselors, schedule an atelier visit, or inquire regarding studio collaborations.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container"><div class="preloader-progress-bar"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <ul class="stackly-breadcrumb" data-aos="fade-down">
+        <li><a href="index.html">Home</a></li>
+        <li class="separator">/</li>
+        <li class="current">Contact</li>
+      </ul>
+      <h1 class="page-title" data-aos="fade-up">Start the Dialogue. <br>Visit Our Ateliers.</h1>
+      <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Whether you are a prospective student preparing your portfolio or a brand seeking creative consultancy, our studio team is here to assist.
+      </p>
+    </div>
+  </header>
+
+  <!-- Contact Grid -->
+  <section class="py-5 my-lg-4">
+    <div class="container">
+      <div class="sample-data-notice">
+        <i class="bi bi-info-circle-fill"></i>
+        <span>Sample institutional contact details and placeholder location pending final administrative confirmation.</span>
+      </div>
+
+      <div class="row g-5">
+        <!-- Inquiry Form Column -->
+        <div class="col-lg-7">
+          <div class="stackly-card p-4 p-md-5">
+            <h3 class="h4 mb-4">Send a Direct Inquiry</h3>
+
+            <div id="contact-feedback-alert" class="d-none"></div>
+
+            <form id="stackly-contact-form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6 form-group-custom">
+                  <label class="form-label-custom" for="contact-name">Your Full Name *</label>
+                  <input type="text" class="form-control-custom" id="contact-name" placeholder="e.g. Maya Lin" required>
+                  <div class="invalid-feedback-custom">Please provide your name.</div>
+                </div>
+
+                <div class="col-md-6 form-group-custom">
+                  <label class="form-label-custom" for="contact-email">Email Address *</label>
+                  <input type="email" class="form-control-custom" id="contact-email" placeholder="maya@example.com" required>
+                  <div class="invalid-feedback-custom">Please enter a valid email.</div>
+                </div>
+
+                <div class="col-md-6 form-group-custom">
+                  <label class="form-label-custom" for="contact-phone">Phone (Optional)</label>
+                  <input type="tel" class="form-control-custom" id="contact-phone" placeholder="+1 (555) 000-0000">
+                </div>
+
+                <div class="col-md-6 form-group-custom">
+                  <label class="form-label-custom" for="contact-subject">Topic of Interest</label>
+                  <select class="form-select-custom" id="contact-subject">
+                    <option value="admissions">Admissions & Portfolio Review</option>
+                    <option value="campus-visit">Atelier Tour & Campus Visit</option>
+                    <option value="partnership">Industry Agency Collaboration</option>
+                    <option value="careers">Teaching & Mentorship Roles</option>
+                    <option value="general">General Institutional Question</option>
+                  </select>
+                </div>
+
+                <div class="col-12 form-group-custom">
+                  <label class="form-label-custom" for="contact-message">Your Message *</label>
+                  <textarea class="form-control-custom" id="contact-message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                  <div class="invalid-feedback-custom">Please write your message.</div>
+                </div>
+
+                <div class="col-12 mt-3">
+                  <button type="submit" class="btn-custom btn-coral w-100 py-3">
+                    <span>TRANSMIT INQUIRY</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Cards & Info Column -->
+        <div class="col-lg-5">
+          <div class="details-sidebar-card mb-4">
+            <h4 class="h5 mb-4 text-coral pb-2 border-bottom border-secondary">Institute Coordinates</h4>
+            
+            <div class="d-flex gap-3 mb-4">
+              <i class="bi bi-geo-alt-fill text-coral fs-4"></i>
+              <div>
+                <strong>Design Campus Address (Sample Placeholder)</strong>
+                <div class="text-muted small">STACKLY Ateliers, 42 Creative Quarter, Art & Tech District, Innovation City 10001</div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 mb-4">
+              <i class="bi bi-telephone-fill text-purple fs-4"></i>
+              <div>
+                <strong>Admissions & General Desk</strong>
+                <div class="text-muted small">+1 (555) 782-2559 (Mon–Fri 09:00–18:00)</div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 mb-4">
+              <i class="bi bi-envelope-fill text-coral fs-4"></i>
+              <div>
+                <strong>Direct Electronic Inquiries</strong>
+                <div class="text-muted small">hello@stackly-institute.design (General)<br>admissions@stackly-institute.design (Admissions)</div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <i class="bi bi-clock-fill text-purple fs-4"></i>
+              <div>
+                <strong>Studio Hours</strong>
+                <div class="text-muted small">Academic Ateliers: 24/7 (Enrolled Students)<br>Administrative Office: Mon–Fri, 09:00 – 18:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explicitly Labeled Responsive Map Section -->
+      <div class="mt-5 pt-4">
+        <div class="section-meta">
+          <span>CAMPUS GEOGRAPHY</span>
+          <span>EXPLORE OUR DISTRICT</span>
+        </div>
+        <div class="responsive-media-wrap shadow-lg" style="padding-bottom: 40%;">
+          <!-- OpenStreetMap embed with explicit neutral design district coordinates -->
+          <iframe 
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1285%2C51.5050%2C-0.1200%2C51.5120&amp;layer=mapnik" 
+            title="STACKLY Institute Studio Location Map (Illustrative Creative District)" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="text-center mt-2">
+          <small class="text-muted">Interactive map representation of the STACKLY Creative Quarter & Innovation Campus.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/aos-init.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

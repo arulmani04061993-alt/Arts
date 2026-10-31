@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details — STACKLY Art & Design Institute</title>
+  <meta name="description" content="Explore specific atelier service details, curriculum integration, tools, and technical outcomes at STACKLY.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container"><div class="preloader-progress-bar"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Service Details Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <ul class="stackly-breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li class="separator">/</li>
+        <li><a href="services.html">Services</a></li>
+        <li class="separator">/</li>
+        <li class="current" id="service-breadcrumb-title">Service Details</li>
+      </ul>
+      <h1 class="page-title" id="service-details-title">Graphic Design Studio & Consultation</h1>
+      <p class="page-subtitle" id="service-details-desc">
+        We provide specialized studio access, master mentorship, and creative production pipelines in typography, publication, and identity design.
+      </p>
+    </div>
+  </header>
+
+  <!-- Service Main Body -->
+  <section class="py-5 my-lg-4">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Main Content Column -->
+        <div class="col-lg-8">
+          <div class="rounded overflow-hidden mb-5 border border-secondary" style="max-height: 480px;">
+            <img src="assets/images/courses/service-graphic.webp" alt="Service Showcase" id="service-details-img" class="w-100 h-100 object-fit-cover" width="800" height="550">
+          </div>
+
+          <h2 class="h3 mb-3">Studio Overview & Approach</h2>
+          <p>
+            Our dedicated ateliers are built to give emerging creatives and partner agencies direct access to high-end infrastructure and expert feedback loops. Every project undertaken in our labs undergoes rigorous conceptual deconstruction, typography exploration, and prototyping before final realization.
+          </p>
+
+          <h3 class="h4 mt-5 mb-3">Tools & Production Techniques</h3>
+          <p id="service-details-tools" class="fw-semibold text-coral">
+            Adobe Creative Cloud, Risograph Printing, Letterpress, Figma, Protopie
+          </p>
+          <p>
+            Whether executing spot color silkscreen prints or developing fluid design tokens for multi-platform digital systems, our workstations are tuned to meet the most demanding international studio specifications.
+          </p>
+
+          <h3 class="h4 mt-5 mb-3">What You Will Achieve</h3>
+          <ul class="document-check-list mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> Complete end-to-end design brief execution suitable for international agency review</li>
+            <li><i class="bi bi-check-circle-fill"></i> Thorough understanding of color spaces, prepress checks, and digital token architectures</li>
+            <li><i class="bi bi-check-circle-fill"></i> In-depth portfolio artifact with documentation of iterations, user feedback, and rationale</li>
+          </ul>
+
+          <h3 class="h4 mt-5 mb-3">Service FAQs</h3>
+          <div class="accordion accordion-custom" id="serviceFaqAccordion">
+            <div class="accordion-item">
+              <h4 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sf1">
+                  How can students or external partners book atelier time?
+                </button>
+              </h4>
+              <div id="sf1" class="accordion-collapse collapse show" data-bs-parent="#serviceFaqAccordion">
+                <div class="accordion-body">
+                  Enrolled students receive dedicated lab slots. External clients and commercial partners can schedule studio time and project consultation by submitting an inquiry via our contact form.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sf2">
+                  Are materials and specialized papers provided?
+                </button>
+              </h4>
+              <div id="sf2" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
+                <div class="accordion-body">
+                  Yes, our printmaking and fabrication studios stock European paper stocks, specialty inks, and prototyping substrates available at subsidized academic rates.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="col-lg-4">
+          <div class="details-sidebar-card">
+            <h4 class="h5 mb-4 pb-2 border-bottom border-secondary">Consultation Inquiry</h4>
+            <div class="detail-meta-row">
+              <span class="detail-meta-label">Format</span>
+              <span class="detail-meta-val">Studio / Hybrid</span>
+            </div>
+            <div class="detail-meta-row">
+              <span class="detail-meta-label">Supervising Mentor</span>
+              <span class="detail-meta-val">Senior Art Director</span>
+            </div>
+            <div class="detail-meta-row">
+              <span class="detail-meta-label">Equipment Access</span>
+              <span class="detail-meta-val">Full Ateliers</span>
+            </div>
+            <div class="detail-meta-row">
+              <span class="detail-meta-label">Certification</span>
+              <span class="detail-meta-val">STACKLY Studio Credential</span>
+            </div>
+
+            <div class="mt-4 pt-2">
+              <a href="contact.html" class="btn-custom btn-coral w-100 mb-2">Book a Studio Consultation</a>
+              <a href="courses.html" class="btn-custom btn-outline-ivory w-100">Explore Corresponding Courses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/aos-init.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

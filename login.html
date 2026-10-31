@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student & Faculty Portal Login — STACKLY</title>
+  <meta name="description" content="Access your STACKLY digital atelier, coursework briefs, studio schedule, and mentor feedback.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body style="background: #0b0b0b;">
+
+  <!-- Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container"><div class="preloader-progress-bar"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- Split Screen Auth Wrapper -->
+  <div class="auth-split-wrapper">
+    <!-- Left Column: Dramatic Creative Artwork -->
+    <div class="auth-visual-col d-none d-lg-flex" style="background-image: url('assets/images/general/login-visual.webp');">
+      <div>
+        <a href="index.html" class="navbar-brand-stackly">
+          <div class="brand-dot"></div>
+          <span>STACKLY</span>
+        </a>
+      </div>
+
+      <div class="auth-visual-content">
+        <div class="eyebrow">CREATIVE PORTAL</div>
+        <h2 class="display-5 text-white fw-bold mb-3">
+          "Where craftsmanship meets digital bravery."
+        </h2>
+        <p class="text-muted lead mb-0">
+          Sign in to access your active studio briefs, book critique slots with department chairs, and reserve specialized equipment.
+        </p>
+      </div>
+
+      <div class="small text-muted">
+        &copy; 2026 STACKLY Art & Design Institute. All Rights Reserved.
+      </div>
+    </div>
+
+    <!-- Right Column: Authentication Form -->
+    <div class="auth-form-col">
+      <div class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <a href="index.html" class="navbar-brand-stackly d-lg-none">
+            <div class="brand-dot"></div>
+            <span>STACKLY</span>
+          </a>
+          <a href="index.html" class="btn-link-animated small ms-auto"><i class="bi bi-arrow-left"></i> Return Home</a>
+        </div>
+        <h1 class="h2 text-white mb-2">Portal Sign In</h1>
+        <p class="text-muted small">Enter your academic credentials to enter the STACKLY workspace.</p>
+      </div>
+
+      <!-- Feedback Alert -->
+      <div id="login-feedback-alert" class="d-none"></div>
+
+      <form id="stackly-login-form" novalidate>
+        <div class="form-group-custom">
+          <label class="form-label-custom" for="login-email">Academic or Registered Email *</label>
+          <input type="email" class="form-control-custom" id="login-email" placeholder="name@stackly.edu" required>
+          <div class="invalid-feedback-custom">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group-custom">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <label class="form-label-custom mb-0" for="login-password">Password *</label>
+            <a href="forgot-password.html" class="small text-coral">Forgot Password?</a>
+          </div>
+          <input type="password" class="form-control-custom" id="login-password" placeholder="••••••••" required>
+          <div class="invalid-feedback-custom">Please enter your password (minimum 6 characters).</div>
+        </div>
+
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" id="login-remember">
+          <label class="form-check-label text-muted small" for="login-remember">
+            Remember this device for 30 days
+          </label>
+        </div>
+
+        <button type="submit" class="btn-custom btn-coral w-100 py-3 mb-3">
+          <span>SIGN IN TO PORTAL</span>
+          <i class="bi bi-box-arrow-in-right"></i>
+        </button>
+
+        <div class="text-center text-muted small">
+          Don't have an academic account? 
+          <a href="signup.html" class="text-coral fw-bold">Sign Up for Cohort</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+/* ===================================================================
+   STACKLY — ART & DESIGN INSTITUTE
+   Responsive Design & Breakpoints CSS
+   =================================================================== */
+
+/* Large Desktop (1440px to 1920px+) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  .hero-main-img-box {
+    height: 560px;
+  }
+}
+
+/* Standard Desktop / Laptops (1200px to 1399px) */
+@media (max-width: 1399px) {
+  .stackly-nav-list {
+    gap: 16px;
+  }
+  .stackly-nav-link {
+    font-size: 0.88rem;
+  }
+}
+
+/* Small Desktop & Tablet Landscape (992px to 1199px) */
+@media (max-width: 1199px) {
+  .stackly-nav-list {
+    gap: 12px;
+  }
+  .stackly-nav-link {
+    font-size: 0.85rem;
+  }
+  .hero-editorial-title {
+    font-size: 3.8rem;
+  }
+  .hero-main-img-box {
+    height: 480px;
+  }
+}
+
+/* Tablet Portrait & Mobile (991px and below) */
+@media (max-width: 991px) {
+  /* Hide desktop menu, show mobile toggle */
+  .stackly-nav-center,
+  .stackly-nav-actions .nav-login-link {
+    display: none !important;
+  }
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-editorial {
+    padding: 60px 0 80px;
+    min-height: auto;
+  }
+  .hero-visual-frame {
+    margin-top: 50px;
+  }
+  .hero-main-img-box {
+    height: 420px;
+  }
+
+  .floating-hero-card.card-top {
+    top: -20px;
+    left: 10px;
+  }
+  .floating-hero-card.card-bottom {
+    bottom: -20px;
+    right: 10px;
+  }
+
+  .split-about-visual {
+    height: 380px;
+    margin-bottom: 40px;
+  }
+
+  .auth-split-wrapper {
+    flex-direction: column;
+  }
+  .auth-visual-col {
+    min-height: 280px;
+    padding: 30px;
+  }
+  .auth-form-col {
+    max-width: 100%;
+    padding: 40px 24px;
+  }
+
+  .creative-highlights-bar .highlight-stat-item {
+    margin-bottom: 20px;
+  }
+
+  .details-sidebar-card {
+    margin-top: 40px;
+    position: static;
+  }
+
+  .pricing-card.featured {
+    transform: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Mobile Devices (767px and below) */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+    padding-top: 74px;
+  }
+
+  .section-meta {
+    margin-bottom: 2rem;
+  }
+
+  .page-hero {
+    padding: 60px 0 40px;
+  }
+  .page-hero .page-title {
+    font-size: 2.2rem;
+  }
+  .page-hero .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-editorial-title {
+    font-size: 2.4rem;
+  }
+  .hero-editorial-subtitle {
+    font-size: 1.05rem;
+  }
+  .hero-main-img-box {
+    height: 340px;
+  }
+
+  .about-stats-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .filter-tabs-container {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-btn {
+    flex-shrink: 0;
+  }
+
+  .event-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .event-date-box {
+    width: 70px;
+    height: 70px;
+  }
+
+  .stackly-footer {
+    padding: 0 0 25px;
+  }
+  .footer-pre-banner {
+    padding: 45px 0 35px;
+    text-align: center;
+  }
+  .footer-pre-banner .studio-status-badge {
+    margin: 0 auto;
+  }
+  .footer-pre-banner-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer-pre-banner .btn-custom {
+    width: 100%;
+  }
+  .footer-main-grid {
+    padding: 45px 0 30px;
+  }
+  .footer-newsletter-box {
+    padding: 22px;
+    margin-top: 20px;
+  }
+  .footer-newsletter-input-group {
+    flex-direction: column;
+    border-radius: var(--radius-md);
+    background: #141414;
+    padding: 8px;
+    gap: 8px;
+  }
+  .footer-subscribe-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    align-items: center;
+  }
+  .footer-legal-links {
+    justify-content: center;
+  }
+
+  /* Responsive styles for Reference Footer */
+  .stackly-footer-ref {
+    padding-top: 48px;
+  }
+  .footer-ref-col {
+    margin-bottom: 28px;
+  }
+  .footer-ref-form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .footer-ref-input {
+    width: 100%;
+  }
+  .footer-ref-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-ref-bottom {
+    margin-top: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .floating-hero-card {
+    display: none; /* Hide floating widgets on very small screens to avoid overflow */
+  }
+
+  .btn-custom {
+    padding: 11px 22px;
+    font-size: 0.88rem;
+  }
+}
+
+/* Extra Small Phones (390px and below) */
+@media (max-width: 390px) {
+  .hero-editorial-title {
+    font-size: 2.1rem;
+  }
+  .navbar-brand-stackly {
+    font-size: 1.35rem;
+  }
+  .stackly-card {
+    padding: 20px;
+  }
+}

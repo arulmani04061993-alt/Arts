@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portfolio Showcase — STACKLY Art & Design Institute</title>
+  <meta name="description" content="Explore graduate projects across Branding, UI/UX, Motion Design, Editorial, Digital Illustration, and Photography at STACKLY.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container"><div class="preloader-progress-bar"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <ul class="stackly-breadcrumb" data-aos="fade-down">
+        <li><a href="index.html">Home</a></li>
+        <li class="separator">/</li>
+        <li class="current">Student Portfolio</li>
+      </ul>
+      <h1 class="page-title" data-aos="fade-up">Creativity Without Limits. <br>Graduate Showcase.</h1>
+      <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+        A curated archive of capstone thesis projects, commercial studio collaborations, and experimental exploratory works created by STACKLY candidates.
+      </p>
+    </div>
+  </header>
+
+  <!-- Interactive Portfolio Gallery -->
+  <section class="py-5 my-lg-4">
+    <div class="container">
+      <div class="sample-data-notice">
+        <i class="bi bi-info-circle-fill"></i>
+        <span>Sample portfolio exhibition showcasing illustrative student graduate projects across 7 design disciplines.</span>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-5">
+        <div class="filter-tabs-container mb-0">
+          <button class="filter-btn portfolio-filter-btn active" data-filter="all">All Disciplines</button>
+          <button class="filter-btn portfolio-filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn portfolio-filter-btn" data-filter="uiux">UI/UX</button>
+          <button class="filter-btn portfolio-filter-btn" data-filter="editorial">Editorial</button>
+          <button class="filter-btn portfolio-filter-btn" data-filter="3d">3D & Motion</button>
+          <button class="filter-btn portfolio-filter-btn" data-filter="illustration">Illustration</button>
+          <button class="filter-btn portfolio-filter-btn" data-filter="photography">Photography</button>
+        </div>
+
+        <div class="filter-search-box">
+          <i class="bi bi-search filter-search-icon"></i>
+          <input type="text" id="portfolio-search-input" class="filter-search-input" placeholder="Search by title or concept...">
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="row g-4" id="portfolio-grid">
+        <!-- Project 1 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="branding">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-brand-nordic.webp" data-lightbox-caption="Nordic Botanicals — Minimalist Luxury Identity & Packaging by Astrid Møller">
+            <img src="assets/images/student-work/portfolio-brand-nordic.webp" alt="Nordic Botanicals" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Branding & Packaging</span>
+              <h3 class="portfolio-title">Nordic Botanicals</h3>
+              <p class="small text-muted mb-2">Astrid Møller &bull; Graphic Design 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="uiux">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-app-fintech.webp" data-lightbox-caption="Apex Capital — Multi-Platform Financial Design System by Kenji Sato">
+            <img src="assets/images/student-work/portfolio-app-fintech.webp" alt="Apex Capital App" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">UI/UX Design</span>
+              <h3 class="portfolio-title">Apex Mobile System</h3>
+              <p class="small text-muted mb-2">Kenji Sato &bull; Interaction Design 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="editorial">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-editorial-mag.webp" data-lightbox-caption="Form & Void — Architectural Typographic Monograph by Clara Dubois">
+            <img src="assets/images/student-work/portfolio-editorial-mag.webp" alt="Form and Void Monograph" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Editorial & Print</span>
+              <h3 class="portfolio-title">Form & Void Monograph</h3>
+              <p class="small text-muted mb-2">Clara Dubois &bull; Graphic Design 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="3d">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-3d-kinetic.webp" data-lightbox-caption="Synapse Kinetic Sculptures — Procedural Houdini & Cinema 4D Visuals by Matteo Rossi">
+            <img src="assets/images/student-work/portfolio-3d-kinetic.webp" alt="Synapse Kinetic Form" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">3D & Motion</span>
+              <h3 class="portfolio-title">Synapse Kinetic Form</h3>
+              <p class="small text-muted mb-2">Matteo Rossi &bull; Motion Graphics 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="illustration">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-illustration-myth.webp" data-lightbox-caption="Cybernetic Mythos — Digital Painting & Character Conception by Sunita Sharma">
+            <img src="assets/images/student-work/portfolio-illustration-myth.webp" alt="Cybernetic Mythos" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Digital Illustration</span>
+              <h3 class="portfolio-title">Cybernetic Mythos</h3>
+              <p class="small text-muted mb-2">Sunita Sharma &bull; Digital Arts 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="photography">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-photo-portraits.webp" data-lightbox-caption="Monochrome Identity — High-Fashion Medium Format Portraiture by Liam Vance">
+            <img src="assets/images/student-work/portfolio-photo-portraits.webp" alt="Monochrome Identity" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Photography</span>
+              <h3 class="portfolio-title">Monochrome Identity</h3>
+              <p class="small text-muted mb-2">Liam Vance &bull; Photography 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="3d">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-motion-ident.webp" data-lightbox-caption="HyperGrid — Broadcast Identity & Generative Kinetic Typography by Zoe Althaus">
+            <img src="assets/images/student-work/portfolio-motion-ident.webp" alt="HyperGrid Broadcast Ident" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Motion Design</span>
+              <h3 class="portfolio-title">HyperGrid Broadcast Ident</h3>
+              <p class="small text-muted mb-2">Zoe Althaus &bull; Motion Graphics 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="col-lg-4 col-md-6 portfolio-filter-item" data-category="branding">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-packaging-eco.webp" data-lightbox-caption="Terra Sol — Biodegradable Botanical Bottle Packaging by Noah Kim">
+            <img src="assets/images/student-work/portfolio-packaging-eco.webp" alt="Terra Sol Packaging" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Branding & Packaging</span>
+              <h3 class="portfolio-title">Terra Sol Sustainable Pack</h3>
+              <p class="small text-muted mb-2">Noah Kim &bull; Industrial & Brand 2026</p>
+              <span class="portfolio-link-btn">View High-Res <i class="bi bi-arrows-fullscreen"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="admissions-cta-section text-center">
+    <div class="container position-relative" style="z-index: 2;">
+      <h2 class="display-5 fw-bold mb-3">Want Your Work Featured in the STACKLY Showcase?</h2>
+      <p class="lead max-w-700 mx-auto mb-4 text-muted" style="color: #c9c5bd !important;">
+        Submit your portfolio for early review and connect directly with our studio chairs.
+      </p>
+      <a href="admissions.html" class="btn-custom btn-coral">Apply For 2026 Cohort</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/aos-init.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

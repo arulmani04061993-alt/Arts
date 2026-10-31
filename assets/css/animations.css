@@ -1,0 +1,243 @@
+/* ===================================================================
+   STACKLY — ART & DESIGN INSTITUTE
+   Animations & Motion Design CSS (Lenis Smooth Scroll & Visual Clarity)
+   =================================================================== */
+
+/* Lenis Smooth Scroll Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Image Crispness and Professional Rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Keyframe Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 91, 77, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 91, 77, 0.55);
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rippleWave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+/* Floating Utility Classes */
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatReverse 6s ease-in-out infinite 1s;
+}
+
+.animate-float-slow {
+  animation: floatGentle 8s ease-in-out infinite 2s;
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Marquee / Infinite Ticker */
+.marquee-wrapper {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  white-space: nowrap;
+  position: relative;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 18px 0;
+  background: #111111;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: marqueeScroll 25s linear infinite;
+  gap: 40px;
+}
+
+.marquee-wrapper:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--warm-ivory);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.marquee-item .marquee-bullet {
+  color: var(--electric-coral);
+  font-size: 0.9rem;
+}
+
+/* Hero Asymmetrical Graphic Accents */
+.hero-creative-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blob-purple {
+  width: 450px;
+  height: 450px;
+  background: rgba(120, 102, 232, 0.22);
+  top: 10%;
+  right: 5%;
+}
+
+.blob-coral {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 91, 77, 0.18);
+  bottom: 10%;
+  left: 2%;
+}
+
+/* Floating Portfolio Card in Hero */
+.floating-hero-card {
+  position: absolute;
+  background: rgba(24, 24, 24, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 4;
+}
+
+.floating-hero-card.card-top {
+  top: 8%;
+  left: -8%;
+}
+
+.floating-hero-card.card-bottom {
+  bottom: 8%;
+  right: -6%;
+}
+
+.floating-hero-card img {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.floating-card-info h6 {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  margin: 0 0 2px 0;
+  color: var(--warm-ivory);
+}
+
+.floating-card-info p {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  margin: 0;
+  color: var(--electric-coral);
+  font-weight: 600;
+}
+
+/* Clip Path Image Reveal Classes (controlled via GSAP) */
+.reveal-clip-path {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .pulse-glow,
+  .marquee-content {
+    animation: none !important;
+  }
+}

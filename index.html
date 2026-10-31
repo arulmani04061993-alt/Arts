@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY — Art & Design Institute | International Creative Education</title>
+  <meta name="description" content="STACKLY is an international art and design institute delivering future-focused education in Graphic Design, UI/UX, Motion Arts, Photography, and Fashion.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Global 2-Second Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar"></div>
+      </div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- Reusable Navigation Container -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ===================================================================
+       HERO SECTION: EDITORIAL ASYMMETRICAL SPLIT
+       =================================================================== -->
+  <section class="hero-editorial">
+    <div class="hero-creative-blob blob-purple"></div>
+    <div class="hero-creative-blob blob-coral"></div>
+
+    <div class="container position-relative" style="z-index: 3;">
+      <div class="row align-items-center g-5">
+        <!-- Hero Left Column: Editorial Headline & CTAs -->
+        <div class="col-lg-6">
+          <div class="eyebrow" data-aos="fade-right">STACKLY CREATIVE INSTITUTE</div>
+          <h1 class="hero-editorial-title">
+            Turn Your <br>Creative Vision Into <span class="highlight-coral">Reality.</span>
+          </h1>
+          <p class="hero-editorial-subtitle">
+            Explore art, design, technology, and imagination through industry-focused creative education. Mentored by award-winning practitioners in contemporary studio ateliers.
+          </p>
+          <div class="hero-cta-group d-flex flex-wrap gap-3 align-items-center">
+            <a href="courses.html" class="btn-custom btn-coral">
+              <span>EXPLORE COURSES</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="student-portfolio.html" class="btn-custom btn-outline-ivory">
+              <span>VIEW STUDENT WORK</span>
+              <i class="bi bi-grid-3x3-gap"></i>
+            </a>
+          </div>
+          <!-- Editorial Accreditation Ribbon -->
+          <div class="mt-4 pt-3 d-flex align-items-center gap-4 text-muted small">
+            <div><i class="bi bi-award text-coral me-1"></i> Global Portfolio Standards</div>
+            <div><i class="bi bi-people text-purple me-1"></i> 1:8 Mentor-to-Student Ratio</div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Layered Imagery & Floating Portfolios -->
+        <div class="col-lg-6">
+          <div class="hero-visual-frame">
+            <div class="hero-badge-ribbon pulse-glow">
+              <i class="bi bi-lightning-charge-fill me-1"></i> Admissions 2026 Open
+            </div>
+
+            <!-- Floating Portfolio Thumbnail 1 -->
+            <div class="floating-hero-card card-top animate-float">
+              <img src="assets/images/hero/hero-portfolio-1.webp" alt="UI Design System Preview" width="58" height="58">
+              <div class="floating-card-info">
+                <h6>Aura UI System</h6>
+                <p>Digital Product Design</p>
+              </div>
+            </div>
+
+            <!-- Main Studio Image -->
+            <div class="hero-main-img-box">
+              <img src="assets/images/hero/hero-studio.webp" alt="Artists and Designers in STACKLY Open Studio" width="1200" height="800">
+            </div>
+
+            <!-- Floating Portfolio Thumbnail 2 -->
+            <div class="floating-hero-card card-bottom animate-float-delayed">
+              <img src="assets/images/hero/hero-portfolio-2.webp" alt="Swiss Typography Poster" width="58" height="58">
+              <div class="floating-card-info">
+                <h6>Kinetic Typography</h6>
+                <p>Editorial & Brand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CREATIVE HIGHLIGHTS STRIP
+       =================================================================== -->
+  <section class="creative-highlights-bar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="highlight-stat-item">
+            <div class="highlight-stat-icon"><i class="bi bi-cpu"></i></div>
+            <div class="highlight-stat-text">
+              <h4>Industry-Relevant</h4>
+              <p>Cutting-edge studio curriculum</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="highlight-stat-item">
+            <div class="highlight-stat-icon"><i class="bi bi-person-workspace"></i></div>
+            <div class="highlight-stat-text">
+              <h4>Creative Mentors</h4>
+              <p>Learn from practicing art directors</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="highlight-stat-item">
+            <div class="highlight-stat-icon"><i class="bi bi-briefcase"></i></div>
+            <div class="highlight-stat-text">
+              <h4>Real-World Briefs</h4>
+              <p>Agency collaborations & live projects</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="highlight-stat-item">
+            <div class="highlight-stat-icon"><i class="bi bi-collection-play"></i></div>
+            <div class="highlight-stat-text">
+              <h4>Elite Portfolios</h4>
+              <p>Curated showcase upon graduation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infinite Creative Marquee -->
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <div class="marquee-item">Typography <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">UI/UX Systems <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Motion Design <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Spatial Computing <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Editorial Art <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Digital Illustration <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Contemporary Photography <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Fashion Prototyping <span class="marquee-bullet">&#9670;</span></div>
+    </div>
+    <div class="marquee-content" aria-hidden="true">
+      <div class="marquee-item">Typography <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">UI/UX Systems <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Motion Design <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Spatial Computing <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Editorial Art <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Digital Illustration <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Contemporary Photography <span class="marquee-bullet">&#9670;</span></div>
+      <div class="marquee-item">Fashion Prototyping <span class="marquee-bullet">&#9670;</span></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       ABOUT THE INSTITUTE SPLIT
+       =================================================================== -->
+  <section class="py-5 my-lg-5">
+    <div class="container">
+      <div class="section-meta">
+        <span>01 / ABOUT STACKLY</span>
+        <span>WHERE IDEAS BECOME IMPACT</span>
+      </div>
+
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="split-about-visual">
+            <img src="assets/images/about/about-studio.webp" alt="STACKLY Design Studio Atmosphere" class="scroll-scale-img" width="1000" height="700">
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="eyebrow">OUR PHILOSOPHY</div>
+          <h2 class="display-5 mb-4">Where Ideas Become Impact.</h2>
+          <p>
+            At STACKLY Art & Design Institute, we believe creative education must mirror the relentless innovation of the contemporary design industry. We reject theoretical complacency in favor of studio-driven experimentation.
+          </p>
+          <p>
+            Our students are challenged to dismantle conventional aesthetic boundaries, fusing Swiss typographic precision with generative technology, narrative storytelling, and human-centered design.
+          </p>
+          <div class="about-stats-strip">
+            <div>
+              <div class="stat-counter-num" data-count="14" data-suffix="+">14+</div>
+              <div class="stat-counter-label">Years of Studio Excellence</div>
+            </div>
+            <div>
+              <div class="stat-counter-num" data-count="96" data-suffix="%">96%</div>
+              <div class="stat-counter-label">Creative Placement Rate*</div>
+            </div>
+            <div>
+              <div class="stat-counter-num" data-count="45" data-suffix="+">45+</div>
+              <div class="stat-counter-label">Global Design Partners</div>
+            </div>
+          </div>
+          <div class="mt-4 pt-2">
+            <a href="about.html" class="btn-custom btn-creative">
+              <span>DISCOVER OUR STORY</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FEATURED COURSES SECTION
+       =================================================================== -->
+  <section class="py-5" style="background: #111111;">
+    <div class="container">
+      <div class="section-meta">
+        <span>02 / ACADEMIC PROGRAMS</span>
+        <span>FIND YOUR DIRECTION</span>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+        <div>
+          <div class="eyebrow purple">PROGRAMS OF STUDY</div>
+          <h2 class="display-5">Find Your Creative Direction.</h2>
+        </div>
+        <div>
+          <a href="courses.html" class="btn-link-animated">View All 8 Programs <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- 8 Featured Course Cards -->
+      <div class="row g-4 stagger-card-grid">
+        <!-- 1. Graphic Design -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Visual Comms</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-graphic-design.webp" alt="Graphic Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Graphic Design & Identity</h3>
+              <p class="course-desc">Master Swiss typography, brand identity architecture, publication design, and visual narratives.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Full-Time Studio</span>
+                <a href="course-details.html?course=graphic-design" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. UI/UX Design -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Interaction</span>
+              <span class="course-badge-duration">9 Months</span>
+              <img src="assets/images/courses/course-ui-ux.webp" alt="UI UX Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">UI/UX & Product Design</h3>
+              <p class="course-desc">User research, interactive wireframing, high-fidelity design systems, and rapid prototyping.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Hybrid / Lab</span>
+                <a href="course-details.html?course=ui-ux-design" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Motion Graphics -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Motion Arts</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-motion-graphics.webp" alt="Motion Graphics Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Motion Graphics & VFX</h3>
+              <p class="course-desc">Kinetic typography, broadcast idents, Cinema 4D simulation, and spatial 3D animations.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Studio Lab</span>
+                <a href="course-details.html?course=animation-motion" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Digital Illustration -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Digital Art</span>
+              <span class="course-badge-duration">6 Months</span>
+              <img src="assets/images/courses/course-digital-illustration.webp" alt="Digital Illustration Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Digital Illustration</h3>
+              <p class="course-desc">Concept art, editorial illustration, character design, and digital painting for entertainment.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Digital Atelier</span>
+                <a href="course-details.html?course=graphic-design" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Photography -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Visual Media</span>
+              <span class="course-badge-duration">6 Months</span>
+              <img src="assets/images/courses/course-photography.webp" alt="Photography Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Editorial Photography</h3>
+              <p class="course-desc">Commercial studio lighting, medium format cameras, art direction, and high-end retouching.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Darkroom + Studio</span>
+                <a href="course-details.html?course=photography" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Fashion Design -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Fashion</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-fashion-design.webp" alt="Fashion Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Avant-Garde Fashion</h3>
+              <p class="course-desc">Couture draping, 3D garment visualization, sustainable textiles, and runway collection creation.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Fashion Atelier</span>
+                <a href="course-details.html?course=fashion-design" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Interior Design -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Spatial Design</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-interior-design.webp" alt="Interior Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Spatial & Interior Design</h3>
+              <p class="course-desc">Architectural environment modeling, lighting atmospheres, materials, and retail spaces.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">CAD + Material Lab</span>
+                <a href="course-details.html?course=interior-design" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Digital Marketing -->
+        <div class="col-lg-3 col-md-6 stagger-card-item">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Strategy</span>
+              <span class="course-badge-duration">6 Months</span>
+              <img src="assets/images/courses/course-digital-marketing.webp" alt="Digital Marketing Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Creative Brand Strategy</h3>
+              <p class="course-desc">Cultural marketing, campaign direction, creative storytelling, and growth analytics.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Online / Hybrid</span>
+                <a href="course-details.html?course=digital-marketing" class="btn-link-animated">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       STUDENT PORTFOLIO SHOWCASE
+       =================================================================== -->
+  <section class="py-5 my-lg-5">
+    <div class="container">
+      <div class="section-meta">
+        <span>03 / PORTFOLIO CURATION</span>
+        <span>GRADUATE WORK</span>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+        <div>
+          <div class="eyebrow">STUDENT SHOWCASE</div>
+          <h2 class="display-5">Creativity Without Limits.</h2>
+        </div>
+        <div>
+          <a href="student-portfolio.html" class="btn-custom btn-outline-coral">
+            <span>Explore All 24+ Projects</span>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="sample-data-notice">
+        <i class="bi bi-info-circle-fill"></i>
+        <span>Sample portfolio exhibition showcasing illustrative student graduate projects across 7 design disciplines.</span>
+      </div>
+
+      <!-- Masonry Grid for Featured Student Works -->
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-brand-nordic.webp" data-lightbox-caption="Nordic Botanicals — Minimalist Luxury Identity">
+            <img src="assets/images/student-work/portfolio-brand-nordic.webp" alt="Branding Project" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Branding & Packaging</span>
+              <h3 class="portfolio-title">Nordic Botanicals</h3>
+              <span class="portfolio-link-btn">View Artwork <i class="bi bi-zoom-in"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-app-fintech.webp" data-lightbox-caption="Apex Capital — Dark Mode Mobile Interface">
+            <img src="assets/images/student-work/portfolio-app-fintech.webp" alt="UI/UX Fintech Project" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">UI/UX Design</span>
+              <h3 class="portfolio-title">Apex Mobile System</h3>
+              <span class="portfolio-link-btn">View Artwork <i class="bi bi-zoom-in"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-editorial-mag.webp" data-lightbox-caption="Form & Void — Architectural Editorial Publication">
+            <img src="assets/images/student-work/portfolio-editorial-mag.webp" alt="Editorial Project" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Editorial & Print</span>
+              <h3 class="portfolio-title">Form & Void Monograph</h3>
+              <span class="portfolio-link-btn">View Artwork <i class="bi bi-zoom-in"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-3d-kinetic.webp" data-lightbox-caption="Synapse — 3D Generative Sculpture">
+            <img src="assets/images/student-work/portfolio-3d-kinetic.webp" alt="3D Kinetic Artwork" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">3D & Motion</span>
+              <h3 class="portfolio-title">Synapse Kinetic Form</h3>
+              <span class="portfolio-link-btn">View Artwork <i class="bi bi-zoom-in"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-illustration-myth.webp" data-lightbox-caption="Cybernetic Folk — Digital Painting">
+            <img src="assets/images/student-work/portfolio-illustration-myth.webp" alt="Digital Illustration" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Digital Art</span>
+              <h3 class="portfolio-title">Cybernetic Mythos</h3>
+              <span class="portfolio-link-btn">View Artwork <i class="bi bi-zoom-in"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="portfolio-item" data-lightbox-src="assets/images/student-work/portfolio-photo-portraits.webp" data-lightbox-caption="Monochrome Identity — High-Fashion Portraiture">
+            <img src="assets/images/student-work/portfolio-photo-portraits.webp" alt="Photography Project" width="800" height="600" loading="lazy">
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Photography</span>
+              <h3 class="portfolio-title">Monochrome Identity</h3>
+              <span class="portfolio-link-btn">View Artwork <i class="bi bi-zoom-in"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       WHY CHOOSE STACKLY
+       =================================================================== -->
+  <section class="py-5" style="background: #121212;">
+    <div class="container">
+      <div class="section-meta">
+        <span>04 / THE STACKLY DIFFERENCE</span>
+        <span>WHY STUDY WITH US</span>
+      </div>
+
+      <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+        <div class="eyebrow mx-auto">PEDAGOGICAL EXCELLENCE</div>
+        <h2 class="display-5">Learn. Experiment. Create.</h2>
+        <p class="text-muted">A multidisciplinary curriculum built from the ground up for the creative demands of tomorrow.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="stackly-card">
+            <div class="highlight-stat-icon mb-3"><i class="bi bi-tools"></i></div>
+            <h4>Hands-on Studio Practice</h4>
+            <p>Spend 80% of your academic time actively making, prototyping, printing, and coding in dedicated physical and digital ateliers.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="stackly-card">
+            <div class="highlight-stat-icon mb-3"><i class="bi bi-award-fill"></i></div>
+            <h4>Portfolio-First Curriculum</h4>
+            <p>Every single assignment directly contributes to a comprehensive, competitive portfolio verified by leading creative agencies.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="stackly-card">
+            <div class="highlight-stat-icon mb-3"><i class="bi bi-bezier2"></i></div>
+            <h4>Industry-Standard Tech</h4>
+            <p>Full access to Apple Silicon suites, Wacom Cintiq labs, CLO 3D licenses, risograph print shops, and motion capture equipment.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="stackly-card">
+            <div class="highlight-stat-icon mb-3"><i class="bi bi-person-heart"></i></div>
+            <h4>Intimate Mentorship</h4>
+            <p>Weekly one-on-one portfolio critiques with practicing creative directors ensuring bespoke guidance for your trajectory.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="stackly-card">
+            <div class="highlight-stat-icon mb-3"><i class="bi bi-globe-americas"></i></div>
+            <h4>Global Alumni Network</h4>
+            <p>Connect with a global fellowship of designers working at world-renowned studios, tech pioneers, and independent practices.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="stackly-card">
+            <div class="highlight-stat-icon mb-3"><i class="bi bi-rocket-takeoff-fill"></i></div>
+            <h4>Career Launchpad</h4>
+            <p>Integrated career preparation covering creative contract negotiation, client pitches, freelance pricing, and agency interviews.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CREATIVE FACULTY PREVIEW
+       =================================================================== -->
+  <section class="py-5 my-lg-5">
+    <div class="container">
+      <div class="section-meta">
+        <span>05 / INSPIRING FACULTY</span>
+        <span>LEARN FROM CREATIVE MINDS</span>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+        <div>
+          <div class="eyebrow purple">ESTEEMED PRACTITIONERS</div>
+          <h2 class="display-5">Learn From Creative Minds.</h2>
+        </div>
+        <div>
+          <a href="faculty.html" class="btn-link-animated">Meet Full Faculty <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Faculty 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="faculty-card">
+            <div class="faculty-img-wrap">
+              <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Vance" class="faculty-img" width="600" height="750" loading="lazy">
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-role">Head of Visual Communication</div>
+              <h3 class="faculty-name">Elena Vance</h3>
+              <p class="faculty-bio">Former Design Director at Pentagram Zurich. 16 years specializing in Swiss editorial systems and responsive brand typography.</p>
+              <a href="faculty.html" class="btn-link-animated">View Bio & Mentorship <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Faculty 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="faculty-card">
+            <div class="faculty-img-wrap">
+              <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Chen" class="faculty-img" width="600" height="750" loading="lazy">
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-role">Director of Interaction Design</div>
+              <h3 class="faculty-name">Marcus Chen</h3>
+              <p class="faculty-bio">Senior Product Architect previously at Spotify & Apple Design Lab. Expert in generative spatial design systems and micro-motion.</p>
+              <a href="faculty.html" class="btn-link-animated">View Bio & Mentorship <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Faculty 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="faculty-card">
+            <div class="faculty-img-wrap">
+              <img src="assets/images/faculty/faculty-sophia.webp" alt="Sophia Al-Mansoor" class="faculty-img" width="600" height="750" loading="lazy">
+            </div>
+            <div class="faculty-info">
+              <div class="faculty-role">Professor of Kinetic Motion</div>
+              <h3 class="faculty-name">Sophia Al-Mansoor</h3>
+              <p class="faculty-bio">3D Artist and Director for commercial broadcast visuals. Pioneer in kinetic type experimentation and procedural animation.</p>
+              <a href="faculty.html" class="btn-link-animated">View Bio & Mentorship <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       RESPONSIVE EMBEDDED MEDIA SECTION (VIDEO ATELIER)
+       =================================================================== -->
+  <section class="py-5" style="background: #111;">
+    <div class="container">
+      <div class="section-meta">
+        <span>06 / STUDIO INSIGHT</span>
+        <span>ATELIER ENVIRONMENT</span>
+      </div>
+
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="eyebrow">IMMERSIVE ATMOSPHERE</div>
+          <h2 class="display-6 mb-3">Experience Life at the STACKLY Ateliers.</h2>
+          <p class="text-muted">
+            Step inside our collaborative design spaces where visual innovators brainstorm, challenge paradigms, and translate wild sketches into world-class design systems.
+          </p>
+          <ul class="document-check-list mb-4">
+            <li><i class="bi bi-check2-circle"></i> 24/7 Dedicated Studio Access for Degree Students</li>
+            <li><i class="bi bi-check2-circle"></i> Soundproof Voiceover & Spatial VR Chambers</li>
+            <li><i class="bi bi-check2-circle"></i> Material Fabrications, Printmaking & Darkrooms</li>
+          </ul>
+          <a href="admissions.html" class="btn-custom btn-coral">Schedule Studio Tour</a>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <!-- Responsive 16:9 Iframe Video Embed -->
+          <div class="responsive-media-wrap shadow-lg">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/ScMzIvxBSi4" 
+              title="STACKLY Art and Design Creative Atmosphere Showcase" 
+              loading="lazy" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       WORKSHOPS & EVENTS SECTION
+       =================================================================== -->
+  <section class="py-5 my-lg-5">
+    <div class="container">
+      <div class="section-meta">
+        <span>07 / MASTERCLASSES & EXHIBITIONS</span>
+        <span>UPCOMING CALENDAR</span>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+        <div>
+          <div class="eyebrow">ENGAGE & NETWORK</div>
+          <h2 class="display-5">Workshops and Talks.</h2>
+        </div>
+        <div>
+          <a href="events.html" class="btn-link-animated">View All Events <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Event 1 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="day">18</span>
+              <span class="month">Nov</span>
+            </div>
+            <div>
+              <span class="badge-tag bg-dark border text-coral small px-2 py-1 rounded">Masterclass</span>
+              <h4 class="mt-2 mb-1">Generative AI in Editorial Typography</h4>
+              <p class="small text-muted mb-3">An intensive 4-hour hands-on workshop testing prompt-driven variable font vectors with David Kross.</p>
+              <a href="events.html" class="btn-link-animated small">Register Seat <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="day">02</span>
+              <span class="month">Dec</span>
+            </div>
+            <div>
+              <span class="badge-tag bg-dark border text-purple small px-2 py-1 rounded">Symposium</span>
+              <h4 class="mt-2 mb-1">Spatial Interfaces & Future of UX</h4>
+              <p class="small text-muted mb-3">Panel discussion with leading interaction architects on spatial hardware, haptics, and design systems.</p>
+              <a href="events.html" class="btn-link-animated small">Register Seat <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="day">15</span>
+              <span class="month">Dec</span>
+            </div>
+            <div>
+              <span class="badge-tag bg-dark border text-coral small px-2 py-1 rounded">Critique Session</span>
+              <h4 class="mt-2 mb-1">Annual Winter Degree Showcase</h4>
+              <p class="small text-muted mb-3">Public exhibition of 120 graduate capstone portfolios with visiting agency heads and design recruiters.</p>
+              <a href="events.html" class="btn-link-animated small">RSVP Free Pass <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="event-card">
+            <div class="event-date-box">
+              <span class="day">10</span>
+              <span class="month">Jan</span>
+            </div>
+            <div>
+              <span class="badge-tag bg-dark border text-purple small px-2 py-1 rounded">Workshop</span>
+              <h4 class="mt-2 mb-1">Risograph Printing & Zine Publishing</h4>
+              <p class="small text-muted mb-3">Discover spot color separation, mechanical inks, and indie self-publishing in our analog riso atelier.</p>
+              <a href="events.html" class="btn-link-animated small">Register Seat <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       TESTIMONIALS SECTION
+       =================================================================== -->
+  <section class="py-5" style="background: #141414;">
+    <div class="container">
+      <div class="section-meta">
+        <span>08 / VOICES OF STACKLY</span>
+        <span>STUDENT EXPERIENCES</span>
+      </div>
+
+      <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+        <div class="eyebrow mx-auto">ALUMNI REFLECTIONS</div>
+        <h2 class="display-5">Stories of Creative Growth.</h2>
+        <p class="text-muted">Sample testimonials from graduates now working at world-class agencies and innovative digital firms.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="50">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">
+              "STACKLY completely dismantled my shallow understanding of graphic design and rebuilt me as a strategic visual thinker. The faculty critiques were rigorous, honest, and transformative."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MK</div>
+              <div>
+                <h6 class="author-name">Maya Kowalski</h6>
+                <div class="author-course">Brand Designer at Studio Meta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">
+              "The UI/UX curriculum is unlike any online bootcamp. You build comprehensive design systems, conduct actual user research, and test in real labs. I secured my product design role two weeks before graduation."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">TO</div>
+              <div>
+                <h6 class="author-name">Tariq Okonjo</h6>
+                <div class="author-course">Product Designer at FinTech Global</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">
+              "From motion capture labs to 3D procedural workflows, the resources at STACKLY gave me the freedom to experiment without constraint. It is truly a creative sanctuary."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SL</div>
+              <div>
+                <h6 class="author-name">Sarah Lindqvist</h6>
+                <div class="author-course">Motion Director at Kinetic Studios</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       BLOG AND INSIGHTS
+       =================================================================== -->
+  <section class="py-5 my-lg-5">
+    <div class="container">
+      <div class="section-meta">
+        <span>09 / CREATIVE DISCOURSE</span>
+        <span>IDEAS THAT INSPIRE</span>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+        <div>
+          <div class="eyebrow">EDITORIAL JOURNAL</div>
+          <h2 class="display-5">Ideas That Inspire.</h2>
+        </div>
+        <div>
+          <a href="blog.html" class="btn-link-animated">Read All Articles <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Blog 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+          <article class="blog-card">
+            <div class="blog-thumb-wrap">
+              <img src="assets/images/blog/blog-trends-2026.webp" alt="Design Trends 2026" class="blog-thumb" width="800" height="500" loading="lazy">
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>Oct 12, 2026</span> &bull; <span>6 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="blog-details.html?id=trends-2026">Visual Culture in 2026: The New Synthesis of Code & Craft</a>
+              </h3>
+              <p class="blog-snippet">
+                How modern creative practitioners are balancing algorithmic tools with deliberate analog imperfections in brand architecture.
+              </p>
+              <a href="blog-details.html?id=trends-2026" class="btn-link-animated small mt-auto">Read Article <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <article class="blog-card">
+            <div class="blog-thumb-wrap">
+              <img src="assets/images/blog/blog-typography-rules.webp" alt="Typography Principles" class="blog-thumb" width="800" height="500" loading="lazy">
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>Sep 28, 2026</span> &bull; <span>8 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="blog-details.html?id=typography-rules">The Kinetic Grid: Swiss Rationalism Reimagined for the Screen</a>
+              </h3>
+              <p class="blog-snippet">
+                Exploring how Josef Müller-Brockmann's classical layout laws translate dynamically into responsive spatial canvas viewports.
+              </p>
+              <a href="blog-details.html?id=typography-rules" class="btn-link-animated small mt-auto">Read Article <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <article class="blog-card">
+            <div class="blog-thumb-wrap">
+              <img src="assets/images/blog/blog-ux-spatial.webp" alt="Spatial UX Architecture" class="blog-thumb" width="800" height="500" loading="lazy">
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>Sep 14, 2026</span> &bull; <span>5 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="blog-details.html?id=ux-spatial">Beyond the Glass: Designing Human-Centered Spatial Interactions</a>
+              </h3>
+              <p class="blog-snippet">
+                A deep dive into gaze tracking, 3D typography depth scales, and spatial audio cues in next-generation augmented interfaces.
+              </p>
+              <a href="blog-details.html?id=ux-spatial" class="btn-link-animated small mt-auto">Read Article <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       ADMISSIONS CTA FULL-WIDTH SECTION
+       =================================================================== -->
+  <section class="admissions-cta-section text-center">
+    <div class="container position-relative" style="z-index: 2;" data-aos="zoom-in">
+      <div class="eyebrow mx-auto">APPLICATIONS NOW OPEN</div>
+      <h2 class="display-4 fw-bold mb-3">Your Creative Journey Starts Here.</h2>
+      <p class="lead max-w-700 mx-auto mb-4 text-muted" style="color: #c9c5bd !important;">
+        Explore our specialized diploma and degree courses, prepare your portfolio, and take the definitive step toward your future in global design.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="admissions.html" class="btn-custom btn-coral">
+          <span>EXPLORE ADMISSIONS</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+        <a href="courses.html" class="btn-custom btn-outline-ivory">
+          <span>BROWSE COURSES</span>
+          <i class="bi bi-compass"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable Footer Container -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/aos-init.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

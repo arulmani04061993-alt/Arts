@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Creativity Took a Wrong Turn | STACKLY</title>
+  <meta name="description" content="The page you are looking for cannot be found. Return to STACKLY Art & Design Institute home.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container"><div class="preloader-progress-bar"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- 404 Hero Container (Standalone - No Navbar or Footer) -->
+  <section class="error-404-wrap min-vh-100 d-flex align-items-center justify-content-center position-relative overflow-hidden">
+    <!-- Top Brand Logo -->
+    <div class="position-absolute top-0 start-0 p-4 p-md-5" style="z-index: 10;">
+      <a href="index.html" class="navbar-brand-stackly" aria-label="STACKLY Home">
+        <div class="brand-dot"></div>
+        <div>
+          <span>STACKLY</span>
+          <span class="brand-sub">Art & Design Institute</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="hero-creative-blob blob-purple" style="top: 20%; left: 10%;"></div>
+    <div class="hero-creative-blob blob-coral" style="bottom: 20%; right: 10%;"></div>
+
+    <div class="container position-relative text-center" style="z-index: 3;" data-aos="zoom-in">
+      <div class="error-404-glitch animate-float">404</div>
+      <h1 class="display-4 fw-bold mb-3">404 — Creativity Took a Wrong Turn.</h1>
+      <p class="lead max-w-700 mx-auto text-muted mb-5" style="color: #c9c5bd !important;">
+        The page you are looking for could not be found. It may have been moved, redesigned, or dissolved into abstract whitespace.
+      </p>
+
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="index.html" class="btn-custom btn-coral">
+          <i class="bi bi-house-door-fill"></i>
+          <span>BACK TO HOME</span>
+        </a>
+        <a href="javascript:void(0);" onclick="if(window.history.length > 1){window.history.back();}else{window.location.href='index.html';}" class="btn-custom btn-outline-ivory" aria-label="Go back to previous page">
+          <i class="bi bi-arrow-left"></i>
+          <span>GO BACK</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="assets/js/preloader.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/aos-init.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

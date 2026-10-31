@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Courses & Programs — STACKLY Art & Design Institute</title>
+  <meta name="description" content="Explore STACKLY's diploma and degree programs in Graphic Design, UI/UX, Motion Graphics, Photography, Fashion, and Spatial Design.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="global-preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo-wrap">
+        <img src="assets/images/logo.webp" alt="STACKLY Institute" class="preloader-logo-img" width="220" height="65">
+      </div>
+      <div class="preloader-progress-container"><div class="preloader-progress-bar"></div></div>
+      <div class="preloader-percent">0%</div>
+    </div>
+  </div>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="container">
+      <ul class="stackly-breadcrumb" data-aos="fade-down">
+        <li><a href="index.html">Home</a></li>
+        <li class="separator">/</li>
+        <li class="current">Courses</li>
+      </ul>
+      <h1 class="page-title" data-aos="fade-up">Master Your Discipline. <br>Build an Elite Portfolio.</h1>
+      <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Our immersive diploma and master programs are structured around live studio briefs, master mentorship, and industry-grade technology pipelines.
+      </p>
+    </div>
+  </header>
+
+  <!-- Interactive Courses Explorer Section -->
+  <section class="py-5 my-lg-4">
+    <div class="container">
+      <!-- Search and Filter Bar -->
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-5">
+        <div class="filter-tabs-container mb-0">
+          <button class="filter-btn course-filter-btn active" data-filter="all">All Disciplines</button>
+          <button class="filter-btn course-filter-btn" data-filter="graphic">Graphic Design</button>
+          <button class="filter-btn course-filter-btn" data-filter="uiux">UI/UX Design</button>
+          <button class="filter-btn course-filter-btn" data-filter="motion">Motion & 3D</button>
+          <button class="filter-btn course-filter-btn" data-filter="photography">Photography</button>
+          <button class="filter-btn course-filter-btn" data-filter="fashion">Fashion</button>
+          <button class="filter-btn course-filter-btn" data-filter="interior">Spatial & Interior</button>
+          <button class="filter-btn course-filter-btn" data-filter="marketing">Marketing</button>
+        </div>
+
+        <div class="filter-search-box">
+          <i class="bi bi-search filter-search-icon"></i>
+          <input type="text" id="courses-search-input" class="filter-search-input" placeholder="Search programs or tools...">
+        </div>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="row g-4" id="courses-grid">
+        <!-- 1. Graphic Design -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="graphic">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Visual Comms</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-graphic-design.webp" alt="Graphic Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Graphic Design & Brand Architecture</h3>
+              <p class="course-desc">Master Swiss typography grids, responsive brand guidelines, editorial monographs, and print production pipelines.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Studio Ateliers</span>
+                <a href="course-details.html?course=graphic-design" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. UI/UX Design -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="uiux">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Interaction</span>
+              <span class="course-badge-duration">9 Months</span>
+              <img src="assets/images/courses/course-ui-ux.webp" alt="UI UX Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">UI/UX & Product Design Systems</h3>
+              <p class="course-desc">Deep-dive into usability heuristics, wireframing, high-fidelity Figma components, tokens, micro-interactions, and testing.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Hybrid / Lab</span>
+                <a href="course-details.html?course=ui-ux-design" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Motion Graphics -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="motion">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Motion Arts</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-motion-graphics.webp" alt="Motion Graphics Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Kinetic Motion Graphics & VFX</h3>
+              <p class="course-desc">Kinetic typography, broadcast idents, Cinema 4D simulation, spatial 3D animations, and experimental visual effects.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Motion Lab</span>
+                <a href="course-details.html?course=animation-motion" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Animation -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="motion">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Character & 3D</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-animation.webp" alt="Animation Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">3D Character & Environment Animation</h3>
+              <p class="course-desc">Storyboarding, character rigging, narrative pacing, lighting, texture rendering, and digital cinema direction.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Render Farm Access</span>
+                <a href="course-details.html?course=animation-motion" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Photography -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="photography">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Visual Media</span>
+              <span class="course-badge-duration">6 Months</span>
+              <img src="assets/images/courses/course-photography.webp" alt="Photography Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Studio & Editorial Photography</h3>
+              <p class="course-desc">Commercial studio lighting setups, medium format capture, art direction, and editorial post-production.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Darkroom + Studio</span>
+                <a href="course-details.html?course=photography" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Fashion Design -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="fashion">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Fashion</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-fashion-design.webp" alt="Fashion Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Avant-Garde Fashion & Textiles</h3>
+              <p class="course-desc">Pattern cutting, couture draping, CLO 3D simulation, sustainable bio-fabrics, and runway collection creation.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Garment Atelier</span>
+                <a href="course-details.html?course=fashion-design" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Interior Design -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="interior">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Spatial Design</span>
+              <span class="course-badge-duration">12 Months</span>
+              <img src="assets/images/courses/course-interior-design.webp" alt="Interior Design Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Spatial & Interior Architecture</h3>
+              <p class="course-desc">Architectural environment modeling, spatial ergonomics, lighting atmospheres, and sustainable retail interiors.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">CAD + Material Lab</span>
+                <a href="course-details.html?course=interior-design" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Digital Marketing -->
+        <div class="col-lg-4 col-md-6 course-filter-item" data-category="marketing">
+          <div class="course-card">
+            <div class="course-thumb-wrap">
+              <span class="course-badge-category">Strategy</span>
+              <span class="course-badge-duration">6 Months</span>
+              <img src="assets/images/courses/course-digital-marketing.webp" alt="Digital Marketing Course" class="course-thumb" width="800" height="550" loading="lazy">
+            </div>
+            <div class="course-body">
+              <h3 class="course-title">Brand Strategy & Creative Marketing</h3>
+              <p class="course-desc">Cultural marketing, narrative campaign direction, viral storytelling, and data-driven creative growth.</p>
+              <div class="course-footer">
+                <span class="text-coral fw-bold small">Strategy Lab</span>
+                <a href="course-details.html?course=digital-marketing" class="btn-link-animated">Curriculum & Apply <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results Message (Hidden by default) -->
+      <div id="courses-grid-no-results" class="text-center py-5" style="display: none;">
+        <i class="bi bi-search display-4 text-muted mb-3 d-block"></i>
+        <h3>No courses found matching your criteria.</h3>
+        <p class="text-muted">Try clearing your filters or searching for terms like "typography", "Figma", or "3D".</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admissions CTA -->
+  <section class="admissions-cta-section text-center">
+    <div class="container position-relative" style="z-index: 2;">
+      <h2 class="display-5 fw-bold mb-3">Ready to Begin Your Studio Career?</h2>
+      <p class="lead max-w-700 mx-auto mb-4 text-muted" style="color: #c9c5bd !important;">
+        Submit your portfolio or schedule a one-on-one admissions review with our academic mentors.
+      </p>
+      <a href="admissions.html" class="btn-custom btn-coral">Apply For 2026 Cohort</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/aos-init.js"></script>
+  <script src="assets/js/form-validation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
