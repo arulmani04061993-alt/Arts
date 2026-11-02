@@ -493,6 +493,85 @@
   font-size: 0.95rem;
 }
 
+/* Comparison Table Styling */
+.pricing-comparison-wrap {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+}
+
+.pricing-comparison-table {
+  width: 100%;
+  color: var(--warm-ivory);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 0;
+}
+
+.pricing-comparison-table thead th {
+  padding: 20px 18px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9c5bd;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+}
+
+.pricing-comparison-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.pricing-comparison-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pricing-comparison-table tbody td {
+  padding: 20px 18px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #e5e2da;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: transparent;
+  vertical-align: middle;
+}
+
+.pricing-comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-comparison-table .feature-name {
+  font-weight: 600;
+  color: var(--gallery-white);
+}
+
+.pricing-comparison-table .col-cert {
+  color: #b5b1a8;
+}
+
+.pricing-comparison-table .col-diploma {
+  color: var(--electric-coral);
+  font-weight: 600;
+}
+
+.pricing-comparison-table .col-master {
+  color: var(--creative-purple);
+  font-weight: 600;
+}
+
+.pricing-comparison-table i.bi-check-circle-fill {
+  font-size: 1rem;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+.pricing-comparison-table .text-dash {
+  color: #707070;
+  font-weight: bold;
+}
+
 /* ===================================================================
    AUTH PAGES (LOGIN, SIGNUP, FORGOT-PASSWORD)
    =================================================================== */
