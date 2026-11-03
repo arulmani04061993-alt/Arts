@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body style="background: #0b0b0b;">
+<body class="auth-page">
 
   <!-- Preloader -->
   <div id="global-preloader">
@@ -36,118 +36,168 @@
     <div class="auth-visual-col d-none d-lg-flex" style="background-image: url('assets/images/general/login-visual.webp');">
       <div>
         <a href="index.html" class="navbar-brand-stackly">
-          <div class="brand-dot"></div>
-          <span>STACKLY</span>
+          <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="160" height="47">
         </a>
       </div>
 
       <div class="auth-visual-content">
-        <div class="eyebrow">JOIN THE 2026 COHORT</div>
+        <div class="auth-visual-badge">
+          <i class="bi bi-stars"></i> Elevated Creative Admissions
+        </div>
         <h2 class="display-5 text-white fw-bold mb-3">
-          "Your creative transformation starts with a single bold decision."
+          Your creative transformation starts with a single bold decision.
         </h2>
-        <p class="text-muted lead mb-0">
-          Create an applicant account to submit your creative portfolio, track admissions decisions, and register for masterclasses.
+        <p class="text-muted lead mb-4">
+          Register your Client or Administrative account to manage briefs, collaborate on live agency commissions, and track studio milestones.
         </p>
+
+        <div class="auth-visual-features">
+          <div class="auth-feature-pill">
+            <i class="bi bi-person-badge"></i>
+            <div>
+              <h6>Tailored Portals</h6>
+              <p>Custom toolsets for Client & Admin</p>
+            </div>
+          </div>
+          <div class="auth-feature-pill">
+            <i class="bi bi-palette"></i>
+            <div>
+              <h6>Atelier Access</h6>
+              <p>World-class design ecosystem</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="small text-muted">
-        &copy; 2026 STACKLY Art & Design Institute. All Rights Reserved.
+      <div class="d-flex justify-content-between align-items-center text-muted small">
+        <span>&copy; 2026 STACKLY Art & Design Institute.</span>
+        <span>Global Creative Network</span>
       </div>
     </div>
 
     <!-- Right Column: Registration Form -->
     <div class="auth-form-col">
-      <div class="mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <a href="index.html" class="navbar-brand-stackly d-lg-none">
-            <div class="brand-dot"></div>
-            <span>STACKLY</span>
-          </a>
-          <a href="index.html" class="btn-link-animated small ms-auto"><i class="bi bi-arrow-left"></i> Return Home</a>
+      <div class="auth-form-inner">
+        <div class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <a href="index.html" class="navbar-brand-stackly d-lg-none">
+              <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="140" height="40">
+            </a>
+            <a href="index.html" class="btn-link-animated small ms-auto fw-bold" style="color: #ffffff;"><i class="bi bi-arrow-left"></i> Return Home</a>
+          </div>
+          <h1 class="display-6 text-white fw-bold mb-2">Create Account</h1>
+          <p class="text-white-50 small mb-0" style="font-size: 0.95rem;">Choose your primary role and fill in your registration details.</p>
         </div>
-        <h1 class="h2 text-white mb-2">Create Student Account</h1>
-        <p class="text-muted small">Begin your admissions journey for the 2026 academic term.</p>
+
+        <!-- Role Selector (Admin / Client) -->
+        <div class="role-selector-wrap">
+          <div class="role-selector-label">
+            <span>Select Account Role *</span>
+            <span class="text-coral small" id="signup-active-role-indicator">Role: Client</span>
+          </div>
+          <div class="role-selector-grid">
+            <label class="role-option">
+              <input type="radio" name="signup_auth_role" value="client" checked>
+              <div class="role-card">
+                <div class="role-card-icon">
+                  <i class="bi bi-person-workspace"></i>
+                </div>
+                <div class="role-card-text">
+                  <div class="role-card-title">Client</div>
+                  <p class="role-card-sub">Student / Partner</p>
+                </div>
+              </div>
+            </label>
+
+            <label class="role-option">
+              <input type="radio" name="signup_auth_role" value="admin">
+              <div class="role-card">
+                <div class="role-card-icon">
+                  <i class="bi bi-shield-lock"></i>
+                </div>
+                <div class="role-card-text">
+                  <div class="role-card-title">Admin</div>
+                  <p class="role-card-sub">Faculty / Executive</p>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Feedback Alert -->
+        <div id="signup-feedback-alert" class="d-none"></div>
+
+        <form id="stackly-signup-form" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6 form-group-custom">
+              <label class="form-label-custom" for="signup-fname">First Name *</label>
+              <input type="text" class="form-control-custom" id="signup-fname" placeholder="First name" required>
+              <div class="invalid-feedback-custom">First name is required.</div>
+            </div>
+
+            <div class="col-md-6 form-group-custom">
+              <label class="form-label-custom" for="signup-lname">Last Name *</label>
+              <input type="text" class="form-control-custom" id="signup-lname" placeholder="Last name" required>
+              <div class="invalid-feedback-custom">Last name is required.</div>
+            </div>
+
+            <div class="col-md-6 form-group-custom">
+              <label class="form-label-custom" for="signup-email">Email Address *</label>
+              <input type="email" class="form-control-custom" id="signup-email" placeholder="name@example.com" required>
+              <div class="invalid-feedback-custom">Please enter a valid email.</div>
+            </div>
+
+            <div class="col-md-6 form-group-custom">
+              <label class="form-label-custom" for="signup-phone">Phone Number *</label>
+              <input type="tel" class="form-control-custom" id="signup-phone" placeholder="+1 (555) 000-0000" required>
+              <div class="invalid-feedback-custom">Please enter a valid phone number.</div>
+            </div>
+
+            <div class="col-md-6 form-group-custom">
+              <label class="form-label-custom" for="signup-password">Password *</label>
+              <div class="password-input-wrap">
+                <input type="password" class="form-control-custom" id="signup-password" placeholder="••••••••" required>
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback-custom">Password must be at least 6 characters.</div>
+            </div>
+
+            <div class="col-md-6 form-group-custom">
+              <label class="form-label-custom" for="signup-password-confirm">Confirm Password *</label>
+              <div class="password-input-wrap">
+                <input type="password" class="form-control-custom" id="signup-password-confirm" placeholder="••••••••" required>
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback-custom">Passwords do not match.</div>
+            </div>
+
+            <div class="col-12 mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="signup-terms" required>
+                <label class="form-check-label text-white-50 small ms-1" for="signup-terms">
+                  I accept the <a href="#" class="text-coral fw-bold" onclick="alert('Sample Terms of Academic Integrity & Security Guidelines.'); return false;">Code of Conduct</a> and Institutional Security Policies *
+                </label>
+                <div class="invalid-feedback-custom">You must accept the terms to proceed.</div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn-custom btn-coral w-100 py-3 mb-3 shadow-lg" style="font-size: 0.95rem; letter-spacing: 0.05em;">
+                <span id="signup-submit-text" class="fw-bold">CREATE CLIENT ACCOUNT</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+              <div class="text-center text-white-50 small">
+                Already registered? 
+                <a href="login.html" class="text-white fw-bold text-decoration-underline ms-1">Sign In</a>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-
-      <!-- Feedback Alert -->
-      <div id="signup-feedback-alert" class="d-none"></div>
-
-      <form id="stackly-signup-form" novalidate>
-        <div class="row g-3">
-          <div class="col-md-6 form-group-custom">
-            <label class="form-label-custom" for="signup-fname">First Name *</label>
-            <input type="text" class="form-control-custom" id="signup-fname" placeholder="Julian" required>
-            <div class="invalid-feedback-custom">First name is required.</div>
-          </div>
-
-          <div class="col-md-6 form-group-custom">
-            <label class="form-label-custom" for="signup-lname">Last Name *</label>
-            <input type="text" class="form-control-custom" id="signup-lname" placeholder="Hayes" required>
-            <div class="invalid-feedback-custom">Last name is required.</div>
-          </div>
-
-          <div class="col-md-6 form-group-custom">
-            <label class="form-label-custom" for="signup-email">Email Address *</label>
-            <input type="email" class="form-control-custom" id="signup-email" placeholder="julian@example.com" required>
-            <div class="invalid-feedback-custom">Please enter a valid email.</div>
-          </div>
-
-          <div class="col-md-6 form-group-custom">
-            <label class="form-label-custom" for="signup-phone">Phone Number *</label>
-            <input type="tel" class="form-control-custom" id="signup-phone" placeholder="+1 (555) 000-0000" required>
-            <div class="invalid-feedback-custom">Please enter a valid phone number.</div>
-          </div>
-
-          <div class="col-md-6 form-group-custom">
-            <label class="form-label-custom" for="signup-password">Password *</label>
-            <input type="password" class="form-control-custom" id="signup-password" placeholder="••••••••" required>
-            <div class="invalid-feedback-custom">Password must be at least 6 characters.</div>
-          </div>
-
-          <div class="col-md-6 form-group-custom">
-            <label class="form-label-custom" for="signup-password-confirm">Confirm Password *</label>
-            <input type="password" class="form-control-custom" id="signup-password-confirm" placeholder="••••••••" required>
-            <div class="invalid-feedback-custom">Passwords do not match.</div>
-          </div>
-
-          <div class="col-12 form-group-custom">
-            <label class="form-label-custom" for="signup-course">Area of Creative Interest *</label>
-            <select class="form-select-custom" id="signup-course" required>
-              <option value="" selected disabled>Select your primary discipline</option>
-              <option value="graphic-design">Graphic Design & Brand Architecture</option>
-              <option value="ui-ux">UI/UX & Product Design Systems</option>
-              <option value="motion-graphics">Kinetic Motion Graphics & VFX</option>
-              <option value="photography">Studio & Editorial Photography</option>
-              <option value="fashion">Avant-Garde Fashion & Textiles</option>
-              <option value="interior">Spatial & Interior Design</option>
-              <option value="digital-marketing">Creative Brand Strategy</option>
-            </select>
-            <div class="invalid-feedback-custom">Please select your program interest.</div>
-          </div>
-
-          <div class="col-12 mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="signup-terms" required>
-              <label class="form-check-label text-muted small" for="signup-terms">
-                I accept the <a href="#" class="text-coral" onclick="alert('Sample Terms of Academic Integrity.'); return false;">Academic Code of Conduct</a> and Institutional Policies *
-              </label>
-              <div class="invalid-feedback-custom">You must accept the terms to proceed.</div>
-            </div>
-          </div>
-
-          <div class="col-12">
-            <button type="submit" class="btn-custom btn-coral w-100 py-3 mb-3">
-              <span>CREATE APPLICANT ACCOUNT</span>
-              <i class="bi bi-arrow-right"></i>
-            </button>
-            <div class="text-center text-muted small">
-              Already have an account? 
-              <a href="login.html" class="text-coral fw-bold">Sign In</a>
-            </div>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 

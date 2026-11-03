@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
-<body style="background: #0b0b0b;">
+<body class="auth-page">
 
   <!-- Preloader -->
   <div id="global-preloader">
@@ -36,76 +36,138 @@
     <div class="auth-visual-col d-none d-lg-flex" style="background-image: url('assets/images/general/login-visual.webp');">
       <div>
         <a href="index.html" class="navbar-brand-stackly">
-          <div class="brand-dot"></div>
-          <span>STACKLY</span>
+          <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="160" height="47">
         </a>
       </div>
 
       <div class="auth-visual-content">
-        <div class="eyebrow">CREATIVE PORTAL</div>
+        <div class="auth-visual-badge">
+          <i class="bi bi-shield-lock-fill"></i> Secure Authentication Node
+        </div>
         <h2 class="display-5 text-white fw-bold mb-3">
-          "Where craftsmanship meets digital bravery."
+          Where craftsmanship meets digital bravery.
         </h2>
-        <p class="text-muted lead mb-0">
-          Sign in to access your active studio briefs, book critique slots with department chairs, and reserve specialized equipment.
+        <p class="text-muted lead mb-4">
+          Access high-performance creative toolkits, active briefs, and encrypted client or administrative portals.
         </p>
+
+        <div class="auth-visual-features">
+          <div class="auth-feature-pill">
+            <i class="bi bi-shield-check"></i>
+            <div>
+              <h6>Role-Based Access</h6>
+              <p>Client & Admin environments</p>
+            </div>
+          </div>
+          <div class="auth-feature-pill">
+            <i class="bi bi-lightning-charge"></i>
+            <div>
+              <h6>Instant Dashboard</h6>
+              <p>Real-time analytics & briefs</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="small text-muted">
-        &copy; 2026 STACKLY Art & Design Institute. All Rights Reserved.
+      <div class="d-flex justify-content-between align-items-center text-muted small">
+        <span>&copy; 2026 STACKLY Art & Design Institute.</span>
+        <span>ISO 27001 Certified Security</span>
       </div>
     </div>
 
     <!-- Right Column: Authentication Form -->
     <div class="auth-form-col">
-      <div class="mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <a href="index.html" class="navbar-brand-stackly d-lg-none">
-            <div class="brand-dot"></div>
-            <span>STACKLY</span>
-          </a>
-          <a href="index.html" class="btn-link-animated small ms-auto"><i class="bi bi-arrow-left"></i> Return Home</a>
-        </div>
-        <h1 class="h2 text-white mb-2">Portal Sign In</h1>
-        <p class="text-muted small">Enter your academic credentials to enter the STACKLY workspace.</p>
-      </div>
-
-      <!-- Feedback Alert -->
-      <div id="login-feedback-alert" class="d-none"></div>
-
-      <form id="stackly-login-form" novalidate>
-        <div class="form-group-custom">
-          <label class="form-label-custom" for="login-email">Academic or Registered Email *</label>
-          <input type="email" class="form-control-custom" id="login-email" placeholder="name@stackly.edu" required>
-          <div class="invalid-feedback-custom">Please enter a valid email address.</div>
-        </div>
-
-        <div class="form-group-custom">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <label class="form-label-custom mb-0" for="login-password">Password *</label>
-            <a href="forgot-password.html" class="small text-coral">Forgot Password?</a>
+      <div class="auth-form-inner">
+        <div class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <a href="index.html" class="navbar-brand-stackly d-lg-none">
+              <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="140" height="40">
+            </a>
+            <a href="index.html" class="btn-link-animated small ms-auto fw-bold" style="color: #ffffff;"><i class="bi bi-arrow-left"></i> Return Home</a>
           </div>
-          <input type="password" class="form-control-custom" id="login-password" placeholder="••••••••" required>
-          <div class="invalid-feedback-custom">Please enter your password (minimum 6 characters).</div>
+          <h1 class="display-6 text-white fw-bold mb-2">Sign In</h1>
+          <p class="text-white-50 small mb-0" style="font-size: 0.95rem;">Select your portal role and enter your verified credentials.</p>
         </div>
 
-        <div class="form-check mb-4">
-          <input class="form-check-input" type="checkbox" id="login-remember">
-          <label class="form-check-label text-muted small" for="login-remember">
-            Remember this device for 30 days
-          </label>
+        <!-- Role Selector (Admin / Client) -->
+        <div class="role-selector-wrap">
+          <div class="role-selector-label">
+            <span>Select Account Role *</span>
+            <span class="text-coral small" id="active-role-indicator">Role: Client</span>
+          </div>
+          <div class="role-selector-grid">
+            <label class="role-option">
+              <input type="radio" name="auth_role" value="client" checked>
+              <div class="role-card">
+                <div class="role-card-icon">
+                  <i class="bi bi-person-workspace"></i>
+                </div>
+                <div class="role-card-text">
+                  <div class="role-card-title">Client</div>
+                  <p class="role-card-sub">Student / Partner</p>
+                </div>
+              </div>
+            </label>
+
+            <label class="role-option">
+              <input type="radio" name="auth_role" value="admin">
+              <div class="role-card">
+                <div class="role-card-icon">
+                  <i class="bi bi-shield-lock"></i>
+                </div>
+                <div class="role-card-text">
+                  <div class="role-card-title">Admin</div>
+                  <p class="role-card-sub">Faculty / Executive</p>
+                </div>
+              </div>
+            </label>
+          </div>
         </div>
 
-        <button type="submit" class="btn-custom btn-coral w-100 py-3 mb-3">
-          <span>SIGN IN TO PORTAL</span>
-          <i class="bi bi-box-arrow-in-right"></i>
-        </button>
+        <!-- Feedback Alert -->
+        <div id="login-feedback-alert" class="d-none"></div>
 
-        <div class="text-center text-muted small">
-          Don't have an academic account? 
-          <a href="signup.html" class="text-coral fw-bold">Sign Up for Cohort</a>
-        </div>
-      </form>
+        <form id="stackly-login-form">
+          <div class="form-group-custom">
+            <label class="form-label-custom" for="login-email">Registered Email</label>
+            <input type="email" class="form-control-custom" id="login-email" placeholder="client@stackly.edu" value="client@stackly.edu">
+            <div class="invalid-feedback-custom">Please enter a valid email address.</div>
+          </div>
+
+          <div class="form-group-custom">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <label class="form-label-custom mb-0" for="login-password">Password</label>
+              <a href="forgot-password.html" class="small text-coral fw-bold">Forgot Password?</a>
+            </div>
+            <div class="password-input-wrap">
+              <input type="password" class="form-control-custom" id="login-password" placeholder="••••••••" value="password123">
+              <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback-custom">Please enter your password.</div>
+          </div>
+
+          <div class="mb-4">
+            <div class="form-check mb-0">
+              <input class="form-check-input" type="checkbox" id="login-remember">
+              <label class="form-check-label text-white-50 small ms-1" for="login-remember">
+                Keep me signed in
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-custom btn-coral w-100 py-3 mb-3 shadow-lg" style="font-size: 0.95rem; letter-spacing: 0.05em;">
+            <span id="login-submit-text" class="fw-bold">SIGN IN AS CLIENT</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
+
+          <div class="text-center text-white-50 small">
+            Need a new account? 
+            <a href="signup.html" class="text-white fw-bold text-decoration-underline ms-1">Create Account</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Command Center | STACKLY Atelier</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%237866E8'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>A</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Vendors (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Project Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <img src="assets/images/logo.webp" alt="STACKLY Atelier" class="brand-logo" width="130">
+        </a>
+        <span class="sidebar-brand-badge" style="background: rgba(120, 102, 232, 0.15); color: #a496f8; border-color: rgba(120, 102, 232, 0.3);">Admin</span>
+      </div>
+
+      <div class="sidebar-menu-wrap">
+        <div class="sidebar-section-title">Administration</div>
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item admin-active" data-tab="admin-command" data-title="Executive Command Center">
+            <a href="javascript:void(0)">
+              <i class="bi bi-speedometer2"></i>
+              <span>Command Center</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="admin-admissions" data-title="Admissions 2026 Management">
+            <a href="javascript:void(0)">
+              <i class="bi bi-file-earmark-person"></i>
+              <span>Admissions 2026</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="admin-catalog" data-title="Curriculum & Program Catalog">
+            <a href="javascript:void(0)">
+              <i class="bi bi-layers"></i>
+              <span>Program Catalog</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="admin-faculty" data-title="Faculty Directory & Workload">
+            <a href="javascript:void(0)">
+              <i class="bi bi-people-fill"></i>
+              <span>Faculty Directory</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-section-title">Operations & Growth</div>
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item" data-tab="admin-finance" data-title="Tuition, Grants & Financials">
+            <a href="javascript:void(0)">
+              <i class="bi bi-cash-stack"></i>
+              <span>Tuition & Grants</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="admin-portfolios" data-title="Portfolio Submissions & Reviews">
+            <a href="javascript:void(0)">
+              <i class="bi bi-images"></i>
+              <span>Portfolio Reviews</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="admin-events" data-title="Exhibitions & Studio Calendar">
+            <a href="javascript:void(0)">
+              <i class="bi bi-calendar3"></i>
+              <span>Exhibitions & Events</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="admin-journal" data-title="Editorial Journal & Releases">
+            <a href="javascript:void(0)">
+              <i class="bi bi-journal-text"></i>
+              <span>Editorial Journal</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-logout-btn" id="logout-btn">
+          <i class="bi bi-box-arrow-left"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="dashboard-main">
+      <!-- Navbar -->
+      <header class="dashboard-navbar">
+        <div class="dash-nav-left">
+          <button class="dash-sidebar-toggle d-lg-none" id="sidebar-toggle" aria-label="Toggle Navigation">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <h1 class="dash-page-title" id="admin-page-title">Executive Command Center</h1>
+        </div>
+
+        <div class="dash-nav-right">
+          <!-- Notification Icon -->
+          <button class="dash-sidebar-toggle" aria-label="Notifications" title="6 Priority Executive Alerts">
+            <i class="bi bi-shield-check"></i>
+          </button>
+
+          <!-- Right Side Email & Avatar -->
+          <div class="dash-user-pill">
+            <div class="dash-user-avatar" id="user-avatar-initials" style="background: linear-gradient(135deg, #7866e8 0%, #5844d8 100%);">AD</div>
+            <div class="dash-user-meta">
+              <span class="dash-user-email" id="display-user-email">admin@stackly.edu</span>
+              <span class="dash-user-role-label" style="color: #a496f8;">Atelier Administrator</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content -->
+      <main class="dashboard-content">
+
+        <!-- ==================== TAB 1: COMMAND CENTER ==================== -->
+        <div id="admin-command" class="dash-view-pane active-pane">
+          <!-- Welcome Hero Banner -->
+          <div class="dash-panel" style="background: linear-gradient(135deg, rgba(120, 102, 232, 0.12) 0%, rgba(18, 18, 24, 0.95) 100%); border-color: rgba(120, 102, 232, 0.3);">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <span class="badge bg-primary bg-opacity-25 text-white border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block" style="color: #c4bbfd !important;">
+                  <i class="bi bi-cpu me-1"></i> Academy Infrastructure Node • Term 2026/27
+                </span>
+                <h2 class="display-6 fw-bold text-white mb-2">Institutional Command Center</h2>
+                <p class="text-white-50 mb-0">Oversee studio allocations, applicant reviews, financial endowments, and faculty mentorship workloads.</p>
+              </div>
+              <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <button type="button" class="btn-dash-primary switch-admin-tab" data-target-tab="admin-admissions" data-title="Admissions 2026 Management" style="background: var(--dash-purple); box-shadow: 0 4px 16px rgba(120, 102, 232, 0.35);">
+                  <span>REVIEW APPLICANTS</span>
+                  <i class="bi bi-arrow-right-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric Stat Cards -->
+          <div class="row g-4 mb-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-purple-glow">
+                  <i class="bi bi-people"></i>
+                </div>
+                <div class="dash-stat-val">342</div>
+                <p class="dash-stat-label">Active Studio Enrollees</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-coral-glow">
+                  <i class="bi bi-file-earmark-text"></i>
+                </div>
+                <div class="dash-stat-val">87</div>
+                <p class="dash-stat-label">Pending 2026 Applications</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-green-glow">
+                  <i class="bi bi-cash-coin"></i>
+                </div>
+                <div class="dash-stat-val">$1.42M</div>
+                <p class="dash-stat-label">Q4 Atelier Revenue</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-gold-glow">
+                  <i class="bi bi-award"></i>
+                </div>
+                <div class="dash-stat-val">96.8%</div>
+                <p class="dash-stat-label">Placement / Commission Rate</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Priority Admissions Queue -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Priority Admissions Queue (Fall 2026)</h3>
+                <p class="dash-panel-sub">Recent applicant submissions awaiting committee review</p>
+              </div>
+              <button class="btn-dash-outline switch-admin-tab" data-target-tab="admin-admissions" data-title="Admissions 2026 Management">View Complete Registry</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Candidate</th>
+                    <th>Selected Program</th>
+                    <th>Portfolio Score</th>
+                    <th>Interview Status</th>
+                    <th class="text-end">Administrative Decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Sophia Chen</div>
+                      <span class="text-muted small">chen.s@arts-applicant.org</span>
+                    </td>
+                    <td>Diploma in Fine Art (12 Mo)</td>
+                    <td><span class="text-coral fw-bold">94 / 100</span> (Exceptional)</td>
+                    <td><span class="status-badge status-active"><i class="bi bi-check-circle"></i> Completed</span></td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-success me-1 py-1 px-3" onclick="alert('Offer Letter sent to Sophia Chen!')">Accept</button>
+                      <button class="btn btn-sm btn-outline-danger py-1 px-3" onclick="alert('Application archived.')">Decline</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Mateo Alvarez</div>
+                      <span class="text-muted small">mateo.alv@creativemesh.net</span>
+                    </td>
+                    <td>Master Residency (24 Mo)</td>
+                    <td><span class="text-coral fw-bold">88 / 100</span> (Strong)</td>
+                    <td><span class="status-badge status-pending"><i class="bi bi-clock"></i> Pending Dean Panel</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Interview panel notified for Mateo Alvarez.')">Schedule</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Elena Vance</div>
+                      <span class="text-muted small">elena.vance@studio.uk</span>
+                    </td>
+                    <td>Certificate in Classical Oil (6 Mo)</td>
+                    <td><span class="text-coral fw-bold">91 / 100</span> (Recommended)</td>
+                    <td><span class="status-badge status-pending"><i class="bi bi-clock"></i> Awaiting Portfolio Vetting</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Interview scheduled with Elena Vance.')">Schedule</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 2: ADMISSIONS 2026 ==================== -->
+        <div id="admin-admissions" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Admissions & Enrollment Registry</h3>
+                <p class="dash-panel-sub">Evaluate applicant dossiers, assign committee reviewers, and issue institutional letters.</p>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn-dash-outline" onclick="alert('Exporting 2026 Candidate Database CSV...')"><i class="bi bi-file-earmark-spreadsheet"></i> Export CSV</button>
+                <button class="btn-dash-primary" onclick="alert('Bulk offer letters scheduled for dispatch.')"><i class="bi bi-envelope-paper"></i> Dispatch Batch</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Candidate</th>
+                    <th>Application Date</th>
+                    <th>Discipline</th>
+                    <th>Review Stage</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="text-white fw-bold">Alexander Wright</div>
+                      <span class="text-muted small">a.wright@design.ac.uk</span>
+                    </td>
+                    <td>Oct 29, 2026</td>
+                    <td>XR & Spatial Form</td>
+                    <td><span class="badge bg-info">Atelier Audition</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Alexander Wright')">View Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="text-white fw-bold">Camila Gutierrez</div>
+                      <span class="text-muted small">c.gutierrez@arts.ar</span>
+                    </td>
+                    <td>Nov 01, 2026</td>
+                    <td>Master Residency</td>
+                    <td><span class="badge bg-warning text-dark">Faculty Review</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Camila Gutierrez')">View Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="text-white fw-bold">Tatsuro Mori</div>
+                      <span class="text-muted small">mori.t@tokyo-fineart.jp</span>
+                    </td>
+                    <td>Nov 02, 2026</td>
+                    <td>Classical Oil Glaze</td>
+                    <td><span class="badge bg-success">Committee Approved</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Tatsuro Mori')">View Dossier</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 3: PROGRAM CATALOG ==================== -->
+        <div id="admin-catalog" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Curriculum & Studio Program Catalog</h3>
+                <p class="dash-panel-sub">Manage course syllabi, capacity caps, and semester schedules.</p>
+              </div>
+              <button class="btn-dash-primary" onclick="alert('Opening curriculum builder...')">
+                <i class="bi bi-plus-lg"></i> Add New Program
+              </button>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="dash-panel h-100">
+                  <div class="stat-icon-wrap icon-purple-glow mb-3"><i class="bi bi-award"></i></div>
+                  <h4 class="text-white fw-bold mb-1">Master Residency</h4>
+                  <p class="text-coral small mb-2">24 Months • Limit: 12 Fellows</p>
+                  <p class="text-white-50 small mb-4">Solo atelier studio, dedicated executive mentorship, and international gallery showcase.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                    <span class="badge bg-success">11 / 12 Enrolled</span>
+                    <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Master Residency parameters')">Configure</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="dash-panel h-100">
+                  <div class="stat-icon-wrap icon-coral-glow mb-3"><i class="bi bi-mortarboard"></i></div>
+                  <h4 class="text-white fw-bold mb-1">Diploma in Fine Art</h4>
+                  <p class="text-coral small mb-2">12 Months • Limit: 40 Students</p>
+                  <p class="text-white-50 small mb-4">Intensive studio discipline, assigned workstation, and live commercial brief placements.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                    <span class="badge bg-success">38 / 40 Enrolled</span>
+                    <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Diploma parameters')">Configure</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="dash-panel h-100">
+                  <div class="stat-icon-wrap icon-green-glow mb-3"><i class="bi bi-brush"></i></div>
+                  <h4 class="text-white fw-bold mb-1">Classical Certificate</h4>
+                  <p class="text-coral small mb-2">6 Months • Limit: 60 Students</p>
+                  <p class="text-white-50 small mb-4">Fundamental techniques, anatomical mastery, and bi-weekly portfolio reviews.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                    <span class="badge bg-warning text-dark">54 / 60 Enrolled</span>
+                    <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Certificate parameters')">Configure</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 4: FACULTY DIRECTORY (PREMIUM CARDS) ==================== -->
+        <div id="admin-faculty" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Faculty Roster & Atelier Leadership</h3>
+                <p class="dash-panel-sub">Manage resident master artists, supervise workloads, and reallocate mentorship fellows.</p>
+              </div>
+              <button class="btn-dash-primary" onclick="alert('Add faculty modal triggered.')"><i class="bi bi-person-plus"></i> Add Faculty Member</button>
+            </div>
+
+            <div class="row g-4 mt-2">
+              <div class="col-md-6 col-lg-4">
+                <div class="faculty-premium-card">
+                  <div class="faculty-avatar-wrap">
+                    <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="faculty-avatar-img">
+                    <span class="faculty-status-dot"></span>
+                  </div>
+                  <h4 class="faculty-card-name">Julian Vance</h4>
+                  <div class="faculty-card-role">Chair of Classical Painting</div>
+                  <p class="faculty-card-bio">8 Master Fellows • Teaching Load: 92% • Specializing in oil glazing & chiaroscuro study.</p>
+                  <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Julian Vance')">Manage Workload</button>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4">
+                <div class="faculty-premium-card">
+                  <div class="faculty-avatar-wrap">
+                    <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Rostova" class="faculty-avatar-img">
+                    <span class="faculty-status-dot"></span>
+                  </div>
+                  <h4 class="faculty-card-name">Elena Rostova</h4>
+                  <div class="faculty-card-role">Director of Spatial Systems</div>
+                  <p class="faculty-card-bio">6 Master Fellows • Teaching Load: 85% • Leading the Unreal Engine 5 spatial lab.</p>
+                  <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Elena Rostova')">Manage Workload</button>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4">
+                <div class="faculty-premium-card">
+                  <div class="faculty-avatar-wrap">
+                    <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Sterling" class="faculty-avatar-img">
+                    <span class="faculty-status-dot"></span>
+                  </div>
+                  <h4 class="faculty-card-name">Marcus Sterling</h4>
+                  <div class="faculty-card-role">Prof. of Visual Communication</div>
+                  <p class="faculty-card-bio">10 Master Fellows • Teaching Load: 100% (Cap) • Editorial design systems lead.</p>
+                  <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Marcus Sterling')">Manage Workload</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 5: TUITION & GRANTS ==================== -->
+        <div id="admin-finance" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <h3 class="dash-panel-title">Endowment, Tuition & Studio Grants</h3>
+            <p class="dash-panel-sub">Institutional balance sheet, scholarship allocations, and operational budget.</p>
+            
+            <div class="row g-4 my-2">
+              <div class="col-md-4">
+                <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-white-50 small text-uppercase fw-semibold">Gross Term Tuition</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">$2,140,000</h3>
+                  <span class="text-success small"><i class="bi bi-arrow-up-right"></i> +14% YoY Revenue</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-white-50 small text-uppercase fw-semibold">Allocated Grant Scholarships</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">$480,000</h3>
+                  <span class="text-coral small">32 Artists Funded in 2026</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-white-50 small text-uppercase fw-semibold">Studio Facilities Reserve</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">$750,000</h3>
+                  <span class="text-success small">Healthy Capitalization Buffer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 6: PORTFOLIO REVIEWS ==================== -->
+        <div id="admin-portfolios" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <h3 class="dash-panel-title">Master Atelier Portfolio Audits</h3>
+            <p class="dash-panel-sub">Evaluate senior thesis collections and degree showcase exhibition proposals.</p>
+
+            <div class="row g-4 mt-2">
+              <div class="col-md-6">
+                <div class="dash-panel h-100">
+                  <span class="badge bg-danger mb-2">Graduation Defense</span>
+                  <h4 class="text-white fw-bold mb-2">Klaus Müller — "Monoliths of Void"</h4>
+                  <p class="text-white-50 small mb-4">12 high-resolution bronze-cast digital asset composites with physical bronze casting.</p>
+                  <div class="d-flex gap-2">
+                    <button class="btn-dash-outline" onclick="alert('Opening Klaus Müller portfolio preview gallery...')">Preview Works</button>
+                    <button class="btn btn-sm btn-success px-3" onclick="alert('Portfolio approved with Honors!')">Award Honors</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="dash-panel h-100">
+                  <span class="badge bg-secondary mb-2">Mid-Year Review</span>
+                  <h4 class="text-white fw-bold mb-2">Aria Thorne — "Chromatics of the Neural"</h4>
+                  <p class="text-white-50 small mb-4">Spatial volumetric projections exploring sensory synesthesia and artificial light.</p>
+                  <div class="d-flex gap-2">
+                    <button class="btn-dash-outline" onclick="alert('Opening Aria Thorne portfolio preview gallery...')">Preview Works</button>
+                    <button class="btn-dash-primary" onclick="alert('Critique notes submitted to Aria Thorne.')">Submit Notes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 7: EXHIBITIONS & EVENTS ==================== -->
+        <div id="admin-events" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Institutional Exhibitions & Atelier Showcases</h3>
+                <p class="dash-panel-sub">Coordinate physical gallery installations, curator invites, and Vernissage ticket sales.</p>
+              </div>
+              <button class="btn-dash-primary" onclick="alert('Publish new exhibition modal.')"><i class="bi bi-plus-lg"></i> New Exhibition</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Exhibition Title</th>
+                    <th>Venue</th>
+                    <th>Dates</th>
+                    <th>RSVP Status</th>
+                    <th class="text-end">Event Operations</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Annual Master Thesis Vernissage</div>
+                      <span class="text-muted small">Grand Atelier Wing A</span>
+                    </td>
+                    <td>Main Campus Gallery</td>
+                    <td>Dec 10 - Dec 22, 2026</td>
+                    <td><span class="badge bg-success">620 RSVPs (Sold Out)</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3" onclick="alert('Guest list manifest downloaded.')">Guest List</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Spatial Realities: London Curators Showcase</div>
+                      <span class="text-muted small">VR & MoCap Chambers</span>
+                    </td>
+                    <td>Somerset Contemporary Partner Space</td>
+                    <td>Jan 15, 2027</td>
+                    <td><span class="badge bg-info">180 RSVPs</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3" onclick="alert('Guest list manifest downloaded.')">Guest List</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 8: EDITORIAL JOURNAL ==================== -->
+        <div id="admin-journal" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Editorial Journal & Press Publications</h3>
+                <p class="dash-panel-sub">Publish essays, research monographs, and atelier artist interviews.</p>
+              </div>
+              <button class="btn-dash-primary" onclick="alert('Monograph composer opened.')"><i class="bi bi-pencil-square"></i> Draft Article</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Article Title</th>
+                    <th>Author</th>
+                    <th>Publish Date</th>
+                    <th>Status</th>
+                    <th class="text-end">Manage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">The Subversive Geometry of Baroque Perspective</div>
+                      <span class="text-muted small">Fine Art Theory / Monograph</span>
+                    </td>
+                    <td>Julian Vance</td>
+                    <td>Nov 01, 2026</td>
+                    <td><span class="badge bg-success">Published</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3" onclick="alert('Opening editorial editor...')">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Real-Time Raytracing as an Atelier Medium</div>
+                      <span class="text-muted small">Technology & Spatial Form</span>
+                    </td>
+                    <td>Elena Rostova</td>
+                    <td>Draft (In Review)</td>
+                    <td><span class="badge bg-warning text-dark">Draft</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3" onclick="alert('Opening editorial editor...')">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Dashboard Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Retrieve user authentication data from localStorage
+      const storedEmail = localStorage.getItem('stackly_user_email') || 'admin@stackly.edu';
+      const emailDisplay = document.getElementById('display-user-email');
+      const avatarInitials = document.getElementById('user-avatar-initials');
+
+      if (emailDisplay) emailDisplay.textContent = storedEmail;
+
+      if (avatarInitials && storedEmail) {
+        const initial = storedEmail.substring(0, 2).toUpperCase();
+        avatarInitials.textContent = initial;
+      }
+
+      // 2. Mobile Sidebar Toggle
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const sidebar = document.getElementById('dashboard-sidebar');
+
+      if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('sidebar-open');
+        });
+      }
+
+      // 3. Static Sidebar Tab Switching
+      const navItems = document.querySelectorAll('.sidebar-nav-item[data-tab]');
+      const viewPanes = document.querySelectorAll('.dash-view-pane');
+      const pageTitle = document.getElementById('admin-page-title');
+
+      function switchAdminView(targetTabId, newTitle) {
+        navItems.forEach(item => {
+          if (item.getAttribute('data-tab') === targetTabId) {
+            item.classList.add('admin-active');
+          } else {
+            item.classList.remove('admin-active');
+          }
+        });
+
+        viewPanes.forEach(pane => {
+          if (pane.id === targetTabId) {
+            pane.classList.add('active-pane');
+          } else {
+            pane.classList.remove('active-pane');
+          }
+        });
+
+        if (pageTitle && newTitle) {
+          pageTitle.textContent = newTitle;
+        }
+
+        if (sidebar && window.innerWidth < 992) {
+          sidebar.classList.remove('sidebar-open');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetTab = item.getAttribute('data-tab');
+          const title = item.getAttribute('data-title');
+          switchAdminView(targetTab, title);
+        });
+      });
+
+      document.querySelectorAll('.switch-admin-tab').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = trigger.getAttribute('data-target-tab');
+          const title = trigger.getAttribute('data-title');
+          if (target) {
+            switchAdminView(target, title);
+          }
+        });
+      });
+
+      // 4. Logout action
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+          localStorage.removeItem('stackly_user_role');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

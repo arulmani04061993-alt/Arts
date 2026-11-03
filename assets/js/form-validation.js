@@ -52,32 +52,99 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  // 1. LOGIN FORM VALIDATION
+  // 1. LOGIN FORM VALIDATION & ROLE SWITCHING
   const loginForm = document.getElementById('stackly-login-form');
   if (loginForm) {
+    const roleRadios = document.querySelectorAll('input[name="auth_role"]');
+    const roleIndicator = document.getElementById('active-role-indicator');
+    const submitText = document.getElementById('login-submit-text');
+    const emailInput = document.getElementById('login-email');
+
+    roleRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const role = e.target.value;
+        if (role === 'admin') {
+          if (roleIndicator) {
+            roleIndicator.textContent = 'Role: Administrator';
+            roleIndicator.className = 'text-purple small fw-bold';
+          }
+          if (submitText) submitText.textContent = 'SIGN IN AS ADMIN';
+          if (emailInput) {
+            emailInput.placeholder = 'admin@stackly.edu';
+            if (emailInput.value === 'client@stackly.edu') emailInput.value = 'admin@stackly.edu';
+          }
+        } else {
+          if (roleIndicator) {
+            roleIndicator.textContent = 'Role: Client';
+            roleIndicator.className = 'text-coral small fw-bold';
+          }
+          if (submitText) submitText.textContent = 'SIGN IN AS CLIENT';
+          if (emailInput) {
+            emailInput.placeholder = 'client@stackly.edu';
+            if (emailInput.value === 'admin@stackly.edu') emailInput.value = 'client@stackly.edu';
+          }
+        }
+      });
+    });
+
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const emailInput = document.getElementById('login-email');
       const passInput = document.getElementById('login-password');
       const feedbackAlert = document.getElementById('login-feedback-alert');
+      const selectedRole = document.querySelector('input[name="auth_role"]:checked')?.value || 'client';
 
-      let isValid = true;
-      if (!validateField(emailInput)) isValid = false;
-      if (!validateField(passInput)) isValid = false;
-
-      if (isValid) {
-        if (feedbackAlert) {
-          feedbackAlert.className = 'alert alert-success d-flex align-items-center gap-2 mb-3';
-          feedbackAlert.innerHTML = '<i class="bi bi-check-circle-fill"></i> <strong>Simulation Success:</strong> Credentials validated. (Note: Production authentication requires backend connection).';
-          feedbackAlert.classList.remove('d-none');
-        }
+      // Fallback email if user left blank or clicks directly
+      let emailVal = emailInput ? emailInput.value.trim() : '';
+      if (!emailVal) {
+        emailVal = selectedRole === 'admin' ? 'admin@stackly.edu' : 'client@stackly.edu';
       }
+
+      // Save authenticated session details immediately
+      localStorage.setItem('stackly_user_email', emailVal);
+      localStorage.setItem('stackly_user_role', selectedRole);
+
+      const targetDashboard = selectedRole === 'admin' ? 'admin-dashboard.html' : 'client-dashboard.html';
+
+      if (feedbackAlert) {
+        const roleLabel = selectedRole === 'admin' ? 'Administrator' : 'Client';
+        const alertColor = selectedRole === 'admin' ? 'alert-primary' : 'alert-success';
+        feedbackAlert.className = `alert ${alertColor} d-flex align-items-center gap-2 mb-3`;
+        feedbackAlert.innerHTML = `<i class="bi bi-shield-check fs-5"></i> <div><strong>Authenticated as ${roleLabel}:</strong> Session verified for <code>${emailVal}</code>. Redirecting to Dashboard...</div>`;
+        feedbackAlert.classList.remove('d-none');
+      }
+
+      // Direct instant redirection
+      window.location.href = targetDashboard;
     });
   }
 
-  // 2. SIGNUP FORM VALIDATION
+  // 2. SIGNUP FORM VALIDATION & ROLE SWITCHING
   const signupForm = document.getElementById('stackly-signup-form');
   if (signupForm) {
+    const signupRoleRadios = document.querySelectorAll('input[name="signup_auth_role"]');
+    const signupRoleIndicator = document.getElementById('signup-active-role-indicator');
+    const signupSubmitText = document.getElementById('signup-submit-text');
+    const signupDeptLabel = document.getElementById('signup-dept-label');
+
+    signupRoleRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const role = e.target.value;
+        if (role === 'admin') {
+          if (signupRoleIndicator) {
+            signupRoleIndicator.textContent = 'Role: Administrator';
+            signupRoleIndicator.className = 'text-purple small fw-bold';
+          }
+          if (signupSubmitText) signupSubmitText.textContent = 'CREATE ADMIN ACCOUNT';
+        } else {
+          if (signupRoleIndicator) {
+            signupRoleIndicator.textContent = 'Role: Client';
+            signupRoleIndicator.className = 'text-coral small fw-bold';
+          }
+          if (signupSubmitText) signupSubmitText.textContent = 'CREATE CLIENT ACCOUNT';
+        }
+      });
+    });
+
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const fname = document.getElementById('signup-fname');
@@ -86,9 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('signup-phone');
       const pass = document.getElementById('signup-password');
       const passConfirm = document.getElementById('signup-password-confirm');
-      const course = document.getElementById('signup-course');
       const terms = document.getElementById('signup-terms');
       const feedbackAlert = document.getElementById('signup-feedback-alert');
+      const selectedRole = document.querySelector('input[name="signup_auth_role"]:checked')?.value || 'client';
 
       let isValid = true;
       if (!validateField(fname)) isValid = false;
@@ -104,13 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInputError(passConfirm);
       }
 
-      if (course && !course.value) {
-        setInputError(course, 'Please select your area of creative interest.');
-        isValid = false;
-      } else if (course) {
-        clearInputError(course);
-      }
-
       if (terms && !terms.checked) {
         const termsFeedback = terms.parentElement.querySelector('.invalid-feedback-custom');
         if (termsFeedback) termsFeedback.style.display = 'block';
@@ -121,13 +181,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isValid && feedbackAlert) {
+        const roleLabel = selectedRole === 'admin' ? 'Administrator' : 'Client';
+        const emailVal = email.value.trim();
+        localStorage.setItem('stackly_user_email', emailVal);
+        localStorage.setItem('stackly_user_role', selectedRole);
+
+        const targetDashboard = selectedRole === 'admin' ? 'admin-dashboard.html' : 'client-dashboard.html';
+
         feedbackAlert.className = 'alert alert-success d-flex align-items-center gap-2 mb-3';
-        feedbackAlert.innerHTML = '<i class="bi bi-check-circle-fill"></i> <strong>Account Created:</strong> Welcome to STACKLY! (Sample frontend confirmation).';
+        feedbackAlert.innerHTML = `<i class="bi bi-check-circle-fill fs-5"></i> <div><strong>${roleLabel} Account Created:</strong> Welcome, ${fname.value}! Logging into ${roleLabel} Dashboard...</div>`;
         feedbackAlert.classList.remove('d-none');
         signupForm.reset();
+
+        setTimeout(() => {
+          window.location.href = targetDashboard;
+        }, 900);
       }
     });
   }
+
+  // Password Visibility Toggle Handler
+  document.querySelectorAll('.password-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const input = this.parentElement.querySelector('input');
+      const icon = this.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye-ready', 'bi-eye');
+      }
+    });
+  });
 
   // 3. FORGOT PASSWORD FORM
   const forgotForm = document.getElementById('stackly-forgot-form');

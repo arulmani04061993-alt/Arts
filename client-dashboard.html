@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Workspace | STACKLY Atelier</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FF5B4D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='50' fill='white'>S</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Vendors (CDN + Local fallbacks) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Project Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand">
+          <img src="assets/images/logo.webp" alt="STACKLY Atelier" class="brand-logo" width="130">
+        </a>
+        <span class="sidebar-brand-badge">Client</span>
+      </div>
+
+      <div class="sidebar-menu-wrap">
+        <div class="sidebar-section-title">Workspace</div>
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item active" data-tab="view-dashboard" data-title="Client Workspace Overview">
+            <a href="javascript:void(0)">
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="view-services" data-title="Creative Services Catalog">
+            <a href="javascript:void(0)">
+              <i class="bi bi-brush"></i>
+              <span>Creative Services</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="view-briefs" data-title="Commission & Brief Submissions">
+            <a href="javascript:void(0)">
+              <i class="bi bi-collection-play"></i>
+              <span>Project Briefs</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="view-sessions" data-title="Studio Sessions & Crits">
+            <a href="javascript:void(0)">
+              <i class="bi bi-calendar-event"></i>
+              <span>Studio Sessions</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-section-title">Communication</div>
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item" data-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+            <a href="javascript:void(0)">
+              <i class="bi bi-chat-dots"></i>
+              <span>Direct Mentorship</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="view-faculty" data-title="Faculty Atelier Directory">
+            <a href="javascript:void(0)">
+              <i class="bi bi-people"></i>
+              <span>Faculty Atelier</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item" data-tab="view-invoices" data-title="Invoices & Tier Subscriptions">
+            <a href="javascript:void(0)">
+              <i class="bi bi-receipt"></i>
+              <span>Invoices & Tier</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="sidebar-logout-btn" id="logout-btn">
+          <i class="bi bi-box-arrow-left"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="dashboard-main">
+      <!-- Top Navbar -->
+      <header class="dashboard-navbar">
+        <div class="dash-nav-left">
+          <button class="dash-sidebar-toggle d-lg-none" id="sidebar-toggle" aria-label="Toggle Navigation">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <h1 class="dash-page-title" id="dash-page-title">Client Workspace Overview</h1>
+        </div>
+
+        <div class="dash-nav-right">
+          <!-- Notification Icon -->
+          <button class="dash-sidebar-toggle" aria-label="Notifications" title="2 Unread Brief Notifications">
+            <i class="bi bi-bell"></i>
+          </button>
+
+          <!-- Right Side Email & Avatar -->
+          <div class="dash-user-pill">
+            <div class="dash-user-avatar" id="user-avatar-initials">CL</div>
+            <div class="dash-user-meta">
+              <span class="dash-user-email" id="display-user-email">client@stackly.edu</span>
+              <span class="dash-user-role-label">Verified Client Portal</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content -->
+      <main class="dashboard-content">
+
+        <!-- ==================== TAB 1: DASHBOARD OVERVIEW ==================== -->
+        <div id="view-dashboard" class="dash-view-pane active-pane">
+          <!-- Welcome Hero Banner -->
+          <div class="dash-panel" style="background: linear-gradient(135deg, rgba(255, 91, 77, 0.1) 0%, rgba(18, 18, 24, 0.95) 100%); border-color: rgba(255, 91, 77, 0.25);">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <span class="badge bg-danger bg-opacity-25 text-coral border border-danger border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-broadcast me-1"></i> Studio Node Active • 2026 Season
+                </span>
+                <h2 class="display-6 fw-bold text-white mb-2">Welcome Back to STACKLY Studio</h2>
+                <p class="text-white-50 mb-0">Your active design briefs, revisions, and atelier feedback channels are synchronized in real-time.</p>
+              </div>
+              <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <button type="button" class="btn-dash-primary switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">
+                  <span>NEW BRIEF REQUEST</span>
+                  <i class="bi bi-plus-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric Stat Cards -->
+          <div class="row g-4 mb-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-coral-glow">
+                  <i class="bi bi-kanban"></i>
+                </div>
+                <div class="dash-stat-val">04</div>
+                <p class="dash-stat-label">Active Commission Briefs</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-purple-glow">
+                  <i class="bi bi-clock-history"></i>
+                </div>
+                <div class="dash-stat-val">12</div>
+                <p class="dash-stat-label">Studio Feedback Rounds</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-green-glow">
+                  <i class="bi bi-check2-circle"></i>
+                </div>
+                <div class="dash-stat-val">18</div>
+                <p class="dash-stat-label">Approved Deliverables</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="dash-stat-card">
+                <div class="stat-icon-wrap icon-gold-glow">
+                  <i class="bi bi-patch-check"></i>
+                </div>
+                <div class="dash-stat-val">Tier II</div>
+                <p class="dash-stat-label">Diploma Atelier Access</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Briefs Table -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Active Project Deliverables</h3>
+                <p class="dash-panel-sub">Track real-time progress across ongoing studio projects</p>
+              </div>
+              <button class="btn-dash-outline switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">View All Briefs</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Project Brief</th>
+                    <th>Lead Mentor</th>
+                    <th>Sprint Milestone</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Hyper-Realistic Oil Lighting Studies</div>
+                      <span class="text-muted small">Atelier Code: STK-2026-A1</span>
+                    </td>
+                    <td>Julian Vance</td>
+                    <td>Critique Stage 3 of 4</td>
+                    <td><span class="status-badge status-active"><i class="bi bi-record-fill"></i> In Progress</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Inspect</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">XR Architectural Sculpture Spatial Render</div>
+                      <span class="text-muted small">Atelier Code: STK-2026-B8</span>
+                    </td>
+                    <td>Elena Rostova</td>
+                    <td>Final Color Grade Review</td>
+                    <td><span class="status-badge status-pending"><i class="bi bi-hourglass-split"></i> Awaiting Feedback</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Inspect</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Avant-Garde Brand Identity Suite</div>
+                      <span class="text-muted small">Atelier Code: STK-2026-C4</span>
+                    </td>
+                    <td>Marcus Sterling</td>
+                    <td>Asset Handover Package</td>
+                    <td><span class="status-badge status-completed"><i class="bi bi-check-circle"></i> Ready for Download</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Inspect</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 2: CREATIVE SERVICES ==================== -->
+        <div id="view-services" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header mb-0">
+              <div>
+                <h3 class="dash-panel-title">Creative Services & Production Pipelines</h3>
+                <p class="dash-panel-sub">Direct access to STACKLY Studio's state-of-the-art visual, spatial, and fine art ateliers.</p>
+              </div>
+              <a href="services.html" class="btn-dash-outline" target="_blank">
+                <i class="bi bi-box-arrow-up-right"></i> Public Catalog
+              </a>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100">
+                <div class="stat-icon-wrap icon-coral-glow mb-3"><i class="bi bi-brush"></i></div>
+                <h4 class="text-white fw-bold mb-2">Classical & Digital Atelier</h4>
+                <p class="text-white-50 small mb-4">Old masters oil glaze emulation, digital matte painting, and master-level fine art production.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="text-white fw-bold">From $4,200</span>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100">
+                <div class="stat-icon-wrap icon-purple-glow mb-3"><i class="bi bi-box"></i></div>
+                <h4 class="text-white fw-bold mb-2">Spatial XR & 3D Immersion</h4>
+                <p class="text-white-50 small mb-4">Unreal Engine 5 volumetric sculpting, spatial computing exhibits, and interactive VR spaces.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="text-white fw-bold">From $7,800</span>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100">
+                <div class="stat-icon-wrap icon-green-glow mb-3"><i class="bi bi-film"></i></div>
+                <h4 class="text-white fw-bold mb-2">Cinematic Direction & Grade</h4>
+                <p class="text-white-50 small mb-4">Master color grading, lighting simulation, title sequence art direction, and film showcase visual art.</p>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="text-white fw-bold">From $6,400</span>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 3: PROJECT BRIEFS ==================== -->
+        <div id="view-briefs" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Project Briefs & Revisions</h3>
+                <p class="dash-panel-sub">Manage deliverables, upload project assets, and request revisions directly.</p>
+              </div>
+              <button class="btn-dash-primary" onclick="alert('New brief creation modal opened! Specify milestones and upload assets.')">
+                <i class="bi bi-plus-lg"></i> Submit New Brief
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Brief ID</th>
+                    <th>Title & Atelier</th>
+                    <th>Current Version</th>
+                    <th>Delivery Deadline</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge bg-dark border border-secondary text-coral">STK-092</span></td>
+                    <td>
+                      <div class="fw-semibold text-white">Classical Baroque Lighting Study</div>
+                      <span class="text-muted small">Atelier of Historical Technique</span>
+                    </td>
+                    <td>v2.4 (Ready for Review)</td>
+                    <td>Nov 18, 2026</td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-2 me-1" onclick="alert('Viewing high-res deliverable canvas v2.4')"><i class="bi bi-eye"></i> View</button>
+                      <button class="btn-dash-outline py-1 px-2" onclick="alert('Revision requested. Mentor notified.')"><i class="bi bi-chat-left-text"></i> Revise</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-dark border border-secondary text-coral">STK-084</span></td>
+                    <td>
+                      <div class="fw-semibold text-white">Kinetic Typographic Installation</div>
+                      <span class="text-muted small">Experimental Digital Form</span>
+                    </td>
+                    <td>v1.0 (Draft Production)</td>
+                    <td>Dec 02, 2026</td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-2 me-1" onclick="alert('Viewing rough wireframe and motion tests')"><i class="bi bi-eye"></i> View</button>
+                      <button class="btn-dash-outline py-1 px-2" onclick="alert('Feedback sent to studio team.')"><i class="bi bi-chat-left-text"></i> Revise</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-dark border border-secondary text-coral">STK-079</span></td>
+                    <td>
+                      <div class="fw-semibold text-white">Monolithic Sculpture 3D Mesh</div>
+                      <span class="text-muted small">Spatial Computing Lab</span>
+                    </td>
+                    <td>v3.0 (Approved & Exported)</td>
+                    <td>Delivered</td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-success py-1 px-3" onclick="alert('Downloading full high-poly FBX/USDZ archive (340MB)')"><i class="bi bi-download me-1"></i> Download</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 4: STUDIO SESSIONS ==================== -->
+        <div id="view-sessions" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <h3 class="dash-panel-title">Scheduled Critique & Review Sessions</h3>
+            <p class="dash-panel-sub">Join scheduled live video critiques or book an open slot with studio faculty.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="dash-panel">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge bg-danger">Upcoming Live Crit</span>
+                  <span class="text-white-50 small">Today • 16:00 GMT</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Live Critique: Volumetric Lighting & Shading</h4>
+                <p class="text-white-50 small mb-4">Lead Mentor: Julian Vance with guest panelist Arthur Pendelton.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="btn-dash-primary" onclick="alert('Connecting to encrypted live studio stream...')">
+                    <i class="bi bi-camera-video"></i> Join Room
+                  </button>
+                  <button class="btn-dash-outline" onclick="alert('Studio session added to your calendar.')">Add to Calendar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="dash-panel">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge bg-secondary">Scheduled</span>
+                  <span class="text-white-50 small">Nov 07 • 14:30 GMT</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Portfolio Milestone Evaluation</h4>
+                <p class="text-white-50 small mb-4">Lead Mentor: Elena Rostova (Dean of Fine Art).</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="btn-dash-outline" onclick="alert('Session confirmed. Link will unlock 15 minutes before time.')">
+                    <i class="bi bi-calendar-check me-1"></i> Confirmed
+                  </button>
+                  <button class="btn-dash-outline" onclick="alert('Reschedule request sent to mentor.')">Reschedule</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 5: DIRECT MENTORSHIP ==================== -->
+        <div id="view-mentorship" class="dash-view-pane">
+          <div class="dash-panel">
+            <h3 class="dash-panel-title">Direct Mentor Communication Channel</h3>
+            <p class="dash-panel-sub mb-4">Send asynchronous project inquiries, review notes, or schedule bespoke technical advice.</p>
+            
+            <div class="p-4 rounded-3 mb-4" style="background: rgba(0,0,0,0.4); border: 1px solid var(--dash-border);">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="rounded-circle border border-coral" width="46" height="46" style="object-fit: cover;">
+                <div>
+                  <h6 class="text-white fw-bold mb-0">Julian Vance (Lead Mentor)</h6>
+                  <span class="text-success small"><i class="bi bi-circle-fill" style="font-size: 8px;"></i> Online now</span>
+                </div>
+              </div>
+              <p class="text-white-50 mb-0">"Hi! I reviewed the brush density maps you sent yesterday. The subsurface scattering on the marble render looks incredible. Let me know if you want to dial in the specular highlights during today's crit."</p>
+            </div>
+
+            <div class="d-flex gap-2">
+              <input type="text" class="form-control bg-dark text-white border-secondary border-opacity-50 py-2 px-3" placeholder="Type your message to mentor Julian Vance..." style="background: #0d0d12 !important;">
+              <button class="btn-dash-primary px-4" onclick="alert('Message sent to mentor!')"><i class="bi bi-send"></i> Send</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 6: FACULTY ATELIER (PREMIUM CARDS) ==================== -->
+        <div id="view-faculty" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <h3 class="dash-panel-title">Faculty Atelier Directory</h3>
+            <p class="dash-panel-sub">Connect with resident master artists, technical directors, and studio critics.</p>
+          </div>
+
+          <div class="row g-4">
+            <!-- Faculty 1 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Available for Critiques"></span>
+                </div>
+                <h4 class="faculty-card-name">Julian Vance</h4>
+                <div class="faculty-card-role">Master of Classical Oil & Lighting</div>
+                <p class="faculty-card-bio">Former Royal Academy Scholar, 14 years fine art exhibition history specializing in dramatic chiaroscuro and glaze layering.</p>
+                <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+                  <i class="bi bi-chat-dots"></i> Send Message
+                </button>
+              </div>
+            </div>
+
+            <!-- Faculty 2 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Rostova" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Available for Critiques"></span>
+                </div>
+                <h4 class="faculty-card-name">Elena Rostova</h4>
+                <div class="faculty-card-role">Chair of Spatial Computing</div>
+                <p class="faculty-card-bio">Specialist in generative 3D environments, XR curation, and real-time raytracing pipelines for immersive architecture.</p>
+                <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+                  <i class="bi bi-chat-dots"></i> Send Message
+                </button>
+              </div>
+            </div>
+
+            <!-- Faculty 3 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Sterling" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Available for Critiques"></span>
+                </div>
+                <h4 class="faculty-card-name">Marcus Sterling</h4>
+                <div class="faculty-card-role">Director of Creative Brand Systems</div>
+                <p class="faculty-card-bio">Identity consultant for international fashion houses and contemporary art galleries, leading editorial typography.</p>
+                <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+                  <i class="bi bi-chat-dots"></i> Send Message
+                </button>
+              </div>
+            </div>
+
+            <!-- Faculty 4 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-sophia.webp" alt="Sophia Chen" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Available for Critiques"></span>
+                </div>
+                <h4 class="faculty-card-name">Sophia Chen</h4>
+                <div class="faculty-card-role">Senior Lecturer in Kinetic Sculpture</div>
+                <p class="faculty-card-bio">Pioneering mechanical motion design and digital robotics in interactive museum installations worldwide.</p>
+                <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+                  <i class="bi bi-chat-dots"></i> Send Message
+                </button>
+              </div>
+            </div>
+
+            <!-- Faculty 5 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-david.webp" alt="David Thorne" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Available for Critiques"></span>
+                </div>
+                <h4 class="faculty-card-name">David Thorne</h4>
+                <div class="faculty-card-role">Head of Photographic Direction</div>
+                <p class="faculty-card-bio">Editorial photographer and lighting director whose architectural monograph work spans Venice, Paris, and Tokyo.</p>
+                <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+                  <i class="bi bi-chat-dots"></i> Send Message
+                </button>
+              </div>
+            </div>
+
+            <!-- Faculty 6 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-amara.webp" alt="Amara Okafor" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Available for Critiques"></span>
+                </div>
+                <h4 class="faculty-card-name">Amara Okafor</h4>
+                <div class="faculty-card-role">Professor of Experimental Ceramics</div>
+                <p class="faculty-card-bio">Integrating computational procedural modeling with tactile ceramic glazes and high-fire artisanal kiln pottery.</p>
+                <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
+                  <i class="bi bi-chat-dots"></i> Send Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 7: INVOICES & TIER ==================== -->
+        <div id="view-invoices" class="dash-view-pane">
+          <div class="dash-panel mb-4">
+            <h3 class="dash-panel-title">Subscription Tier & Billing Statements</h3>
+            <p class="dash-panel-sub">Manage your atelier studio subscription, view payment history, and download tax invoices.</p>
+          </div>
+
+          <div class="row g-4 mb-4">
+            <div class="col-lg-6">
+              <div class="dash-panel" style="background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,91,77,0.08) 100%);">
+                <span class="badge bg-danger mb-2">Active Atelier Tier</span>
+                <h3 class="text-white fw-bold mb-1">Diploma Atelier Residency</h3>
+                <p class="text-white-50 small mb-3">Includes assigned workstation, weekly 1-on-1 critique, full MoCap chamber access, and 3 live briefs.</p>
+                <h4 class="text-coral fw-bold mb-4">$8,500 <span class="fs-6 text-white-50">/ semester (Paid)</span></h4>
+                <a href="pricing.html" class="btn-dash-outline" target="_blank">Upgrade to Master Residency</a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="dash-panel">
+                <h5 class="text-white fw-bold mb-3">Billing Information</h5>
+                <p class="text-white-50 small mb-1">Payment Method: <span class="text-white">MasterCard ending in •••• 9210</span></p>
+                <p class="text-white-50 small mb-1">Billing Contact: <span class="text-white" id="billing-email-field">client@stackly.edu</span></p>
+                <p class="text-white-50 small mb-3">Next Renewal Date: <span class="text-white">October 15, 2027</span></p>
+                <button class="btn-dash-outline" onclick="alert('Payment method management modal opened.')">Update Payment Method</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <h5 class="text-white fw-bold mb-3">Past Statements & Tax Receipts</h5>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Invoice ID</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th class="text-end">Receipt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#INV-2026-0881</td>
+                    <td>Oct 15, 2026</td>
+                    <td>Diploma Atelier Residency (Semester 1)</td>
+                    <td>$8,500.00</td>
+                    <td><span class="badge bg-success">Paid</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3" onclick="alert('Downloading PDF Invoice #INV-2026-0881...')"><i class="bi bi-file-earmark-pdf"></i> PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2026-0412</td>
+                    <td>Aug 01, 2026</td>
+                    <td>Atelier Registration & Kit Deposit</td>
+                    <td>$450.00</td>
+                    <td><span class="badge bg-success">Paid</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3" onclick="alert('Downloading PDF Invoice #INV-2026-0412...')"><i class="bi bi-file-earmark-pdf"></i> PDF</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Dashboard Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Retrieve user authentication data from localStorage or session
+      const storedEmail = localStorage.getItem('stackly_user_email') || 'client@stackly.edu';
+      const emailDisplay = document.getElementById('display-user-email');
+      const billingEmail = document.getElementById('billing-email-field');
+      const avatarInitials = document.getElementById('user-avatar-initials');
+
+      if (emailDisplay) emailDisplay.textContent = storedEmail;
+      if (billingEmail) billingEmail.textContent = storedEmail;
+
+      if (avatarInitials && storedEmail) {
+        const initial = storedEmail.substring(0, 2).toUpperCase();
+        avatarInitials.textContent = initial;
+      }
+
+      // 2. Mobile Sidebar Toggle
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const sidebar = document.getElementById('dashboard-sidebar');
+
+      if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('sidebar-open');
+        });
+      }
+
+      // 3. Static Sidebar Tab Switching
+      const navItems = document.querySelectorAll('.sidebar-nav-item[data-tab]');
+      const viewPanes = document.querySelectorAll('.dash-view-pane');
+      const pageTitle = document.getElementById('dash-page-title');
+
+      function switchView(targetTabId, newTitle) {
+        navItems.forEach(item => {
+          if (item.getAttribute('data-tab') === targetTabId) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+
+        viewPanes.forEach(pane => {
+          if (pane.id === targetTabId) {
+            pane.classList.add('active-pane');
+          } else {
+            pane.classList.remove('active-pane');
+          }
+        });
+
+        if (pageTitle && newTitle) {
+          pageTitle.textContent = newTitle;
+        }
+
+        if (sidebar && window.innerWidth < 992) {
+          sidebar.classList.remove('sidebar-open');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetTab = item.getAttribute('data-tab');
+          const title = item.getAttribute('data-title');
+          switchView(targetTab, title);
+        });
+      });
+
+      document.querySelectorAll('.switch-tab-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = trigger.getAttribute('data-target-tab');
+          const title = trigger.getAttribute('data-title');
+          if (target) {
+            switchView(target, title);
+          }
+        });
+      });
+
+      // 4. Logout action
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+          localStorage.removeItem('stackly_user_role');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
