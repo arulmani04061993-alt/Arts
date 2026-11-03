@@ -91,6 +91,15 @@ body {
   color: var(--gallery-white);
 }
 
+/* Global High Contrast Text Utilities */
+.text-muted {
+  color: #c9c5bd !important;
+}
+
+.small.text-muted {
+  color: #bfbcb5 !important;
+}
+
 /* Headings & Typography */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {

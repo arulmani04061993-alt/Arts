@@ -82,7 +82,7 @@
 
                 <div class="col-md-6 form-group-custom">
                   <label class="form-label-custom" for="contact-phone">Phone (Optional)</label>
-                  <input type="tel" class="form-control-custom" id="contact-phone" placeholder="+1 (555) 000-0000">
+                  <input type="tel" class="form-control-custom" id="contact-phone" placeholder="+91 98765 43210">
                 </div>
 
                 <div class="col-md-6 form-group-custom">
@@ -122,9 +122,10 @@
             <div class="d-flex gap-3 mb-4">
               <i class="bi bi-geo-alt-fill text-coral fs-4"></i>
               <div>
-                <strong>Design Campus Address (Sample Placeholder)</strong>
-                <div class="text-muted small">STACKLY Ateliers, 42 Creative Quarter, Art & Tech District, Innovation
-                  City 10001</div>
+                <strong>Design Campus Address</strong>
+                <div class="text-white-50 small mt-1">
+                  MMR Complex, 24, Maravaneri 1st Cross St, Maravaneri, Salem, Tamil Nadu 636007, India
+                </div>
               </div>
             </div>
 
@@ -132,7 +133,10 @@
               <i class="bi bi-telephone-fill text-purple fs-4"></i>
               <div>
                 <strong>Admissions & General Desk</strong>
-                <div class="text-muted small">+1 (555) 782-2559 (Mon–Fri 09:00–18:00)</div>
+                <div class="text-white-50 small mt-1">
+                  <a href="tel:+919876543210" class="text-white fw-semibold text-decoration-none">+91 98765 43210</a> / <a href="tel:+914272445566" class="text-white-50 text-decoration-none">+91 (0427) 244 5566</a>
+                  <div class="small text-white-50 mt-1">Mon–Fri: 09:00 – 18:00 IST</div>
+                </div>
               </div>
             </div>
 
@@ -157,22 +161,34 @@
         </div>
       </div>
 
-      <!-- Explicitly Labeled Responsive Map Section -->
+      <!-- Explicitly Labeled Responsive Map Section (Full Width Single Map) -->
       <div class="mt-5 pt-4">
         <div class="section-meta">
-          <span>CAMPUS GEOGRAPHY</span>
-          <span>EXPLORE OUR DISTRICT</span>
+          <span>02 / CAMPUS GEOGRAPHY</span>
+          <span>LOCATION & DIRECTIONS</span>
         </div>
-        <div class="responsive-media-wrap shadow-lg" style="padding-bottom: 40%;">
-          <!-- OpenStreetMap embed with explicit neutral design district coordinates -->
+
+        <!-- Single Full-Width Interactive Google Map with Built-in Info Card & Controls -->
+        <div class="rounded-4 overflow-hidden border border-secondary border-opacity-50 shadow-lg w-100" style="height: 540px; position: relative; background: #111;">
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1285%2C51.5050%2C-0.1200%2C51.5120&amp;layer=mapnik"
-            title="STACKLY Institute Studio Location Map (Illustrative Creative District)" loading="lazy">
+            src="https://maps.google.com/maps?q=MMR+Complex,+24+Maravaneri+1st+Cross+St,+Maravaneri,+Salem,+Tamil+Nadu+636007&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            title="MMR Complex Salem Interactive Location Map"
+            width="100%"
+            height="100%"
+            style="border:0; width: 100%; height: 100%; filter: contrast(1.05) saturate(1.1);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
-        <div class="text-center mt-2">
-          <small class="text-muted">Interactive map representation of the STACKLY Creative Quarter & Innovation
-            Campus.</small>
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-3 px-1">
+          <small class="text-white-50">
+            <i class="bi bi-geo-alt-fill text-coral me-1"></i> MMR Complex, 24, Maravaneri 1st Cross St, Maravaneri, Salem, Tamil Nadu 636007, India
+          </small>
+          <a href="https://maps.google.com/?q=MMR+Complex,+24+Maravaneri+1st+Cross+St,+Maravaneri,+Salem,+Tamil+Nadu+636007" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-coral px-3 py-1">
+            <i class="bi bi-box-arrow-up-right me-1"></i> Open in Maps
+          </a>
         </div>
       </div>
     </div>
