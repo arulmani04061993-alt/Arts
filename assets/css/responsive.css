@@ -1,9 +1,31 @@
 /* ===================================================================
    STACKLY — ART & DESIGN INSTITUTE
-   Responsive Design & Breakpoints CSS
+   Responsive Design & Breakpoints CSS (Mobile, Tablet, Desktop)
    =================================================================== */
 
-/* Large Desktop (1440px to 1920px+) */
+/* ===================================================================
+   1. GLOBAL RESPONSIVE RESET & OVERFLOW PREVENTION
+   =================================================================== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure table containers scroll smoothly on touch without breaking container width */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===================================================================
+   2. LARGE DESKTOPS (1400px to 1920px+)
+   =================================================================== */
 @media (min-width: 1400px) {
   .container {
     max-width: 1320px;
@@ -11,9 +33,14 @@
   .hero-main-img-box {
     height: 560px;
   }
+  .hero-editorial-title {
+    font-size: 4.8rem;
+  }
 }
 
-/* Standard Desktop / Laptops (1200px to 1399px) */
+/* ===================================================================
+   3. STANDARD DESKTOPS & LAPTOPS (1200px to 1399px)
+   =================================================================== */
 @media (max-width: 1399px) {
   .stackly-nav-list {
     gap: 16px;
@@ -21,150 +48,304 @@
   .stackly-nav-link {
     font-size: 0.88rem;
   }
+  .hero-editorial-title {
+    font-size: 4.2rem;
+  }
+  .hero-main-img-box {
+    height: 500px;
+  }
 }
 
-/* Small Desktop & Tablet Landscape (992px to 1199px) */
+/* ===================================================================
+   4. SMALL DESKTOPS & TABLET LANDSCAPE (992px to 1199px)
+   =================================================================== */
 @media (max-width: 1199px) {
   .stackly-nav-list {
     gap: 12px;
   }
   .stackly-nav-link {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
   }
   .hero-editorial-title {
-    font-size: 3.8rem;
+    font-size: 3.4rem;
   }
   .hero-main-img-box {
-    height: 480px;
+    height: 440px;
+  }
+  .page-hero .page-title {
+    font-size: 3.2rem;
+  }
+  .details-hero-title {
+    font-size: 2.8rem;
   }
 }
 
-/* Tablet Portrait & Mobile (991px and below) */
+/* ===================================================================
+   5. TABLETS & LARGE PHONES (991px and below)
+   =================================================================== */
 @media (max-width: 991px) {
-  /* Hide desktop menu, show mobile toggle */
+  /* Hide desktop menu, desktop login, and mobile top-bar signup button */
   .stackly-nav-center,
-  .stackly-nav-actions .nav-login-link {
+  .stackly-nav-actions .nav-login-link,
+  .stackly-nav-actions .btn-custom {
     display: none !important;
   }
+  
   .mobile-nav-toggle {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
   }
 
+  .mobile-nav-toggle:hover {
+    background: rgba(255, 91, 77, 0.2);
+    border-color: var(--electric-coral);
+  }
+
+  /* Mobile Full-Width Drawer */
+  .stackly-mobile-drawer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    padding: 24px 20px !important;
+  }
+  .stackly-mobile-drawer.open {
+    transform: translateX(0) !important;
+  }
+
+  /* Fixed header spacing */
+  body {
+    padding-top: 80px;
+  }
+
+  /* Editorial Hero */
   .hero-editorial {
-    padding: 60px 0 80px;
+    padding: 40px 0 60px;
     min-height: auto;
   }
+  .hero-editorial-title {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
   .hero-visual-frame {
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .hero-main-img-box {
-    height: 420px;
+    height: 380px;
   }
 
   .floating-hero-card.card-top {
-    top: -20px;
+    top: -15px;
     left: 10px;
   }
   .floating-hero-card.card-bottom {
-    bottom: -20px;
+    bottom: -15px;
     right: 10px;
   }
 
+  /* About split image */
   .split-about-visual {
-    height: 380px;
-    margin-bottom: 40px;
+    height: 360px;
+    margin-bottom: 30px;
   }
 
+  /* Auth Pages (Login / Signup) */
   .auth-split-wrapper {
     flex-direction: column;
+    min-height: auto;
   }
   .auth-visual-col {
-    min-height: 280px;
-    padding: 30px;
+    min-height: 240px;
+    padding: 30px 24px;
   }
   .auth-form-col {
     max-width: 100%;
-    padding: 40px 24px;
+    width: 100%;
+    padding: 36px 20px;
   }
 
-  .creative-highlights-bar .highlight-stat-item {
-    margin-bottom: 20px;
+  /* Page Heroes */
+  .page-hero {
+    padding: 60px 0 40px;
+  }
+  .page-hero .page-title {
+    font-size: 2.6rem;
+  }
+  .page-hero .page-subtitle {
+    font-size: 1.05rem;
   }
 
+  /* Sidebars across detail pages */
   .details-sidebar-card {
     margin-top: 40px;
     position: static;
   }
 
+  /* Pricing Cards */
   .pricing-card.featured {
     transform: none;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* Highlights Bar */
+  .creative-highlights-bar .highlight-stat-item {
     margin-bottom: 20px;
   }
 }
 
-/* Mobile Devices (767px and below) */
+/* ===================================================================
+   6. MOBILE DEVICES & SMARTPHONES (767px and below)
+   =================================================================== */
 @media (max-width: 767px) {
   body {
     font-size: 15px;
     padding-top: 74px;
   }
 
-  .section-meta {
-    margin-bottom: 2rem;
+  /* Ensure Full Logo is cleanly visible in Mobile Navbar */
+  .navbar-brand-stackly .navbar-brand-logo {
+    max-height: 38px;
+    width: auto;
+    max-width: 150px;
+    display: block;
+    object-fit: contain;
   }
 
+  .mobile-drawer-header .navbar-brand-logo {
+    max-height: 40px;
+    width: auto;
+    max-width: 160px;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Container Gutters */
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Section Meta & Eyebrows */
+  .section-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 1.8rem;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+  }
+
+  /* Page Hero */
   .page-hero {
-    padding: 60px 0 40px;
+    padding: 45px 0 30px;
   }
   .page-hero .page-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+    line-height: 1.15;
   }
   .page-hero .page-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
+  /* Editorial Hero on Index */
+  .hero-editorial {
+    padding: 30px 0 50px;
+  }
   .hero-editorial-title {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
+    line-height: 1.12;
   }
   .hero-editorial-subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1.5;
   }
   .hero-main-img-box {
-    height: 340px;
+    height: 300px;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .hero-cta-group .btn-custom {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
+  /* Hide floating widgets that obscure imagery on compact phones */
+  .floating-hero-card {
+    display: none;
+  }
+
+  /* About Section */
   .about-stats-strip {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+  }
+  .split-about-visual {
+    height: 280px;
   }
 
+  /* Filter Tabs (Horizontal touch scroll) */
   .filter-tabs-container {
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
+    gap: 8px;
   }
   .filter-btn {
     flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: 0.82rem;
   }
 
+  /* Cards & Grid items */
+  .stackly-card {
+    padding: 22px 18px;
+  }
+
+  /* Event Cards */
   .event-card {
     flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
+    padding: 20px;
   }
   .event-date-box {
-    width: 70px;
-    height: 70px;
+    width: 64px;
+    height: 64px;
   }
 
+  /* Blog Cards */
+  .blog-card-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Footer Responsive Styles */
   .stackly-footer {
-    padding: 0 0 25px;
+    padding: 0 0 24px;
   }
   .footer-pre-banner {
-    padding: 45px 0 35px;
+    padding: 40px 0 30px;
     text-align: center;
   }
   .footer-pre-banner .studio-status-badge {
@@ -176,13 +357,14 @@
   }
   .footer-pre-banner .btn-custom {
     width: 100%;
+    justify-content: center;
   }
   .footer-main-grid {
-    padding: 45px 0 30px;
+    padding: 40px 0 25px;
   }
   .footer-newsletter-box {
-    padding: 22px;
-    margin-top: 20px;
+    padding: 20px;
+    margin-top: 16px;
   }
   .footer-newsletter-input-group {
     flex-direction: column;
@@ -198,58 +380,115 @@
   }
   .footer-bottom {
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     text-align: center;
     align-items: center;
   }
   .footer-legal-links {
     justify-content: center;
-  }
-
-  /* Responsive styles for Reference Footer */
-  .stackly-footer-ref {
-    padding-top: 48px;
-  }
-  .footer-ref-col {
-    margin-bottom: 28px;
-  }
-  .footer-ref-form-row {
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
     gap: 12px;
   }
-  .footer-ref-input {
-    width: 100%;
-  }
-  .footer-ref-submit-btn {
-    width: 100%;
-    text-align: center;
-  }
-  .footer-ref-bottom {
-    margin-top: 35px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
 
-  .floating-hero-card {
-    display: none; /* Hide floating widgets on very small screens to avoid overflow */
-  }
-
+  /* Buttons */
   .btn-custom {
-    padding: 11px 22px;
-    font-size: 0.88rem;
+    padding: 10px 20px;
+    font-size: 0.86rem;
+  }
+
+  /* Form Groups */
+  .form-group-custom {
+    margin-bottom: 18px;
+  }
+
+  /* Modal & Lightbox */
+  .lightbox-content-box {
+    padding: 16px;
   }
 }
 
-/* Extra Small Phones (390px and below) */
+/* ===================================================================
+   7. EXTRA SMALL SMARTPHONES (390px and below)
+   =================================================================== */
 @media (max-width: 390px) {
   .hero-editorial-title {
-    font-size: 2.1rem;
+    font-size: 1.95rem;
   }
-  .navbar-brand-stackly {
-    font-size: 1.35rem;
+  .page-hero .page-title {
+    font-size: 1.85rem;
+  }
+  .navbar-brand-stackly img {
+    height: 32px;
+    width: auto;
   }
   .stackly-card {
-    padding: 20px;
+    padding: 18px 14px;
+  }
+  .btn-custom {
+    padding: 9px 16px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ===================================================================
+   8. CLIENT & ADMIN DASHBOARDS RESPONSIVENESS
+   =================================================================== */
+@media (max-width: 991px) {
+  body.dashboard-body {
+    padding-top: 0 !important;
+  }
+
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  }
+  .dashboard-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+  .dashboard-main {
+    margin-left: 0 !important;
+  }
+  .dashboard-navbar {
+    padding: 0 16px !important;
+  }
+  .dash-page-title {
+    font-size: 1.05rem !important;
+  }
+  .dashboard-content {
+    padding: 20px 14px !important;
+  }
+  .dash-panel {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+  }
+  .dash-stat-val {
+    font-size: 1.75rem !important;
+  }
+  .dash-user-email {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .dash-user-meta {
+    display: none !important;
+  }
+  .dash-user-pill {
+    padding: 4px !important;
+  }
+  .dash-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .dash-panel-header .btn,
+  .dash-panel-header .btn-dash-primary,
+  .dash-panel-header .btn-dash-outline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }

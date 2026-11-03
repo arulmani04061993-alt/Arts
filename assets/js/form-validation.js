@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           if (submitText) submitText.textContent = 'SIGN IN AS ADMIN';
           if (emailInput) {
-            emailInput.placeholder = 'admin@stackly.edu';
-            if (emailInput.value === 'client@stackly.edu') emailInput.value = 'admin@stackly.edu';
+            emailInput.placeholder = 'admin@example.com';
           }
         } else {
           if (roleIndicator) {
@@ -80,8 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           if (submitText) submitText.textContent = 'SIGN IN AS CLIENT';
           if (emailInput) {
-            emailInput.placeholder = 'client@stackly.edu';
-            if (emailInput.value === 'admin@stackly.edu') emailInput.value = 'client@stackly.edu';
+            emailInput.placeholder = 'name@example.com';
           }
         }
       });
@@ -93,13 +91,39 @@ document.addEventListener('DOMContentLoaded', () => {
       const feedbackAlert = document.getElementById('login-feedback-alert');
       const selectedRole = document.querySelector('input[name="auth_role"]:checked')?.value || 'client';
 
-      // Fallback email if user left blank or clicks directly
-      let emailVal = emailInput ? emailInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const passVal = passInput ? passInput.value.trim() : '';
+
+      let hasError = false;
+
+      // Validate Email (Mandatory manual input)
       if (!emailVal) {
-        emailVal = selectedRole === 'admin' ? 'admin@stackly.edu' : 'client@stackly.edu';
+        setInputError(emailInput, 'Please enter your registered email address.');
+        hasError = true;
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+          setInputError(emailInput, 'Please enter a valid email address.');
+          hasError = true;
+        } else {
+          clearInputError(emailInput);
+        }
       }
 
-      // Save authenticated session details immediately
+      // Validate Password (Mandatory manual input)
+      if (!passVal) {
+        setInputError(passInput, 'Please enter your password.');
+        hasError = true;
+      } else if (passVal.length < 4) {
+        setInputError(passInput, 'Password must be at least 4 characters.');
+        hasError = true;
+      } else {
+        clearInputError(passInput);
+      }
+
+      if (hasError) return;
+
+      // Save authenticated session details with manually entered email
       localStorage.setItem('stackly_user_email', emailVal);
       localStorage.setItem('stackly_user_role', selectedRole);
 
@@ -113,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackAlert.classList.remove('d-none');
       }
 
-      // Direct instant redirection
+      // Direct instant redirection to dashboard
       window.location.href = targetDashboard;
     });
   }

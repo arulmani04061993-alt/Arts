@@ -19,11 +19,7 @@ const NAVBAR_HTML_FALLBACK = `
 <header class="stackly-navbar">
   <div class="container d-flex align-items-center justify-content-between">
     <a href="index.html" class="navbar-brand-stackly" aria-label="STACKLY Art & Design Institute Home">
-      <div class="brand-dot"></div>
-      <div>
-        <span>STACKLY</span>
-        <span class="brand-sub">Art & Design Institute</span>
-      </div>
+      <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="160" height="47">
     </a>
     <nav class="stackly-nav-center d-none d-lg-block" aria-label="Main Navigation">
       <ul class="stackly-nav-list">
@@ -40,18 +36,6 @@ const NAVBAR_HTML_FALLBACK = `
             <a href="service-details.html?service=web-design" class="dropdown-item-custom">Web Design <i class="bi bi-arrow-right"></i></a>
           </div>
         </li>
-        <li class="stackly-nav-item stackly-dropdown">
-          <a href="courses.html" class="stackly-nav-link">Courses <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i></a>
-          <div class="stackly-dropdown-menu">
-            <a href="course-details.html?course=graphic-design" class="dropdown-item-custom">Graphic Design <i class="bi bi-arrow-right"></i></a>
-            <a href="course-details.html?course=ui-ux-design" class="dropdown-item-custom">UI/UX Design <i class="bi bi-arrow-right"></i></a>
-            <a href="course-details.html?course=animation-motion" class="dropdown-item-custom">Animation & Motion Design <i class="bi bi-arrow-right"></i></a>
-            <a href="course-details.html?course=photography" class="dropdown-item-custom">Photography <i class="bi bi-arrow-right"></i></a>
-            <a href="course-details.html?course=interior-design" class="dropdown-item-custom">Interior Design <i class="bi bi-arrow-right"></i></a>
-            <a href="course-details.html?course=fashion-design" class="dropdown-item-custom">Fashion Design <i class="bi bi-arrow-right"></i></a>
-            <a href="course-details.html?course=digital-marketing" class="dropdown-item-custom">Digital Marketing <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </li>
         <li class="stackly-nav-item"><a href="blog.html" class="stackly-nav-link">Blog</a></li>
         <li class="stackly-nav-item"><a href="contact.html" class="stackly-nav-link">Contact</a></li>
         <li class="stackly-nav-item"><a href="admissions.html" class="stackly-nav-link admission-highlight">Admission <span class="badge-pill-mini">2026</span></a></li>
@@ -59,7 +43,7 @@ const NAVBAR_HTML_FALLBACK = `
     </nav>
     <div class="stackly-nav-actions">
       <a href="login.html" class="nav-login-link">Login</a>
-      <a href="signup.html" class="btn-custom btn-coral">Sign Up</a>
+      <a href="signup.html" class="btn-custom btn-coral d-none d-lg-inline-flex">Sign Up</a>
       <button class="mobile-nav-toggle d-lg-none" aria-label="Toggle navigation menu"><i class="bi bi-list"></i></button>
     </div>
   </div>
@@ -68,7 +52,9 @@ const NAVBAR_HTML_FALLBACK = `
 <div class="mobile-drawer-overlay"></div>
 <div class="stackly-mobile-drawer">
   <div class="mobile-drawer-header">
-    <div class="navbar-brand-stackly"><div class="brand-dot"></div><span>STACKLY</span></div>
+    <a href="index.html" class="navbar-brand-stackly">
+      <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="145" height="42" style="max-height: 42px; width: auto; object-fit: contain;">
+    </a>
     <button class="mobile-close-btn" aria-label="Close menu">&times;</button>
   </div>
   <ul class="mobile-nav-links">
@@ -86,29 +72,9 @@ const NAVBAR_HTML_FALLBACK = `
         <li><a href="service-details.html?service=web-design">Web Design</a></li>
       </ul>
     </li>
-    <li class="mobile-has-dropdown">
-      <a href="#" class="mobile-dropdown-toggle d-flex justify-content-between align-items-center">Courses <i class="bi bi-chevron-down"></i></a>
-      <ul class="mobile-submenu">
-        <li><a href="courses.html">All Courses</a></li>
-        <li><a href="course-details.html?course=graphic-design">Graphic Design</a></li>
-        <li><a href="course-details.html?course=ui-ux-design">UI/UX Design</a></li>
-        <li><a href="course-details.html?course=animation-motion">Animation & Motion</a></li>
-        <li><a href="course-details.html?course=photography">Photography</a></li>
-        <li><a href="course-details.html?course=interior-design">Interior Design</a></li>
-        <li><a href="course-details.html?course=fashion-design">Fashion Design</a></li>
-        <li><a href="course-details.html?course=digital-marketing">Digital Marketing</a></li>
-      </ul>
-    </li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="admissions.html" class="text-coral">Admission 2026</a></li>
-    <li><a href="student-portfolio.html">Student Portfolio</a></li>
-    <li><a href="gallery.html">Exhibition Gallery</a></li>
-    <li><a href="faculty.html">Creative Faculty</a></li>
-    <li><a href="events.html">Workshops & Events</a></li>
-    <li><a href="pricing.html">Tuition & Pricing</a></li>
-    <li><a href="careers.html">Careers</a></li>
-    <li><a href="faq.html">FAQ</a></li>
   </ul>
   <div class="mt-4 pt-3 border-top border-secondary">
     <a href="login.html" class="btn-custom btn-outline-ivory w-100 mb-2">Login</a>
