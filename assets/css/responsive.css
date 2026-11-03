@@ -218,18 +218,26 @@ img, video, iframe, canvas, svg {
   /* Ensure Full Logo is cleanly visible in Mobile Navbar */
   .navbar-brand-stackly .navbar-brand-logo {
     max-height: 38px;
+    height: 38px;
     width: auto;
-    max-width: 150px;
+    max-width: 155px;
     display: block;
     object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
   }
 
   .mobile-drawer-header .navbar-brand-logo {
     max-height: 40px;
+    height: 40px;
     width: auto;
-    max-width: 160px;
+    max-width: 165px;
     display: block;
     object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
   }
 
   /* Container Gutters */

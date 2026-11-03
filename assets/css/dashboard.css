@@ -77,14 +77,20 @@ body.dashboard-body {
 }
 
 .sidebar-brand .brand-logo {
-  height: 32px;
+  height: 34px;
   width: auto;
-  filter: brightness(0) invert(1);
-  transition: opacity 0.2s ease;
+  max-width: 140px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) contrast(1.1);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .sidebar-brand:hover .brand-logo {
-  opacity: 0.85;
+  opacity: 0.9;
+  transform: scale(1.02) translateZ(0);
 }
 
 .sidebar-brand-badge {

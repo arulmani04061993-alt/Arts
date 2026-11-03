@@ -174,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const fname = document.getElementById('signup-fname');
       const lname = document.getElementById('signup-lname');
       const email = document.getElementById('signup-email');
-      const phone = document.getElementById('signup-phone');
       const pass = document.getElementById('signup-password');
       const passConfirm = document.getElementById('signup-password-confirm');
       const terms = document.getElementById('signup-terms');
@@ -185,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!validateField(fname)) isValid = false;
       if (!validateField(lname)) isValid = false;
       if (!validateField(email)) isValid = false;
-      if (!validateField(phone)) isValid = false;
       if (!validateField(pass)) isValid = false;
 
       if (pass && passConfirm && pass.value !== passConfirm.value) {
@@ -225,18 +223,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Password Visibility Toggle Handler
+  // Initial state: input is type="password" (hidden as dots), icon is bi-eye-slash (eye hide)
+  // When clicked: switches to type="text" (visible password), icon switches to bi-eye (open eye)
   document.querySelectorAll('.password-toggle-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       const input = this.parentElement.querySelector('input');
       const icon = this.querySelector('i');
+      if (!input || !icon) return;
+
       if (input.type === 'password') {
         input.type = 'text';
-        icon.classList.remove('bi-eye');
-        icon.classList.add('bi-eye-slash');
+        icon.className = 'bi bi-eye text-coral'; // Open eye: password shown
       } else {
         input.type = 'password';
-        icon.classList.remove('bi-eye-slash');
-        icon.classList.add('bi-eye-ready', 'bi-eye');
+        icon.className = 'bi bi-eye-slash'; // Hidden eye: password as dots
       }
     });
   });

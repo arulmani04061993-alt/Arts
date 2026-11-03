@@ -53,7 +53,7 @@ const NAVBAR_HTML_FALLBACK = `
 <div class="stackly-mobile-drawer">
   <div class="mobile-drawer-header">
     <a href="index.html" class="navbar-brand-stackly">
-      <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="145" height="42" style="max-height: 42px; width: auto; object-fit: contain;">
+      <img src="assets/images/logo.webp" alt="STACKLY Institute" class="navbar-brand-logo" width="145" height="42">
     </a>
     <button class="mobile-close-btn" aria-label="Close menu">&times;</button>
   </div>
