@@ -9,22 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Lenis Smooth Scroll if library is loaded
   if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.25,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      wheelMultiplier: 1.1,
+      touchMultiplier: 1.8,
       infinite: false
     });
 
     window.lenis = lenis;
 
-    // Connect Lenis to GSAP ScrollTrigger if ScrollTrigger is present
+    // Connect Lenis scroll event to GSAP ScrollTrigger
     if (typeof ScrollTrigger !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
 
+      // Bind Lenis animation frame with GSAP ticker for flawless sync
       gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
       });
@@ -38,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(raf);
     }
 
+    // Refresh Lenis and ScrollTrigger after dynamic components and preloader finish
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        lenis.resize();
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 500);
+    });
+
     // Anchor links smooth navigation via Lenis
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', function(e) {
@@ -46,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const targetEl = document.querySelector(targetId);
           if (targetEl) {
             e.preventDefault();
-            lenis.scrollTo(targetEl, { offset: -80 });
+            lenis.scrollTo(targetEl, { offset: -90, duration: 1.3 });
           }
         }
       });

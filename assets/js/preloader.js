@@ -40,6 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
         onComplete: () => {
           preloader.style.display = 'none';
           document.body.classList.add('page-loaded');
+          // Recalculate Lenis smooth scroll and ScrollTrigger offsets after preloader removal
+          if (window.lenis) {
+            window.lenis.resize();
+          }
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+          }
           // Trigger entry animations if available
           if (window.triggerHeroAnimations) {
             window.triggerHeroAnimations();

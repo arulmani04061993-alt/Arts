@@ -26,7 +26,7 @@ const NAVBAR_HTML_FALLBACK = `
         <li class="stackly-nav-item"><a href="index.html" class="stackly-nav-link">Home</a></li>
         <li class="stackly-nav-item"><a href="about.html" class="stackly-nav-link">About Us</a></li>
         <li class="stackly-nav-item stackly-dropdown">
-          <a href="services.html" class="stackly-nav-link">Services <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i></a>
+          <a href="javascript:void(0);" class="stackly-nav-link stackly-dropdown-trigger" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="bi bi-chevron-down" style="font-size: 0.75rem;"></i></a>
           <div class="stackly-dropdown-menu">
             <a href="service-details.html?service=graphic-design" class="dropdown-item-custom">Graphic Design <i class="bi bi-arrow-right"></i></a>
             <a href="service-details.html?service=ui-ux-design" class="dropdown-item-custom">UI/UX Design <i class="bi bi-arrow-right"></i></a>
@@ -61,9 +61,8 @@ const NAVBAR_HTML_FALLBACK = `
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Us</a></li>
     <li class="mobile-has-dropdown">
-      <a href="#" class="mobile-dropdown-toggle d-flex justify-content-between align-items-center">Services <i class="bi bi-chevron-down"></i></a>
+      <a href="javascript:void(0);" class="mobile-dropdown-toggle d-flex justify-content-between align-items-center">Services <i class="bi bi-chevron-down"></i></a>
       <ul class="mobile-submenu">
-        <li><a href="services.html">All Services</a></li>
         <li><a href="service-details.html?service=graphic-design">Graphic Design</a></li>
         <li><a href="service-details.html?service=ui-ux-design">UI/UX Design</a></li>
         <li><a href="service-details.html?service=branding-identity">Branding & Identity</a></li>
@@ -129,13 +128,13 @@ const FOOTER_HTML_FALLBACK = `
       <div class="col-lg-2 col-md-3 col-6 footer-ref-col">
         <h4 class="footer-ref-heading">Services</h4>
         <ul class="footer-ref-links">
-          <li><a href="careers.html">Careers</a></li>
+          <li><a href="service-details.html?service=graphic-design">Graphic Design</a></li>
+          <li><a href="service-details.html?service=ui-ux-design">UI/UX Design</a></li>
+          <li><a href="service-details.html?service=branding-identity">Branding</a></li>
+          <li><a href="service-details.html?service=motion-graphics">Motion Graphics</a></li>
           <li><a href="admissions.html">Admissions</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="404.html">404 Error</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">SignUp</a></li>
           <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
 
