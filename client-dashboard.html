@@ -27,7 +27,7 @@
     <!-- Sidebar -->
     <aside class="dashboard-sidebar" id="dashboard-sidebar">
       <div class="sidebar-header">
-        <a href="index.html" class="sidebar-brand">
+        <a href="javascript:void(0)" class="sidebar-brand switch-tab-trigger" data-target-tab="view-dashboard" data-title="Client Workspace Overview">
           <img src="assets/images/logo.webp" alt="STACKLY Atelier" class="brand-logo" width="130">
         </a>
         <span class="sidebar-brand-badge">Client</span>
@@ -105,18 +105,9 @@
         </div>
 
         <div class="dash-nav-right">
-          <!-- Notification Icon -->
-          <button class="dash-sidebar-toggle" aria-label="Notifications" title="2 Unread Brief Notifications">
-            <i class="bi bi-bell"></i>
-          </button>
-
-          <!-- Right Side Email & Avatar -->
+          <!-- Right Side Email Only -->
           <div class="dash-user-pill">
-            <div class="dash-user-avatar" id="user-avatar-initials">CL</div>
-            <div class="dash-user-meta">
-              <span class="dash-user-email" id="display-user-email">client@stackly.edu</span>
-              <span class="dash-user-role-label">Verified Client Portal</span>
-            </div>
+            <span class="dash-user-email" id="display-user-email">client@stackly.edu</span>
           </div>
         </div>
       </header>
@@ -186,13 +177,13 @@
           </div>
 
           <!-- Active Briefs Table -->
-          <div class="dash-panel">
+          <div class="dash-panel mb-4">
             <div class="dash-panel-header">
               <div>
-                <h3 class="dash-panel-title">Active Project Deliverables</h3>
-                <p class="dash-panel-sub">Track real-time progress across ongoing studio projects</p>
+                <h3 class="dash-panel-title">Active Project Deliverables &amp; Milestones</h3>
+                <p class="dash-panel-sub">Real-time status synchronization across your ongoing atelier commissions</p>
               </div>
-              <button class="btn-dash-outline switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">View All Briefs</button>
+              <button class="btn-dash-outline switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">View All Briefs</button>
             </div>
 
             <div class="table-responsive">
@@ -202,6 +193,7 @@
                     <th>Project Brief</th>
                     <th>Lead Mentor</th>
                     <th>Sprint Milestone</th>
+                    <th>Progress</th>
                     <th>Status</th>
                     <th class="text-end">Action</th>
                   </tr>
@@ -214,8 +206,16 @@
                     </td>
                     <td>Julian Vance</td>
                     <td>Critique Stage 3 of 4</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 5px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-coral" style="width: 75%;"></div>
+                        </div>
+                        <span class="small text-muted">75%</span>
+                      </div>
+                    </td>
                     <td><span class="status-badge status-active"><i class="bi bi-record-fill"></i> In Progress</span></td>
-                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Inspect</button></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Inspect</button></td>
                   </tr>
                   <tr>
                     <td>
@@ -224,8 +224,16 @@
                     </td>
                     <td>Elena Rostova</td>
                     <td>Final Color Grade Review</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 5px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-warning" style="width: 90%;"></div>
+                        </div>
+                        <span class="small text-muted">90%</span>
+                      </div>
+                    </td>
                     <td><span class="status-badge status-pending"><i class="bi bi-hourglass-split"></i> Awaiting Feedback</span></td>
-                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Inspect</button></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Inspect</button></td>
                   </tr>
                   <tr>
                     <td>
@@ -234,22 +242,205 @@
                     </td>
                     <td>Marcus Sterling</td>
                     <td>Asset Handover Package</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 5px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-success" style="width: 100%;"></div>
+                        </div>
+                        <span class="small text-success">100%</span>
+                      </div>
+                    </td>
                     <td><span class="status-badge status-completed"><i class="bi bi-check-circle"></i> Ready for Download</span></td>
-                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Inspect</button></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Inspect</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="fw-semibold text-white">Spatial Sound Reactive Kinetic Wall</div>
+                      <span class="text-muted small">Atelier Code: STK-2026-D2</span>
+                    </td>
+                    <td>Sophia Chen</td>
+                    <td>Hardware Simulation Pass</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 5px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-purple" style="width: 45%;"></div>
+                        </div>
+                        <span class="small text-muted">45%</span>
+                      </div>
+                    </td>
+                    <td><span class="status-badge status-active"><i class="bi bi-record-fill"></i> In Progress</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Inspect</button></td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          <!-- Studio Activity Stream & Upcoming Sessions (2-Column Split) -->
+          <div class="row g-4 mb-4">
+            <!-- Left: Live Studio Activity Timeline -->
+            <div class="col-lg-7">
+              <div class="dash-panel h-100">
+                <div class="dash-panel-header">
+                  <div>
+                    <h4 class="dash-panel-title">Recent Studio Activity &amp; Audit Log</h4>
+                    <p class="dash-panel-sub">Real-time changelog of reviews, downloads, and feedback entries</p>
+                  </div>
+                  <span class="badge bg-dark border border-secondary text-muted small">Live Stream</span>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                  <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 d-flex align-items-start gap-3">
+                    <div class="stat-icon-wrap icon-coral-glow" style="width: 38px; height: 38px; font-size: 1rem;"><i class="bi bi-chat-left-dots"></i></div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-white small">Critique Feedback Posted</strong>
+                        <span class="text-muted" style="font-size: 0.72rem;">22 mins ago</span>
+                      </div>
+                      <p class="text-white-50 small mb-0 mt-1">Julian Vance posted visual annotations on Brief #STK-092 (Marble Specular).</p>
+                    </div>
+                  </div>
+                  <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 d-flex align-items-start gap-3">
+                    <div class="stat-icon-wrap icon-purple-glow" style="width: 38px; height: 38px; font-size: 1rem;"><i class="bi bi-cloud-arrow-up"></i></div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-white small">Asset Package v3.0 Exported</strong>
+                        <span class="text-muted" style="font-size: 0.72rem;">2 hours ago</span>
+                      </div>
+                      <p class="text-white-50 small mb-0 mt-1">Spatial Computing Lab uploaded high-poly USDZ deliverables for STK-079.</p>
+                    </div>
+                  </div>
+                  <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 d-flex align-items-start gap-3">
+                    <div class="stat-icon-wrap icon-green-glow" style="width: 38px; height: 38px; font-size: 1rem;"><i class="bi bi-calendar-check"></i></div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-white small">Live Critique Slot Confirmed</strong>
+                        <span class="text-muted" style="font-size: 0.72rem;">5 hours ago</span>
+                      </div>
+                      <p class="text-white-50 small mb-0 mt-1">Elena Rostova confirmed Milestone Evaluation scheduled for Nov 07 at 14:30 GMT.</p>
+                    </div>
+                  </div>
+                  <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 d-flex align-items-start gap-3">
+                    <div class="stat-icon-wrap icon-gold-glow" style="width: 38px; height: 38px; font-size: 1rem;"><i class="bi bi-receipt"></i></div>
+                    <div class="flex-grow-1">
+                      <div class="d-flex justify-content-between">
+                        <strong class="text-white small">Term Subscription Statement Generated</strong>
+                        <span class="text-muted" style="font-size: 0.72rem;">Yesterday</span>
+                      </div>
+                      <p class="text-white-50 small mb-0 mt-1">Tax Invoice #INV-2026-9041 verified and archived under Invoices tab.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Studio Hours & Upcoming Session Card -->
+            <div class="col-lg-5">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="dash-panel-header">
+                  <div>
+                    <h4 class="dash-panel-title">Next Scheduled Crit</h4>
+                    <p class="dash-panel-sub">Encrypted WebRTC Studio Node</p>
+                  </div>
+                  <span class="badge bg-danger bg-opacity-75 text-white small px-2 py-1">Today</span>
+                </div>
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 mb-3 flex-grow-1">
+                  <div class="text-coral fw-bold small mb-1"><i class="bi bi-broadcast me-1"></i> 16:00 – 17:00 GMT</div>
+                  <h5 class="text-white fw-bold mb-2">Volumetric Lighting &amp; Shader Articulation</h5>
+                  <p class="text-white-50 small mb-3">Lead Mentor: Julian Vance with guest panelist Arthur Pendelton.</p>
+                  <div class="d-flex align-items-center gap-2 text-muted small">
+                    <i class="bi bi-shield-lock text-success"></i>
+                    <span>End-to-End Encrypted Atelier Stream</span>
+                  </div>
+                </div>
+                <button class="btn-dash-primary w-100 mb-2 switch-tab-trigger" data-target-tab="view-sessions" data-title="Studio Sessions &amp; Crits">
+                  <i class="bi bi-camera-video me-1"></i> Open Studio Sessions Hub
+                </button>
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-25 small text-muted">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Studio Support Hotline:</span>
+                    <strong class="text-white">+91 98765 43210</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span>Atelier Concierge:</span>
+                    <strong class="text-white">atelier@stackly.edu</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Quotas & Resource Utilization (Static Bottom Grid) -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Term Resource Allocations &amp; Cloud Credits</h4>
+                <p class="dash-panel-sub">Quota utilization for compute nodes, rendering lab hours, and font licenses</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>GPU Render Cloud</span>
+                    <strong class="text-white">68%</strong>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-coral" style="width: 68%;"></div>
+                  </div>
+                  <span class="small text-white-50">340 / 500 Lab Hours Used</span>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>Studio Storage CDN</span>
+                    <strong class="text-white">42%</strong>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-purple" style="width: 42%;"></div>
+                  </div>
+                  <span class="small text-white-50">210 GB / 500 GB High-Res</span>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>Faculty 1-on-1 Quota</span>
+                    <strong class="text-white">60%</strong>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-success" style="width: 60%;"></div>
+                  </div>
+                  <span class="small text-white-50">6 of 10 Crits Remaining</span>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>Commercial Licenses</span>
+                    <strong class="text-white">100%</strong>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-warning" style="width: 100%;"></div>
+                  </div>
+                  <span class="small text-white-50">Unlimited Studio Rights</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- ==================== TAB 2: CREATIVE SERVICES ==================== -->
         <div id="view-services" class="dash-view-pane">
+          <!-- Main Header Panel -->
           <div class="dash-panel mb-4">
             <div class="dash-panel-header mb-0">
               <div>
-                <h3 class="dash-panel-title">Creative Services & Production Pipelines</h3>
-                <p class="dash-panel-sub">Direct access to STACKLY Studio's state-of-the-art visual, spatial, and fine art ateliers.</p>
+                <span class="badge bg-danger bg-opacity-25 text-coral border border-danger border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-stars me-1"></i> Full Production Suites &amp; Studio Capabilities
+                </span>
+                <h3 class="dash-panel-title">Creative Services &amp; Production Pipelines</h3>
+                <p class="dash-panel-sub">Direct access to STACKLY Studio's state-of-the-art visual, spatial, brand identity, and motion ateliers with committed turnarounds and clear delivery SLA metrics.</p>
               </div>
               <a href="service-details.html?service=graphic-design" class="btn-dash-outline" target="_blank">
                 <i class="bi bi-box-arrow-up-right"></i> Service Details
@@ -257,37 +448,263 @@
             </div>
           </div>
 
-          <div class="row g-4">
+          <!-- Service Capability Cards Grid (6 Services) -->
+          <div class="row g-4 mb-4">
+            <!-- Service 1: Graphic Design & Editorial -->
             <div class="col-md-6 col-lg-4">
-              <div class="dash-panel h-100">
-                <div class="stat-icon-wrap icon-coral-glow mb-3"><i class="bi bi-brush"></i></div>
-                <h4 class="text-white fw-bold mb-2">Classical & Digital Atelier</h4>
-                <p class="text-white-50 small mb-4">Old masters oil glaze emulation, digital matte painting, and master-level fine art production.</p>
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="stat-icon-wrap icon-coral-glow"><i class="bi bi-brush"></i></div>
+                  <span class="badge bg-dark border border-secondary text-coral small">Editorial &amp; Print</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Graphic Design &amp; Print</h4>
+                <p class="text-white-50 small mb-3">Large-format print, custom editorial typography, art catalogues, packaging architecture, and book design.</p>
+                <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
+                  <li class="mb-2"><i class="bi bi-check2 text-coral me-2"></i>Swiss grid layouts &amp; type licensing</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-coral me-2"></i>Foil stamping &amp; spot-UV pre-press</li>
+                  <li class="mb-0"><i class="bi bi-check2 text-coral me-2"></i>Deliverable formats: Print PDF, INDD, AI</li>
+                </ul>
                 <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                  <span class="text-white fw-bold">From $4,200</span>
-                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Commission</button>
+                  <div>
+                    <span class="text-muted small d-block">Starting Fee</span>
+                    <span class="text-white fw-bold">₹45,000 / Brief</span>
+                  </div>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Commission</button>
                 </div>
               </div>
             </div>
+
+            <!-- Service 2: UI/UX & Digital Systems -->
             <div class="col-md-6 col-lg-4">
-              <div class="dash-panel h-100">
-                <div class="stat-icon-wrap icon-purple-glow mb-3"><i class="bi bi-box"></i></div>
-                <h4 class="text-white fw-bold mb-2">Spatial XR & 3D Immersion</h4>
-                <p class="text-white-50 small mb-4">Unreal Engine 5 volumetric sculpting, spatial computing exhibits, and interactive VR spaces.</p>
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="stat-icon-wrap icon-purple-glow"><i class="bi bi-layers"></i></div>
+                  <span class="badge bg-dark border border-secondary text-purple small">Digital Products</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">UI/UX &amp; Product Design</h4>
+                <p class="text-white-50 small mb-3">Multi-platform design systems, interaction architectures, micro-animations, and responsive SaaS interfaces.</p>
+                <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
+                  <li class="mb-2"><i class="bi bi-check2 text-purple me-2"></i>Tokenized Figma component libraries</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-purple me-2"></i>WCAG AAA accessibility compliance</li>
+                  <li class="mb-0"><i class="bi bi-check2 text-purple me-2"></i>User testing &amp; prototype playback</li>
+                </ul>
                 <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                  <span class="text-white fw-bold">From $7,800</span>
-                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Commission</button>
+                  <div>
+                    <span class="text-muted small d-block">Starting Fee</span>
+                    <span class="text-white fw-bold">₹75,000 / Sprint</span>
+                  </div>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Commission</button>
                 </div>
               </div>
             </div>
+
+            <!-- Service 3: Branding & Identity -->
             <div class="col-md-6 col-lg-4">
-              <div class="dash-panel h-100">
-                <div class="stat-icon-wrap icon-green-glow mb-3"><i class="bi bi-film"></i></div>
-                <h4 class="text-white fw-bold mb-2">Cinematic Direction & Grade</h4>
-                <p class="text-white-50 small mb-4">Master color grading, lighting simulation, title sequence art direction, and film showcase visual art.</p>
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="stat-icon-wrap icon-coral-glow"><i class="bi bi-fingerprint"></i></div>
+                  <span class="badge bg-dark border border-secondary text-coral small">Identity Systems</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Branding &amp; Identity</h4>
+                <p class="text-white-50 small mb-3">Complete brand ecosystems, generative visual identities, brand voice manuals, and holistic rollout assets.</p>
+                <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
+                  <li class="mb-2"><i class="bi bi-check2 text-coral me-2"></i>Brand matrix &amp; perceptual positioning</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-coral me-2"></i>120-page comprehensive brand book</li>
+                  <li class="mb-0"><i class="bi bi-check2 text-coral me-2"></i>Stationery &amp; digital collateral suite</li>
+                </ul>
                 <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                  <span class="text-white fw-bold">From $6,400</span>
-                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission & Brief Submissions">Commission</button>
+                  <div>
+                    <span class="text-muted small d-block">Starting Fee</span>
+                    <span class="text-white fw-bold">₹90,000 / System</span>
+                  </div>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 4: Motion Graphics & 3D Visuals -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="stat-icon-wrap icon-green-glow"><i class="bi bi-film"></i></div>
+                  <span class="badge bg-dark border border-secondary text-success small">Cinema &amp; Motion</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Motion Graphics &amp; 3D</h4>
+                <p class="text-white-50 small mb-3">Kinetic typography, 3D product visualizer reels, cinema title sequences, and procedural simulation graphics.</p>
+                <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
+                  <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Octane / Redshift procedural renders</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Original sound design &amp; audio master</li>
+                  <li class="mb-0"><i class="bi bi-check2 text-success me-2"></i>4K ProRes 4444 delivery package</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <div>
+                    <span class="text-muted small d-block">Starting Fee</span>
+                    <span class="text-white fw-bold">₹60,000 / 30s</span>
+                  </div>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 5: Digital Illustration & Concept Art -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="stat-icon-wrap icon-purple-glow"><i class="bi bi-palette2"></i></div>
+                  <span class="badge bg-dark border border-secondary text-purple small">Illustration</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Digital Illustration</h4>
+                <p class="text-white-50 small mb-3">Bespoke editorial illustrations, atmospheric key visual concepts, storyboards, and vector design sets.</p>
+                <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
+                  <li class="mb-2"><i class="bi bi-check2 text-purple me-2"></i>Character sheets &amp; worldbuilding art</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-purple me-2"></i>Vector iconography &amp; spot visuals</li>
+                  <li class="mb-0"><i class="bi bi-check2 text-purple me-2"></i>Ultra-high resolution master files (8K)</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <div>
+                    <span class="text-muted small d-block">Starting Fee</span>
+                    <span class="text-white fw-bold">₹35,000 / Artwork</span>
+                  </div>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 6: Web & Interactive Design -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="stat-icon-wrap icon-coral-glow"><i class="bi bi-code-slash"></i></div>
+                  <span class="badge bg-dark border border-secondary text-coral small">Interactive Web</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Web Design &amp; Creative Code</h4>
+                <p class="text-white-50 small mb-3">WebGL immersive landing experiences, high-performance responsive web interfaces, and GSAP micro-interactions.</p>
+                <ul class="list-unstyled small text-muted mb-4 flex-grow-1">
+                  <li class="mb-2"><i class="bi bi-check2 text-coral me-2"></i>Lenis smooth scroll &amp; GSAP timelines</li>
+                  <li class="mb-2"><i class="bi bi-check2 text-coral me-2"></i>Three.js interactive canvas viewports</li>
+                  <li class="mb-0"><i class="bi bi-check2 text-coral me-2"></i>Production-ready semantic code base</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <div>
+                    <span class="text-muted small d-block">Starting Fee</span>
+                    <span class="text-white fw-bold">₹85,000 / Site</span>
+                  </div>
+                  <button class="btn-dash-outline py-1 px-3 switch-tab-trigger" data-target-tab="view-briefs" data-title="Commission &amp; Brief Submissions">Commission</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Production SLA & Deliverables Matrix (Static Data Section) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Production Tier &amp; SLA Commitment Matrix</h4>
+                <p class="dash-panel-sub">Transparent turnaround benchmarks, revision policies, and dedicated art director supervision standards across tiers.</p>
+              </div>
+              <span class="badge bg-dark border border-secondary text-white px-3 py-2 small">Guaranteed SLA Delivery</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Service Domain</th>
+                    <th>Standard Sprint</th>
+                    <th>Express Delivery</th>
+                    <th>Included Revisions</th>
+                    <th>Dedicated Mentor</th>
+                    <th>Deliverable Archive</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Graphic &amp; Editorial Print</strong></td>
+                    <td>7–10 Business Days</td>
+                    <td>72 Hours Available</td>
+                    <td>3 Iteration Rounds</td>
+                    <td>Lead Typographer</td>
+                    <td>Cloud ZIP + Source Files</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">UI/UX &amp; Design Systems</strong></td>
+                    <td>14–21 Business Days</td>
+                    <td>1 Week Sprint</td>
+                    <td>Unlimited Minor Tweaks</td>
+                    <td>Senior UX Architect</td>
+                    <td>Live Figma Tokens + Spec</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Branding &amp; Visual Identity</strong></td>
+                    <td>18–24 Business Days</td>
+                    <td>10 Business Days</td>
+                    <td>4 Complete Iterations</td>
+                    <td>Principal Brand Director</td>
+                    <td>Vector SVGs + Font Files</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Motion Graphics &amp; 3D Reel</strong></td>
+                    <td>10–14 Business Days</td>
+                    <td>5 Business Days</td>
+                    <td>3 Frame Tweaks</td>
+                    <td>3D CGI Animator</td>
+                    <td>ProRes 4444 + Render Stems</td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Digital Illustration</strong></td>
+                    <td>5–8 Business Days</td>
+                    <td>48 Hours</td>
+                    <td>2 Polish Stages</td>
+                    <td>Master Concept Artist</td>
+                    <td>Layered PSD + Vector EPS</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Studio Workflow Phases (Static Process Flow) -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">End-to-End Atelier Production Workflow</h4>
+                <p class="dash-panel-sub">Every creative commissioned through your client dashboard progresses through 4 milestone-checked phases.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-danger bg-opacity-25 text-coral rounded-circle p-2 me-2">01</span>
+                    <strong class="text-white">Brief Intake &amp; Discovery</strong>
+                  </div>
+                  <p class="small text-muted mb-0">Deconstruct requirements, verify visual references, establish brand moodboards, and align deliverable specifications.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-primary bg-opacity-25 text-purple rounded-circle p-2 me-2">02</span>
+                    <strong class="text-white">Concept Iteration</strong>
+                  </div>
+                  <p class="small text-muted mb-0">Atelier faculty &amp; fellows produce 2-3 distinct creative directions for client feedback and direction lock.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-success bg-opacity-25 text-success rounded-circle p-2 me-2">03</span>
+                    <strong class="text-white">Production &amp; Polish</strong>
+                  </div>
+                  <p class="small text-muted mb-0">High-fidelity rendering, typography kerning, color calibration, and pre-flight quality inspection checks.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-warning bg-opacity-25 text-warning rounded-circle p-2 me-2">04</span>
+                    <strong class="text-white">Master Delivery &amp; Rights</strong>
+                  </div>
+                  <p class="small text-muted mb-0">Final package handover, raw working files, commercial IP release certificate, and perpetual usage licenses.</p>
                 </div>
               </div>
             </div>
@@ -296,25 +713,60 @@
 
         <!-- ==================== TAB 3: PROJECT BRIEFS ==================== -->
         <div id="view-briefs" class="dash-view-pane">
+          <!-- Main Table Panel -->
           <div class="dash-panel mb-4">
             <div class="dash-panel-header">
               <div>
-                <h3 class="dash-panel-title">Project Briefs & Revisions</h3>
-                <p class="dash-panel-sub">Manage deliverables, upload project assets, and request revisions directly.</p>
+                <span class="badge bg-danger bg-opacity-25 text-coral border border-danger border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-folder-check me-1"></i> Active Commission Registry
+                </span>
+                <h3 class="dash-panel-title">Project Briefs &amp; Live Revisions</h3>
+                <p class="dash-panel-sub">Manage active deliverables, track iteration sprint cycles, upload raw project assets, and request targeted faculty revisions directly.</p>
               </div>
               <button class="btn-dash-primary" onclick="alert('New brief creation modal opened! Specify milestones and upload assets.')">
                 <i class="bi bi-plus-lg"></i> Submit New Brief
               </button>
             </div>
 
+            <!-- Brief Quick Stats Summary -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Total Submissions</span>
+                  <div class="fs-4 fw-bold text-white">08 <span class="small fw-normal text-muted fs-6">Briefs</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Under Production</span>
+                  <div class="fs-4 fw-bold text-coral">03 <span class="small fw-normal text-muted fs-6">In Atelier</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Pending Client Review</span>
+                  <div class="fs-4 fw-bold text-warning">02 <span class="small fw-normal text-muted fs-6">Awaiting</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Approved &amp; Delivered</span>
+                  <div class="fs-4 fw-bold text-success">03 <span class="small fw-normal text-muted fs-6">Closed</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full Briefs Table (6 Static Items) -->
             <div class="table-responsive">
               <table class="dash-table">
                 <thead>
                   <tr>
                     <th>Brief ID</th>
-                    <th>Title & Atelier</th>
+                    <th>Project Title &amp; Atelier</th>
+                    <th>Lead Mentor</th>
                     <th>Current Version</th>
-                    <th>Delivery Deadline</th>
+                    <th>Deadline</th>
+                    <th>Milestone Progress</th>
                     <th class="text-end">Action</th>
                   </tr>
                 </thead>
@@ -325,11 +777,42 @@
                       <div class="fw-semibold text-white">Classical Baroque Lighting Study</div>
                       <span class="text-muted small">Atelier of Historical Technique</span>
                     </td>
-                    <td>v2.4 (Ready for Review)</td>
+                    <td><span class="small text-white">Prof. Ronald Vance</span></td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">v2.4 (Review Ready)</span></td>
                     <td>Nov 18, 2026</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 110px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-warning" style="width: 85%;"></div>
+                        </div>
+                        <span class="small text-muted">85%</span>
+                      </div>
+                    </td>
                     <td class="text-end">
                       <button class="btn-dash-outline py-1 px-2 me-1" onclick="alert('Viewing high-res deliverable canvas v2.4')"><i class="bi bi-eye"></i> View</button>
                       <button class="btn-dash-outline py-1 px-2" onclick="alert('Revision requested. Mentor notified.')"><i class="bi bi-chat-left-text"></i> Revise</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-dark border border-secondary text-coral">STK-088</span></td>
+                    <td>
+                      <div class="fw-semibold text-white">Neo-Swiss Identity &amp; Variable Typeface</div>
+                      <span class="text-muted small">Typography &amp; Modernist Grid Studio</span>
+                    </td>
+                    <td><span class="small text-white">Elena Rostova</span></td>
+                    <td><span class="badge bg-primary bg-opacity-25 text-purple">v1.2 (Type Foundry Proof)</span></td>
+                    <td>Nov 24, 2026</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 110px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-purple" style="width: 50%;"></div>
+                        </div>
+                        <span class="small text-muted">50%</span>
+                      </div>
+                    </td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-2 me-1" onclick="alert('Reviewing OpenType variable font specimen')"><i class="bi bi-eye"></i> View</button>
+                      <button class="btn-dash-outline py-1 px-2" onclick="alert('Notes submitted for glyph adjustments')"><i class="bi bi-chat-left-text"></i> Revise</button>
                     </td>
                   </tr>
                   <tr>
@@ -338,11 +821,42 @@
                       <div class="fw-semibold text-white">Kinetic Typographic Installation</div>
                       <span class="text-muted small">Experimental Digital Form</span>
                     </td>
-                    <td>v1.0 (Draft Production)</td>
+                    <td><span class="small text-white">Marcus Thorne</span></td>
+                    <td><span class="badge bg-info bg-opacity-25 text-info">v1.0 (Draft Motion Test)</span></td>
                     <td>Dec 02, 2026</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 110px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-info" style="width: 35%;"></div>
+                        </div>
+                        <span class="small text-muted">35%</span>
+                      </div>
+                    </td>
                     <td class="text-end">
                       <button class="btn-dash-outline py-1 px-2 me-1" onclick="alert('Viewing rough wireframe and motion tests')"><i class="bi bi-eye"></i> View</button>
                       <button class="btn-dash-outline py-1 px-2" onclick="alert('Feedback sent to studio team.')"><i class="bi bi-chat-left-text"></i> Revise</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-dark border border-secondary text-coral">STK-081</span></td>
+                    <td>
+                      <div class="fw-semibold text-white">Atmospheric Sci-Fi Keyframe Series</div>
+                      <span class="text-muted small">Concept Art &amp; Worldbuilding</span>
+                    </td>
+                    <td><span class="small text-white">Siddharth Menon</span></td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">v2.1 (Color Key Polish)</span></td>
+                    <td>Dec 10, 2026</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 110px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-warning" style="width: 70%;"></div>
+                        </div>
+                        <span class="small text-muted">70%</span>
+                      </div>
+                    </td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-2 me-1" onclick="alert('Opening high-res 8K render pass')"><i class="bi bi-eye"></i> View</button>
+                      <button class="btn-dash-outline py-1 px-2" onclick="alert('Lighting balance adjustment marked')"><i class="bi bi-chat-left-text"></i> Revise</button>
                     </td>
                   </tr>
                   <tr>
@@ -351,10 +865,349 @@
                       <div class="fw-semibold text-white">Monolithic Sculpture 3D Mesh</div>
                       <span class="text-muted small">Spatial Computing Lab</span>
                     </td>
-                    <td>v3.0 (Approved & Exported)</td>
+                    <td><span class="small text-white">Dr. Sarah Jenkins</span></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">v3.0 (Approved &amp; Packaged)</span></td>
                     <td>Delivered</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 110px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-success" style="width: 100%;"></div>
+                        </div>
+                        <span class="small text-success">100%</span>
+                      </div>
+                    </td>
                     <td class="text-end">
                       <button class="btn btn-sm btn-success py-1 px-3" onclick="alert('Downloading full high-poly FBX/USDZ archive (340MB)')"><i class="bi bi-download me-1"></i> Download</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-dark border border-secondary text-coral">STK-072</span></td>
+                    <td>
+                      <div class="fw-semibold text-white">Fintech Design System Architecture</div>
+                      <span class="text-muted small">Interaction &amp; UI/UX Atelier</span>
+                    </td>
+                    <td><span class="small text-white">Aria Thorne</span></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">v4.0 (Live Figma Handover)</span></td>
+                    <td>Delivered</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 110px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-success" style="width: 100%;"></div>
+                        </div>
+                        <span class="small text-success">100%</span>
+                      </div>
+                    </td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-success py-1 px-3" onclick="alert('Downloading Figma token package and design tokens json')"><i class="bi bi-download me-1"></i> Download</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Extra Static Section 1: Brief Submission Guidelines & Protocols -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Brief Submission Guidelines &amp; Deliverable Checklist</h4>
+                <p class="dash-panel-sub">Follow these standardized parameters when framing new briefs to expedite turnaround times and minimize revision cycles.</p>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-coral fw-bold mb-2"><i class="bi bi-card-checklist me-2"></i>1. Objective &amp; Audience Scope</div>
+                  <p class="small text-muted mb-0">Specify targeted user demographics, primary call-to-actions, and emotional tone (e.g. minimalist, brutalist, opulent, academic).</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-purple fw-bold mb-2"><i class="bi bi-file-earmark-code me-2"></i>2. Technical Constraints</div>
+                  <p class="small text-muted mb-0">List target aspect ratios (16:9, 9:16, 1:1), color profiles (DCI-P3, Adobe RGB, CMYK ISO coated), and minimum render DPI requirements.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-success fw-bold mb-2"><i class="bi bi-cloud-arrow-up me-2"></i>3. Asset Delivery &amp; Formats</div>
+                  <p class="small text-muted mb-0">Provide vector logos (.svg / .eps), raw typography licenses, and benchmark reference URLs in Figma or Google Drive.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Static Section 2: Revision Cycle Policy -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Revision Iteration Protocol &amp; SLA Times</h4>
+                <p class="dash-panel-sub">How our studio handles client critique loops and deliverable refinement milestones.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-lg-3 col-md-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-coral fs-3 fw-bold mb-1">24h</div>
+                  <div class="fw-semibold text-white small">Feedback Acknowledgment</div>
+                  <p class="small text-muted mb-0 mt-1">Lead mentor reviews revision markups within 24 hours.</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-purple fs-3 fw-bold mb-1">48–72h</div>
+                  <div class="fw-semibold text-white small">Turnaround for v2 / v3</div>
+                  <p class="small text-muted mb-0 mt-1">Updated master proof uploaded with interactive diff view.</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-success fs-3 fw-bold mb-1">100%</div>
+                  <div class="fw-semibold text-white small">Perpetual IP Transfer</div>
+                  <p class="small text-muted mb-0 mt-1">Full source assets and commercial licenses released on sign-off.</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-warning fs-3 fw-bold mb-1">30 Days</div>
+                  <div class="fw-semibold text-white small">Active Cloud Backup</div>
+                  <p class="small text-muted mb-0 mt-1">Render passes and raw project files kept on STACKLY CDN.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 4: STUDIO SESSIONS ==================== -->
+        <div id="view-sessions" class="dash-view-pane">
+          <!-- Main Header Panel -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <span class="badge bg-danger bg-opacity-25 text-coral border border-danger border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-broadcast me-1"></i> Live Studio Critique &amp; Review Calendar
+                </span>
+                <h3 class="dash-panel-title">Scheduled Critique &amp; Studio Review Sessions</h3>
+                <p class="dash-panel-sub">Join scheduled live 1-on-1 video critiques, participate in departmental panel feedback roundtables, or reserve bespoke studio slots with visiting industry art directors.</p>
+              </div>
+              <button class="btn-dash-primary" onclick="alert('Studio session booking calendar opened! Select faculty and open calendar slot.')">
+                <i class="bi bi-calendar-plus"></i> Book New Studio Crit
+              </button>
+            </div>
+
+            <!-- Sessions Metrics Bar -->
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Upcoming Live Crits</span>
+                  <div class="fs-4 fw-bold text-coral">02 <span class="small fw-normal text-muted fs-6">Scheduled</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Hours Logged This Term</span>
+                  <div class="fs-4 fw-bold text-purple">18.5 <span class="small fw-normal text-muted fs-6">Hours</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Available Crit Quota</span>
+                  <div class="fs-4 fw-bold text-success">06 <span class="small fw-normal text-muted fs-6">Credits Left</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Session Attendance</span>
+                  <div class="fs-4 fw-bold text-white">100% <span class="small fw-normal text-muted fs-6">Perfect</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active & Upcoming Scheduled Session Cards (4 Cards) -->
+          <div class="row g-4 mb-4">
+            <!-- Session 1: Today Live Crit -->
+            <div class="col-lg-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid var(--electric-coral);">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge bg-danger bg-opacity-75 text-white px-3 py-1"><i class="bi bi-broadcast me-1"></i> Live Today</span>
+                  <span class="text-coral fw-semibold small"><i class="bi bi-clock me-1"></i>16:00 – 17:00 GMT</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Live Critique: Volumetric Lighting &amp; Shader Articulation</h4>
+                <p class="text-white-50 small mb-3">Deep-dive review of marble specular shaders, occlusion maps, and atmospheric fog density for project STK-092.</p>
+                <div class="d-flex align-items-center gap-3 p-3 rounded-3 bg-dark border border-secondary border-opacity-50 mb-4 flex-grow-1">
+                  <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="rounded-circle border border-coral" width="40" height="40" style="object-fit: cover;">
+                  <div>
+                    <div class="text-white fw-semibold small">Lead Mentor: Julian Vance</div>
+                    <span class="text-muted small">Chair of Historical Technique &amp; Digital Glazes</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3 pt-2">
+                  <button class="btn-dash-primary" onclick="alert('Connecting to STACKLY encrypted studio video studio room...')">
+                    <i class="bi bi-camera-video me-1"></i> Join Studio Room
+                  </button>
+                  <button class="btn-dash-outline" onclick="alert('Studio session synchronized with Google / Apple Calendar.')">
+                    <i class="bi bi-calendar-event me-1"></i> Add to Calendar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Session 2: Upcoming Milestone -->
+            <div class="col-lg-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid var(--creative-purple);">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge bg-primary bg-opacity-25 text-purple px-3 py-1 border border-primary border-opacity-50">Confirmed</span>
+                  <span class="text-purple fw-semibold small"><i class="bi bi-calendar3 me-1"></i>Nov 07 • 14:30 GMT</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Portfolio Milestone Evaluation: Brand Architecture</h4>
+                <p class="text-white-50 small mb-3">Comprehensive assessment of Neo-Swiss type specimens, variable weight scales, and corporate grid manuals.</p>
+                <div class="d-flex align-items-center gap-3 p-3 rounded-3 bg-dark border border-secondary border-opacity-50 mb-4 flex-grow-1">
+                  <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Rostova" class="rounded-circle border border-purple" width="40" height="40" style="object-fit: cover;">
+                  <div>
+                    <div class="text-white fw-semibold small">Lead Mentor: Elena Rostova</div>
+                    <span class="text-muted small">Dean of Modernist Form &amp; Typography</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3 pt-2">
+                  <button class="btn-dash-outline" onclick="alert('Session confirmed. Encrypted video stream unlocks 15 minutes before scheduled start.')">
+                    <i class="bi bi-calendar-check me-1"></i> Confirmed Entry
+                  </button>
+                  <button class="btn-dash-outline" onclick="alert('Reschedule request logged. Admissions coordinator will confirm alternative slot.')">Reschedule</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Session 3: Kinetic Motion Review -->
+            <div class="col-lg-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid #198754;">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge bg-success bg-opacity-25 text-success px-3 py-1 border border-success border-opacity-50">Booked</span>
+                  <span class="text-success fw-semibold small"><i class="bi bi-calendar3 me-1"></i>Nov 12 • 11:00 GMT</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Kinetic Typographic Installation: Frame Flow Crit</h4>
+                <p class="text-white-50 small mb-3">Motion physics, easing curve fine-tuning, and sound reactive trigger calibration review.</p>
+                <div class="d-flex align-items-center gap-3 p-3 rounded-3 bg-dark border border-secondary border-opacity-50 mb-4 flex-grow-1">
+                  <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Thorne" class="rounded-circle border border-success" width="40" height="40" style="object-fit: cover;">
+                  <div>
+                    <div class="text-white fw-semibold small">Lead Mentor: Marcus Thorne</div>
+                    <span class="text-muted small">Head of Kinetic Typography &amp; 3D Systems</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3 pt-2">
+                  <button class="btn-dash-outline" onclick="alert('Session confirmed. Preparation assets synchronized.')">
+                    <i class="bi bi-check2-circle me-1"></i> Pre-flight Ready
+                  </button>
+                  <button class="btn-dash-outline" onclick="alert('Brief notes submitted for mentor pre-reading.')">Share Notes</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Session 4: Industry Guest Lecture -->
+            <div class="col-lg-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid #ffc107;">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="badge bg-warning bg-opacity-25 text-warning px-3 py-1 border border-warning border-opacity-50">Masterclass</span>
+                  <span class="text-warning fw-semibold small"><i class="bi bi-calendar3 me-1"></i>Nov 19 • 18:00 GMT</span>
+                </div>
+                <h4 class="text-white fw-bold mb-2">Executive Masterclass: The Future of Spatial Art</h4>
+                <p class="text-white-50 small mb-3">Volumetric worldbuilding, Apple Vision Pro rendering constraints, and spatial UI layout disciplines.</p>
+                <div class="d-flex align-items-center gap-3 p-3 rounded-3 bg-dark border border-secondary border-opacity-50 mb-4 flex-grow-1">
+                  <img src="assets/images/faculty/faculty-sarah.webp" alt="Dr. Sarah Jenkins" class="rounded-circle border border-warning" width="40" height="40" style="object-fit: cover;">
+                  <div>
+                    <div class="text-white fw-semibold small">Guest Chair: Dr. Sarah Jenkins</div>
+                    <span class="text-muted small">Visiting Fellow, Spatial Computing Atelier</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3 pt-2">
+                  <button class="btn-dash-primary" onclick="alert('Seat reserved for live interactive masterclass Q&A.')">
+                    <i class="bi bi-ticket-perforated me-1"></i> Reserve Seat
+                  </button>
+                  <button class="btn-dash-outline" onclick="alert('Session added to reminders.')">Set Alert</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Session Guidelines & Protocols (Static Section) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Studio Session Protocol &amp; Preparation Guidelines</h4>
+                <p class="dash-panel-sub">Maximize critique efficacy by preparing project canvas viewports and asset stems beforehand.</p>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-coral fw-bold mb-2"><i class="bi bi-display me-2"></i>1. Dual Display Screen Share</div>
+                  <p class="small text-muted mb-0">Prepare working files in Figma, Cinema4D, or Photoshop with color-calibrated sRGB/DCI-P3 monitor profiles for accurate color dialogue.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-purple fw-bold mb-2"><i class="bi bi-clock-history me-2"></i>2. 3-Part Session Breakdown</div>
+                  <p class="small text-muted mb-0">10 mins problem walkthrough, 30 mins live screen markup and architectural review, 10 mins agreed action steps &amp; sprint roadmap.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-success fw-bold mb-2"><i class="bi bi-mic me-2"></i>3. Cloud Session Archive</div>
+                  <p class="small text-muted mb-0">Every studio critique is automatically recorded in 1080p 60fps with searchable audio transcripts available in your portal within 2 hours.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Past Critique Recordings & Transcripts (Static Archive) -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Past Session Archives &amp; Screen Recordings</h4>
+                <p class="dash-panel-sub">Access recordings, annotated whiteboard snapshots, and action lists from previous sessions.</p>
+              </div>
+              <span class="badge bg-dark border border-secondary text-muted px-3 py-1 small">3 Stored Recordings</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Session Title</th>
+                    <th>Mentor</th>
+                    <th>Date Held</th>
+                    <th>Duration</th>
+                    <th>Whiteboard Notes</th>
+                    <th class="text-end">Recording</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Neo-Swiss Grid Hierarchy &amp; Baseline Rhythms</strong></td>
+                    <td>Elena Rostova</td>
+                    <td>Oct 28, 2026</td>
+                    <td>52 mins</td>
+                    <td><span class="badge bg-dark border border-secondary text-coral"><i class="bi bi-paperclip me-1"></i>14 Art Annotations</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Streaming 1080p recording for Oct 28 session')"><i class="bi bi-play-circle me-1"></i> Watch</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Procedural Noise vs Hand-painted Glaze Textures</strong></td>
+                    <td>Julian Vance</td>
+                    <td>Oct 15, 2026</td>
+                    <td>48 mins</td>
+                    <td><span class="badge bg-dark border border-secondary text-coral"><i class="bi bi-paperclip me-1"></i>08 Shader Passes</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Streaming 1080p recording for Oct 15 session')"><i class="bi bi-play-circle me-1"></i> Watch</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Figma Token Architecture for Complex Multi-Theme SaaS</strong></td>
+                    <td>Aria Thorne</td>
+                    <td>Sep 29, 2026</td>
+                    <td>60 mins</td>
+                    <td><span class="badge bg-dark border border-secondary text-coral"><i class="bi bi-paperclip me-1"></i>Design Token Specs</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Streaming 1080p recording for Sep 29 session')"><i class="bi bi-play-circle me-1"></i> Watch</button>
                     </td>
                   </tr>
                 </tbody>
@@ -363,174 +1216,447 @@
           </div>
         </div>
 
-        <!-- ==================== TAB 4: STUDIO SESSIONS ==================== -->
-        <div id="view-sessions" class="dash-view-pane">
-          <div class="dash-panel mb-4">
-            <h3 class="dash-panel-title">Scheduled Critique & Review Sessions</h3>
-            <p class="dash-panel-sub">Join scheduled live video critiques or book an open slot with studio faculty.</p>
-          </div>
-
-          <div class="row g-4">
-            <div class="col-lg-6">
-              <div class="dash-panel">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                  <span class="badge bg-danger">Upcoming Live Crit</span>
-                  <span class="text-white-50 small">Today • 16:00 GMT</span>
-                </div>
-                <h4 class="text-white fw-bold mb-2">Live Critique: Volumetric Lighting & Shading</h4>
-                <p class="text-white-50 small mb-4">Lead Mentor: Julian Vance with guest panelist Arthur Pendelton.</p>
-                <div class="d-flex align-items-center gap-3">
-                  <button class="btn-dash-primary" onclick="alert('Connecting to encrypted live studio stream...')">
-                    <i class="bi bi-camera-video"></i> Join Room
-                  </button>
-                  <button class="btn-dash-outline" onclick="alert('Studio session added to your calendar.')">Add to Calendar</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="dash-panel">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                  <span class="badge bg-secondary">Scheduled</span>
-                  <span class="text-white-50 small">Nov 07 • 14:30 GMT</span>
-                </div>
-                <h4 class="text-white fw-bold mb-2">Portfolio Milestone Evaluation</h4>
-                <p class="text-white-50 small mb-4">Lead Mentor: Elena Rostova (Dean of Fine Art).</p>
-                <div class="d-flex align-items-center gap-3">
-                  <button class="btn-dash-outline" onclick="alert('Session confirmed. Link will unlock 15 minutes before time.')">
-                    <i class="bi bi-calendar-check me-1"></i> Confirmed
-                  </button>
-                  <button class="btn-dash-outline" onclick="alert('Reschedule request sent to mentor.')">Reschedule</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- ==================== TAB 5: DIRECT MENTORSHIP ==================== -->
         <div id="view-mentorship" class="dash-view-pane">
-          <div class="dash-panel">
-            <h3 class="dash-panel-title">Direct Mentor Communication Channel</h3>
-            <p class="dash-panel-sub mb-4">Send asynchronous project inquiries, review notes, or schedule bespoke technical advice.</p>
-            
-            <div class="p-4 rounded-3 mb-4" style="background: rgba(0,0,0,0.4); border: 1px solid var(--dash-border);">
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="rounded-circle border border-coral" width="46" height="46" style="object-fit: cover;">
-                <div>
-                  <h6 class="text-white fw-bold mb-0">Julian Vance (Lead Mentor)</h6>
-                  <span class="text-success small"><i class="bi bi-circle-fill" style="font-size: 8px;"></i> Online now</span>
-                </div>
+          <!-- Main Mentorship Header -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <span class="badge bg-danger bg-opacity-25 text-coral border border-danger border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-chat-heart me-1"></i> Private Dedicated Mentorship Atelier
+                </span>
+                <h3 class="dash-panel-title">Direct Mentor Communication &amp; Critique Hub</h3>
+                <p class="dash-panel-sub">Continuous 1-on-1 dialogue with your assigned principal mentors, private artwork review threads, asynchronous voice feedback, and advisory office hours.</p>
               </div>
-              <p class="text-white-50 mb-0">"Hi! I reviewed the brush density maps you sent yesterday. The subsurface scattering on the marble render looks incredible. Let me know if you want to dial in the specular highlights during today's crit."</p>
+              <div class="d-flex gap-2">
+                <button class="btn-dash-outline" onclick="alert('Mentor office hours booking modal opened.')">
+                  <i class="bi bi-clock-history me-1"></i> Office Hours
+                </button>
+                <button class="btn-dash-primary" onclick="alert('Upload critique markup files (PSD, PDF, MP4)')">
+                  <i class="bi bi-paperclip me-1"></i> Share Files
+                </button>
+              </div>
             </div>
 
+            <!-- Mentor Quick Status Strip -->
+            <div class="row g-3">
+              <div class="col-md-4 col-sm-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 d-flex align-items-center gap-3">
+                  <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="rounded-circle border border-coral" width="48" height="48" style="object-fit: cover;">
+                  <div>
+                    <strong class="text-white d-block">Julian Vance</strong>
+                    <span class="text-coral small"><i class="bi bi-check-circle-fill me-1"></i>Primary Lead Mentor</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Average Response SLA</span>
+                  <div class="fs-5 fw-bold text-success"><i class="bi bi-lightning-charge me-1"></i>Under 3 Hours</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-12">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Active Critique Thread</span>
+                  <div class="fs-5 fw-bold text-white">Marble Specular &amp; Light Pass</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Message Thread & Chat Interface -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header pb-3 border-bottom border-secondary border-opacity-25 mb-4">
+              <div class="d-flex align-items-center gap-3">
+                <div class="position-relative">
+                  <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="rounded-circle border border-coral" width="48" height="48" style="object-fit: cover;">
+                  <span class="position-absolute bottom-0 end-0 bg-success border border-dark rounded-circle p-1" style="width: 12px; height: 12px;"></span>
+                </div>
+                <div>
+                  <h5 class="text-white fw-bold mb-0">Julian Vance (Lead Mentor)</h5>
+                  <span class="text-success small"><i class="bi bi-circle-fill" style="font-size: 8px;"></i> Active in Studio • Historical Technique Chair</span>
+                </div>
+              </div>
+              <span class="badge bg-dark border border-secondary text-muted px-3 py-1 small">Thread ID: #MNT-8819</span>
+            </div>
+
+            <!-- Static Chat Messages Container -->
+            <div class="p-3 rounded-3 mb-4 d-flex flex-column gap-3" style="background: rgba(0,0,0,0.4); border: 1px solid var(--dash-border); max-height: 480px; overflow-y: auto;">
+              <!-- Message 1: Mentor -->
+              <div class="d-flex gap-3 align-items-start" style="max-width: 85%;">
+                <img src="assets/images/faculty/faculty-julian.webp" alt="Julian" class="rounded-circle" width="36" height="36" style="object-fit: cover;">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong class="text-white small">Julian Vance</strong>
+                    <span class="text-muted small" style="font-size: 0.72rem;">Yesterday, 14:20</span>
+                  </div>
+                  <p class="text-white-50 small mb-0">"Hi! I reviewed the brush density maps you sent yesterday. The subsurface scattering on the marble render looks incredible. Let me know if you want to dial in the specular highlights during today's crit."</p>
+                </div>
+              </div>
+
+              <!-- Message 2: Client -->
+              <div class="d-flex gap-3 align-items-start align-self-end flex-row-reverse" style="max-width: 85%;">
+                <div class="p-3 rounded-3 border" style="background: rgba(255, 91, 77, 0.12); border-color: rgba(255, 91, 77, 0.35) !important;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="text-muted small me-3" style="font-size: 0.72rem;">Yesterday, 16:45</span>
+                    <strong class="text-coral small">You (Client)</strong>
+                  </div>
+                  <p class="text-white small mb-0">"Thank you, Julian! I noticed some unwanted bloom around the chisel marks under direct rim lighting. Should I attenuate the roughness map or lower the specular IOR from 1.54 to 1.48?"</p>
+                </div>
+              </div>
+
+              <!-- Message 3: Mentor with File Attachment -->
+              <div class="d-flex gap-3 align-items-start" style="max-width: 85%;">
+                <img src="assets/images/faculty/faculty-julian.webp" alt="Julian" class="rounded-circle" width="36" height="36" style="object-fit: cover;">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong class="text-white small">Julian Vance</strong>
+                    <span class="text-muted small" style="font-size: 0.72rem;">Today, 10:15</span>
+                  </div>
+                  <p class="text-white-50 small mb-2">"Definitely lower the IOR to 1.48 and clamp your secondary bounce GI. I marked up your render pass with visual notes in the attachment below:"</p>
+                  <div class="p-2 rounded bg-black bg-opacity-50 border border-secondary border-opacity-50 d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-file-earmark-image text-coral fs-5"></i>
+                    <div>
+                      <div class="text-white small fw-semibold">marble_specular_crit_markup_v2.png</div>
+                      <span class="text-muted" style="font-size: 0.72rem;">4.2 MB • Click to preview annotation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input Form Box -->
             <div class="d-flex gap-2">
-              <input type="text" class="form-control bg-dark text-white border-secondary border-opacity-50 py-2 px-3" placeholder="Type your message to mentor Julian Vance..." style="background: #0d0d12 !important;">
-              <button class="btn-dash-primary px-4" onclick="alert('Message sent to mentor!')"><i class="bi bi-send"></i> Send</button>
+              <input type="text" class="form-control bg-dark text-white border-secondary border-opacity-50 py-2 px-3" placeholder="Type your inquiry or critique reply to mentor Julian Vance..." style="background: #0d0d12 !important;">
+              <button class="btn-dash-primary px-4" onclick="alert('Message and feedback sent to mentor!')"><i class="bi bi-send"></i> Send</button>
+            </div>
+          </div>
+
+          <!-- Extra Static Section 1: Mentorship Advisory Guidelines -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Mentorship Standards &amp; Review Protocol</h4>
+                <p class="dash-panel-sub">Standards and best practices to ensure fruitful creative dialogue.</p>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-coral fw-bold mb-2"><i class="bi bi-patch-question me-2"></i>Targeted Question Framing</div>
+                  <p class="small text-muted mb-0">Frame queries around specific technical, compositional, or conceptual obstacles rather than broad aesthetic requests for faster resolution.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-purple fw-bold mb-2"><i class="bi bi-layers-half me-2"></i>Layered Source Submission</div>
+                  <p class="small text-muted mb-0">When requesting lighting or typographic review, always include layered PSDs, Figma inspect links, or EXR multipass renders.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-success fw-bold mb-2"><i class="bi bi-file-earmark-lock me-2"></i>Strict NDA &amp; IP Protection</div>
+                  <p class="small text-muted mb-0">All files and conversational assets exchanged within this mentorship hub are strictly governed by STACKLY's mutual non-disclosure policy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Static Section 2: Assigned Mentors Directory -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Secondary Atelier Mentors Available for Consult</h4>
+                <p class="dash-panel-sub">You can route specific departmental inquiries to these secondary faculty mentors under your current tier quota.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <img src="assets/images/faculty/faculty-elena.webp" alt="Elena" class="rounded-circle border border-purple" width="42" height="42" style="object-fit: cover;">
+                    <div>
+                      <strong class="text-white d-block small">Elena Rostova</strong>
+                      <span class="text-muted small">Typography &amp; Grid Systems</span>
+                    </div>
+                  </div>
+                  <p class="small text-white-50 mb-3 flex-grow-1">Consult Elena for micro-typography, optical kerning, and multilingual font scaling.</p>
+                  <button class="btn-dash-outline py-1 px-3 w-100 small" onclick="alert('Thread created with Elena Rostova.')"><i class="bi bi-chat-dots me-1"></i> Message</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus" class="rounded-circle border border-success" width="42" height="42" style="object-fit: cover;">
+                    <div>
+                      <strong class="text-white d-block small">Marcus Thorne</strong>
+                      <span class="text-muted small">Kinetic Form &amp; Motion CGI</span>
+                    </div>
+                  </div>
+                  <p class="small text-white-50 mb-3 flex-grow-1">Consult Marcus for easing velocity, procedural deformers, and particle simulation.</p>
+                  <button class="btn-dash-outline py-1 px-3 w-100 small" onclick="alert('Thread created with Marcus Thorne.')"><i class="bi bi-chat-dots me-1"></i> Message</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <img src="assets/images/faculty/faculty-sarah.webp" alt="Dr. Sarah" class="rounded-circle border border-warning" width="42" height="42" style="object-fit: cover;">
+                    <div>
+                      <strong class="text-white d-block small">Dr. Sarah Jenkins</strong>
+                      <span class="text-muted small">Spatial Computing &amp; XR</span>
+                    </div>
+                  </div>
+                  <p class="small text-white-50 mb-3 flex-grow-1">Consult Dr. Jenkins for stereo passthrough, USDZ optimization, and spatial UI.</p>
+                  <button class="btn-dash-outline py-1 px-3 w-100 small" onclick="alert('Thread created with Dr. Sarah Jenkins.')"><i class="bi bi-chat-dots me-1"></i> Message</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- ==================== TAB 6: FACULTY ATELIER (PREMIUM CARDS) ==================== -->
         <div id="view-faculty" class="dash-view-pane">
+          <!-- Main Header Panel -->
           <div class="dash-panel mb-4">
-            <h3 class="dash-panel-title">Faculty Atelier Directory</h3>
-            <p class="dash-panel-sub">Connect with resident master artists, technical directors, and studio critics.</p>
+            <div class="dash-panel-header">
+              <div>
+                <span class="badge bg-danger bg-opacity-25 text-coral border border-danger border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-mortarboard me-1"></i> Academic Faculty &amp; Resident Studio Critics
+                </span>
+                <h3 class="dash-panel-title">Faculty Atelier Directory &amp; Advisory Council</h3>
+                <p class="dash-panel-sub">Connect with world-renowned master artists, typographers, computational designers, and spatial computing directors shaping contemporary visual culture.</p>
+              </div>
+              <a href="faculty.html" class="btn-dash-outline" target="_blank">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Public Faculty Roster
+              </a>
+            </div>
+
+            <!-- Faculty Statistics Summary -->
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Resident Chairs</span>
+                  <div class="fs-4 fw-bold text-coral">18 <span class="small fw-normal text-muted fs-6">Professors</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Global Studio Fellows</span>
+                  <div class="fs-4 fw-bold text-purple">34 <span class="small fw-normal text-muted fs-6">Scholars</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Faculty Exhibition Venues</span>
+                  <div class="fs-4 fw-bold text-success">42+ <span class="small fw-normal text-muted fs-6">Biennales</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Open 1-on-1 Slots</span>
+                  <div class="fs-4 fw-bold text-white">12 <span class="small fw-normal text-muted fs-6">This Week</span></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="row g-4">
+          <!-- Faculty Directory Cards (6 Cards with Full Static Info) -->
+          <div class="row g-4 mb-4">
             <!-- Faculty 1 -->
             <div class="col-md-6 col-lg-4">
-              <div class="faculty-premium-card">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
                 <div class="faculty-avatar-wrap">
                   <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="faculty-avatar-img">
                   <span class="faculty-status-dot" title="Available for Critiques"></span>
                 </div>
                 <h4 class="faculty-card-name">Julian Vance</h4>
-                <div class="faculty-card-role">Master of Classical Oil & Lighting</div>
-                <p class="faculty-card-bio">Former Royal Academy Scholar, 14 years fine art exhibition history specializing in dramatic chiaroscuro and glaze layering.</p>
+                <div class="faculty-card-role">Master of Classical Oil &amp; Lighting</div>
+                <div class="small text-coral mb-2"><i class="bi bi-geo-alt me-1"></i>Atelier 04 • Historical Technique</div>
+                <p class="faculty-card-bio flex-grow-1">Former Royal Academy Scholar, 14 years fine art exhibition history specializing in dramatic chiaroscuro and glaze layering.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Office Hours:</span>
+                    <strong class="text-white">Tues &amp; Thurs (14:00 GMT)</strong>
+                  </div>
+                </div>
                 <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
-                  <i class="bi bi-chat-dots"></i> Send Message
+                  <i class="bi bi-chat-dots"></i> Message Mentor
                 </button>
               </div>
             </div>
 
             <!-- Faculty 2 -->
             <div class="col-md-6 col-lg-4">
-              <div class="faculty-premium-card">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
                 <div class="faculty-avatar-wrap">
                   <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Rostova" class="faculty-avatar-img">
                   <span class="faculty-status-dot" title="Available for Critiques"></span>
                 </div>
                 <h4 class="faculty-card-name">Elena Rostova</h4>
                 <div class="faculty-card-role">Chair of Spatial Computing</div>
-                <p class="faculty-card-bio">Specialist in generative 3D environments, XR curation, and real-time raytracing pipelines for immersive architecture.</p>
+                <div class="small text-purple mb-2"><i class="bi bi-geo-alt me-1"></i>Lab 09 • Immersive Media</div>
+                <p class="faculty-card-bio flex-grow-1">Specialist in generative 3D environments, XR curation, and real-time raytracing pipelines for immersive architecture.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Office Hours:</span>
+                    <strong class="text-white">Wed &amp; Fri (11:00 GMT)</strong>
+                  </div>
+                </div>
                 <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
-                  <i class="bi bi-chat-dots"></i> Send Message
+                  <i class="bi bi-chat-dots"></i> Message Mentor
                 </button>
               </div>
             </div>
 
             <!-- Faculty 3 -->
             <div class="col-md-6 col-lg-4">
-              <div class="faculty-premium-card">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
                 <div class="faculty-avatar-wrap">
                   <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Sterling" class="faculty-avatar-img">
                   <span class="faculty-status-dot" title="Available for Critiques"></span>
                 </div>
                 <h4 class="faculty-card-name">Marcus Sterling</h4>
                 <div class="faculty-card-role">Director of Creative Brand Systems</div>
-                <p class="faculty-card-bio">Identity consultant for international fashion houses and contemporary art galleries, leading editorial typography.</p>
+                <div class="small text-coral mb-2"><i class="bi bi-geo-alt me-1"></i>Atelier 02 • Editorial Design</div>
+                <p class="faculty-card-bio flex-grow-1">Identity consultant for international fashion houses and contemporary art galleries, leading editorial typography.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Office Hours:</span>
+                    <strong class="text-white">Mon &amp; Wed (15:30 GMT)</strong>
+                  </div>
+                </div>
                 <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
-                  <i class="bi bi-chat-dots"></i> Send Message
+                  <i class="bi bi-chat-dots"></i> Message Mentor
                 </button>
               </div>
             </div>
 
             <!-- Faculty 4 -->
             <div class="col-md-6 col-lg-4">
-              <div class="faculty-premium-card">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
                 <div class="faculty-avatar-wrap">
                   <img src="assets/images/faculty/faculty-sophia.webp" alt="Sophia Chen" class="faculty-avatar-img">
                   <span class="faculty-status-dot" title="Available for Critiques"></span>
                 </div>
                 <h4 class="faculty-card-name">Sophia Chen</h4>
                 <div class="faculty-card-role">Senior Lecturer in Kinetic Sculpture</div>
-                <p class="faculty-card-bio">Pioneering mechanical motion design and digital robotics in interactive museum installations worldwide.</p>
+                <div class="small text-purple mb-2"><i class="bi bi-geo-alt me-1"></i>Atelier 07 • Kinetic Robotics</div>
+                <p class="faculty-card-bio flex-grow-1">Pioneering mechanical motion design and digital robotics in interactive museum installations worldwide.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Office Hours:</span>
+                    <strong class="text-white">Thurs &amp; Fri (10:00 GMT)</strong>
+                  </div>
+                </div>
                 <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
-                  <i class="bi bi-chat-dots"></i> Send Message
+                  <i class="bi bi-chat-dots"></i> Message Mentor
                 </button>
               </div>
             </div>
 
             <!-- Faculty 5 -->
             <div class="col-md-6 col-lg-4">
-              <div class="faculty-premium-card">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
                 <div class="faculty-avatar-wrap">
                   <img src="assets/images/faculty/faculty-david.webp" alt="David Thorne" class="faculty-avatar-img">
                   <span class="faculty-status-dot" title="Available for Critiques"></span>
                 </div>
                 <h4 class="faculty-card-name">David Thorne</h4>
                 <div class="faculty-card-role">Head of Photographic Direction</div>
-                <p class="faculty-card-bio">Editorial photographer and lighting director whose architectural monograph work spans Venice, Paris, and Tokyo.</p>
+                <div class="small text-coral mb-2"><i class="bi bi-geo-alt me-1"></i>Darkroom 01 • Optical Physics</div>
+                <p class="faculty-card-bio flex-grow-1">Editorial photographer and lighting director whose architectural monograph work spans Venice, Paris, and Tokyo.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Office Hours:</span>
+                    <strong class="text-white">Mon &amp; Thurs (16:00 GMT)</strong>
+                  </div>
+                </div>
                 <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
-                  <i class="bi bi-chat-dots"></i> Send Message
+                  <i class="bi bi-chat-dots"></i> Message Mentor
                 </button>
               </div>
             </div>
 
             <!-- Faculty 6 -->
             <div class="col-md-6 col-lg-4">
-              <div class="faculty-premium-card">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
                 <div class="faculty-avatar-wrap">
                   <img src="assets/images/faculty/faculty-amara.webp" alt="Amara Okafor" class="faculty-avatar-img">
                   <span class="faculty-status-dot" title="Available for Critiques"></span>
                 </div>
                 <h4 class="faculty-card-name">Amara Okafor</h4>
                 <div class="faculty-card-role">Professor of Experimental Ceramics</div>
-                <p class="faculty-card-bio">Integrating computational procedural modeling with tactile ceramic glazes and high-fire artisanal kiln pottery.</p>
+                <div class="small text-purple mb-2"><i class="bi bi-geo-alt me-1"></i>Kiln Atelier 03 • Ceramic Glazes</div>
+                <p class="faculty-card-bio flex-grow-1">Integrating computational procedural modeling with tactile ceramic glazes and high-fire artisanal kiln pottery.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Office Hours:</span>
+                    <strong class="text-white">Tuesday (11:30 GMT)</strong>
+                  </div>
+                </div>
                 <button class="btn-dash-primary w-100 switch-tab-trigger" data-target-tab="view-mentorship" data-title="1-on-1 Direct Mentorship">
-                  <i class="bi bi-chat-dots"></i> Send Message
+                  <i class="bi bi-chat-dots"></i> Message Mentor
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Advisory Board & Visiting Critics (Static Section) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">International Visiting Critics &amp; Industry Fellows (Term 2026/27)</h4>
+                <p class="dash-panel-sub">Industry practitioners conducting monthly specialized masterclasses and blind portfolio reviews.</p>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Visiting Critic</th>
+                    <th>Primary Affiliation</th>
+                    <th>Specialization Discipline</th>
+                    <th>Quarterly Masterclass</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Arthur Pendelton</strong></td>
+                    <td>Principal Art Director, Pentagram London</td>
+                    <td>Brand Ecosystems &amp; Identity Manuals</td>
+                    <td>Dec 04, 2026</td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Kenji Takahashi</strong></td>
+                    <td>XR Director, Sony Interactive Tokyo</td>
+                    <td>Real-Time Volumetric Rendering in UE5</td>
+                    <td>Jan 18, 2027</td>
+                    <td><span class="badge bg-primary bg-opacity-25 text-purple">Upcoming</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Miriam Al-Hassan</strong></td>
+                    <td>Curator, Venice Architecture Biennale</td>
+                    <td>Spatial Scenography &amp; Physical Installation</td>
+                    <td>Feb 12, 2027</td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">Scheduling</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Atelier Office Hours Booking Notice -->
+          <div class="dash-panel" style="background: linear-gradient(135deg, rgba(120, 102, 232, 0.08) 0%, rgba(18, 18, 24, 0.95) 100%); border-color: rgba(120, 102, 232, 0.25);">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <h4 class="text-white fw-bold mb-1">Require Bespoke Departmental Advisory?</h4>
+                <p class="text-white-50 small mb-0">You can request a multi-faculty panel review for major thesis projects or commercial brand launches via the administrative office.</p>
+              </div>
+              <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <button class="btn-dash-primary" onclick="alert('Multi-faculty review panel requisition submitted.')">
+                  <i class="bi bi-people-fill me-1"></i> Request Panel Review
                 </button>
               </div>
             </div>

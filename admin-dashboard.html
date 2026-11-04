@@ -27,7 +27,7 @@
     <!-- Sidebar -->
     <aside class="dashboard-sidebar" id="dashboard-sidebar">
       <div class="sidebar-header">
-        <a href="index.html" class="sidebar-brand">
+        <a href="javascript:void(0)" class="sidebar-brand switch-admin-tab" data-target-tab="admin-command" data-title="Executive Command Center">
           <img src="assets/images/logo.webp" alt="STACKLY Atelier" class="brand-logo" width="130">
         </a>
         <span class="sidebar-brand-badge" style="background: rgba(120, 102, 232, 0.15); color: #a496f8; border-color: rgba(120, 102, 232, 0.3);">Admin</span>
@@ -111,18 +111,9 @@
         </div>
 
         <div class="dash-nav-right">
-          <!-- Notification Icon -->
-          <button class="dash-sidebar-toggle" aria-label="Notifications" title="6 Priority Executive Alerts">
-            <i class="bi bi-shield-check"></i>
-          </button>
-
-          <!-- Right Side Email & Avatar -->
+          <!-- Right Side Email Only -->
           <div class="dash-user-pill">
-            <div class="dash-user-avatar" id="user-avatar-initials" style="background: linear-gradient(135deg, #7866e8 0%, #5844d8 100%);">AD</div>
-            <div class="dash-user-meta">
-              <span class="dash-user-email" id="display-user-email">admin@stackly.edu</span>
-              <span class="dash-user-role-label" style="color: #a496f8;">Atelier Administrator</span>
-            </div>
+            <span class="dash-user-email" id="display-user-email">admin@stackly.edu</span>
           </div>
         </div>
       </header>
@@ -258,16 +249,59 @@
 
         <!-- ==================== TAB 2: ADMISSIONS 2026 ==================== -->
         <div id="admin-admissions" class="dash-view-pane">
+          <!-- Main Header & Action Panel -->
           <div class="dash-panel mb-4">
             <div class="dash-panel-header">
               <div>
-                <h3 class="dash-panel-title">Admissions & Enrollment Registry</h3>
-                <p class="dash-panel-sub">Evaluate applicant dossiers, assign committee reviewers, and issue institutional letters.</p>
+                <span class="badge bg-primary bg-opacity-25 text-purple border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-person-bounding-box me-1"></i> Cohort 2026/27 Admissions Engine
+                </span>
+                <h3 class="dash-panel-title">Admissions &amp; Candidate Enrollment Registry</h3>
+                <p class="dash-panel-sub">Evaluate applicant dossiers, track double-blind faculty scoring, allocate merit fellowships, and dispatch digital enrollment contracts.</p>
               </div>
               <div class="d-flex gap-2">
-                <button class="btn-dash-outline" onclick="alert('Exporting 2026 Candidate Database CSV...')"><i class="bi bi-file-earmark-spreadsheet"></i> Export CSV</button>
-                <button class="btn-dash-primary" onclick="alert('Bulk offer letters scheduled for dispatch.')"><i class="bi bi-envelope-paper"></i> Dispatch Batch</button>
+                <button class="btn-dash-outline" onclick="alert('Exporting 2026 Candidate Database CSV...')"><i class="bi bi-file-earmark-spreadsheet me-1"></i> Export CSV</button>
+                <button class="btn-dash-primary" onclick="alert('Bulk offer letters scheduled for dispatch.')"><i class="bi bi-envelope-paper me-1"></i> Dispatch Batch Offers</button>
               </div>
+            </div>
+
+            <!-- Admissions Funnel Metrics Bar -->
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Total Applications</span>
+                  <div class="fs-4 fw-bold text-white">418 <span class="small fw-normal text-muted fs-6">Candidates</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Portfolio Review Stage</span>
+                  <div class="fs-4 fw-bold text-coral">86 <span class="small fw-normal text-muted fs-6">In Evaluation</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Faculty Interviews</span>
+                  <div class="fs-4 fw-bold text-warning">28 <span class="small fw-normal text-muted fs-6">This Week</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Admitted &amp; Confirmed</span>
+                  <div class="fs-4 fw-bold text-success">64 / 90 <span class="small fw-normal text-muted fs-6">Seats Filled</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Candidates Evaluation Table (6 Static Detailed Records) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Active Candidate Dossiers</h4>
+                <p class="dash-panel-sub">Real-time status of candidate portfolios undergoing blind review and faculty committee review.</p>
+              </div>
+              <span class="badge bg-dark border border-secondary text-coral small">Double-Blind Review Active</span>
             </div>
 
             <div class="table-responsive">
@@ -275,9 +309,11 @@
                 <thead>
                   <tr>
                     <th>Candidate</th>
-                    <th>Application Date</th>
-                    <th>Discipline</th>
-                    <th>Review Stage</th>
+                    <th>Program &amp; Studio</th>
+                    <th>Portfolio Score</th>
+                    <th>Reviewers</th>
+                    <th>Stage</th>
+                    <th>Fellowship Grant</th>
                     <th class="text-end">Action</th>
                   </tr>
                 </thead>
@@ -287,9 +323,14 @@
                       <div class="text-white fw-bold">Alexander Wright</div>
                       <span class="text-muted small">a.wright@design.ac.uk</span>
                     </td>
-                    <td>Oct 29, 2026</td>
-                    <td>XR & Spatial Form</td>
-                    <td><span class="badge bg-info">Atelier Audition</span></td>
+                    <td>
+                      <div class="text-white small">XR &amp; Spatial Form</div>
+                      <span class="text-muted small">ID: APP-2026-081</span>
+                    </td>
+                    <td><strong class="text-success">94 / 100</strong> <span class="badge bg-success bg-opacity-25 text-success small ms-1">Exceptional</span></td>
+                    <td><span class="small text-white-50">Dr. Sarah Jenkins, Kenji T.</span></td>
+                    <td><span class="badge bg-info bg-opacity-25 text-info">Atelier Audition</span></td>
+                    <td><span class="badge bg-dark border border-secondary text-coral">50% Merit Fellow</span></td>
                     <td class="text-end">
                       <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Alexander Wright')">View Dossier</button>
                     </td>
@@ -299,9 +340,14 @@
                       <div class="text-white fw-bold">Camila Gutierrez</div>
                       <span class="text-muted small">c.gutierrez@arts.ar</span>
                     </td>
-                    <td>Nov 01, 2026</td>
-                    <td>Master Residency</td>
-                    <td><span class="badge bg-warning text-dark">Faculty Review</span></td>
+                    <td>
+                      <div class="text-white small">Master Residency (24 Mo)</div>
+                      <span class="text-muted small">ID: APP-2026-089</span>
+                    </td>
+                    <td><strong class="text-warning">86 / 100</strong> <span class="badge bg-warning bg-opacity-25 text-warning small ms-1">Strong</span></td>
+                    <td><span class="small text-white-50">Elena Rostova, Julian V.</span></td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">Faculty Review</span></td>
+                    <td><span class="badge bg-dark border border-secondary text-muted">Under Review</span></td>
                     <td class="text-end">
                       <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Camila Gutierrez')">View Dossier</button>
                     </td>
@@ -311,67 +357,472 @@
                       <div class="text-white fw-bold">Tatsuro Mori</div>
                       <span class="text-muted small">mori.t@tokyo-fineart.jp</span>
                     </td>
-                    <td>Nov 02, 2026</td>
-                    <td>Classical Oil Glaze</td>
-                    <td><span class="badge bg-success">Committee Approved</span></td>
+                    <td>
+                      <div class="text-white small">Classical Oil Glaze Atelier</div>
+                      <span class="text-muted small">ID: APP-2026-092</span>
+                    </td>
+                    <td><strong class="text-success">98 / 100</strong> <span class="badge bg-success bg-opacity-25 text-success small ms-1">Highest Honor</span></td>
+                    <td><span class="small text-white-50">Julian Vance, Arthur P.</span></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Committee Approved</span></td>
+                    <td><span class="badge bg-dark border border-secondary text-coral">75% Founder Fellow</span></td>
                     <td class="text-end">
                       <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Tatsuro Mori')">View Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="text-white fw-bold">Mei-Ling Zhao</div>
+                      <span class="text-muted small">ml.zhao@design.hk</span>
+                    </td>
+                    <td>
+                      <div class="text-white small">Brand Identity &amp; Typography</div>
+                      <span class="text-muted small">ID: APP-2026-097</span>
+                    </td>
+                    <td><strong class="text-success">91 / 100</strong> <span class="badge bg-success bg-opacity-25 text-success small ms-1">Exceptional</span></td>
+                    <td><span class="small text-white-50">Marcus Sterling, Elena R.</span></td>
+                    <td><span class="badge bg-primary bg-opacity-25 text-purple">Dean Interview</span></td>
+                    <td><span class="badge bg-dark border border-secondary text-coral">35% Merit Grant</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Mei-Ling Zhao')">View Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="text-white fw-bold">Liam Gallagher</div>
+                      <span class="text-muted small">liam.g@creativedublin.ie</span>
+                    </td>
+                    <td>
+                      <div class="text-white small">Kinetic Motion &amp; 3D CGI</div>
+                      <span class="text-muted small">ID: APP-2026-104</span>
+                    </td>
+                    <td><strong class="text-white">82 / 100</strong> <span class="badge bg-secondary bg-opacity-25 text-white small ms-1">Standard</span></td>
+                    <td><span class="small text-white-50">Sophia Chen, Marcus S.</span></td>
+                    <td><span class="badge bg-secondary bg-opacity-25 text-white">Initial Screen</span></td>
+                    <td><span class="badge bg-dark border border-secondary text-muted">Eligible</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Liam Gallagher')">View Dossier</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="text-white fw-bold">Ananya Sharma</div>
+                      <span class="text-muted small">ananya.s@niftalumni.in</span>
+                    </td>
+                    <td>
+                      <div class="text-white small">Experiential UI/UX Architecture</div>
+                      <span class="text-muted small">ID: APP-2026-110</span>
+                    </td>
+                    <td><strong class="text-success">95 / 100</strong> <span class="badge bg-success bg-opacity-25 text-success small ms-1">Exceptional</span></td>
+                    <td><span class="small text-white-50">Aria Thorne, Dr. Jenkins</span></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Offer Dispatched</span></td>
+                    <td><span class="badge bg-dark border border-secondary text-coral">50% Merit Fellow</span></td>
+                    <td class="text-end">
+                      <button class="btn-dash-outline py-1 px-3" onclick="alert('Opening candidate dossier for Ananya Sharma')">View Dossier</button>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
+
+          <!-- Admissions Quota Breakdown by Program (Static Breakdown Cards) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Studio Cohort Capacity &amp; Seat Allocation (2026/27)</h4>
+                <p class="dash-panel-sub">Capacity caps, committed deposits, and waitlist metrics per atelier discipline.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong class="text-white small">Master Residency Atelier</strong>
+                    <span class="text-coral small fw-bold">11 / 12 Seats</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-coral" style="width: 92%;"></div>
+                  </div>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.72rem;">
+                    <span>Waitlist: 18 Candidates</span>
+                    <span class="text-warning">1 Seat Remaining</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong class="text-white small">Undergraduate Fine Art &amp; Design</strong>
+                    <span class="text-purple small fw-bold">32 / 45 Seats</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-purple" style="width: 71%;"></div>
+                  </div>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.72rem;">
+                    <span>Waitlist: 44 Candidates</span>
+                    <span class="text-success">13 Seats Available</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong class="text-white small">Spatial XR &amp; Computational Lab</strong>
+                    <span class="text-success small fw-bold">21 / 25 Seats</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                    <div class="progress-bar bg-success" style="width: 84%;"></div>
+                  </div>
+                  <div class="d-flex justify-content-between text-muted small" style="font-size: 0.72rem;">
+                    <span>Waitlist: 29 Candidates</span>
+                    <span class="text-warning">4 Seats Remaining</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evaluation Rubric & Quality Control Workflow (Static Standards) -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Institutional Evaluation Protocol (Blind 4-Pillar Score)</h4>
+                <p class="dash-panel-sub">Every submitted portfolio is graded anonymously by two senior faculty reviewers.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-coral fw-bold mb-1"><i class="bi bi-lightbulb me-1"></i> Conceptual Depth (40%)</div>
+                  <p class="small text-muted mb-0">Originality of premise, depth of research, and articulation of intent.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-purple fw-bold mb-1"><i class="bi bi-bezier2 me-1"></i> Technical Craft (35%)</div>
+                  <p class="small text-muted mb-0">Compositional discipline, typographic precision, and render execution.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-success fw-bold mb-1"><i class="bi bi-arrow-repeat me-1"></i> Iteration Rigor (15%)</div>
+                  <p class="small text-muted mb-0">Process sketches, rejected variations, and responsiveness to critique.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 h-100">
+                  <div class="text-warning fw-bold mb-1"><i class="bi bi-mic me-1"></i> Interview Dialogue (10%)</div>
+                  <p class="small text-muted mb-0">Oral presentation of creative vision with department chair.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- ==================== TAB 3: PROGRAM CATALOG ==================== -->
         <div id="admin-catalog" class="dash-view-pane">
+          <!-- Main Header & Action Panel -->
           <div class="dash-panel mb-4">
             <div class="dash-panel-header">
               <div>
-                <h3 class="dash-panel-title">Curriculum & Studio Program Catalog</h3>
-                <p class="dash-panel-sub">Manage course syllabi, capacity caps, and semester schedules.</p>
+                <span class="badge bg-primary bg-opacity-25 text-purple border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-mortarboard-fill me-1"></i> Academic Pedagogy &amp; Studio Syllabi
+                </span>
+                <h3 class="dash-panel-title">Curriculum &amp; Studio Program Catalog</h3>
+                <p class="dash-panel-sub">Manage departmental curriculum syllabi, accreditation credits, atelier capacity limits, and semester schedule milestones.</p>
               </div>
-              <button class="btn-dash-primary" onclick="alert('Opening curriculum builder...')">
-                <i class="bi bi-plus-lg"></i> Add New Program
-              </button>
+              <div class="d-flex gap-2">
+                <button class="btn-dash-outline" onclick="alert('Exporting Academic Syllabus PDF Dossier...')">
+                  <i class="bi bi-file-earmark-pdf me-1"></i> Export Syllabi
+                </button>
+                <button class="btn-dash-primary" onclick="alert('Opening curriculum builder...')">
+                  <i class="bi bi-plus-lg me-1"></i> Add New Program
+                </button>
+              </div>
             </div>
 
-            <div class="row g-4">
-              <div class="col-md-4">
-                <div class="dash-panel h-100">
-                  <div class="stat-icon-wrap icon-purple-glow mb-3"><i class="bi bi-award"></i></div>
-                  <h4 class="text-white fw-bold mb-1">Master Residency</h4>
-                  <p class="text-coral small mb-2">24 Months • Limit: 12 Fellows</p>
-                  <p class="text-white-50 small mb-4">Solo atelier studio, dedicated executive mentorship, and international gallery showcase.</p>
-                  <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                    <span class="badge bg-success">11 / 12 Enrolled</span>
-                    <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Master Residency parameters')">Configure</button>
-                  </div>
+            <!-- Program Overview Metrics Strip -->
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Active Disciplines</span>
+                  <div class="fs-4 fw-bold text-white">06 <span class="small fw-normal text-muted fs-6">Programs</span></div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="dash-panel h-100">
-                  <div class="stat-icon-wrap icon-coral-glow mb-3"><i class="bi bi-mortarboard"></i></div>
-                  <h4 class="text-white fw-bold mb-1">Diploma in Fine Art</h4>
-                  <p class="text-coral small mb-2">12 Months • Limit: 40 Students</p>
-                  <p class="text-white-50 small mb-4">Intensive studio discipline, assigned workstation, and live commercial brief placements.</p>
-                  <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                    <span class="badge bg-success">38 / 40 Enrolled</span>
-                    <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Diploma parameters')">Configure</button>
-                  </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Overall Enrollment Rate</span>
+                  <div class="fs-4 fw-bold text-success">89.4% <span class="small fw-normal text-muted fs-6">Capacity</span></div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="dash-panel h-100">
-                  <div class="stat-icon-wrap icon-green-glow mb-3"><i class="bi bi-brush"></i></div>
-                  <h4 class="text-white fw-bold mb-1">Classical Certificate</h4>
-                  <p class="text-coral small mb-2">6 Months • Limit: 60 Students</p>
-                  <p class="text-white-50 small mb-4">Fundamental techniques, anatomical mastery, and bi-weekly portfolio reviews.</p>
-                  <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                    <span class="badge bg-warning text-dark">54 / 60 Enrolled</span>
-                    <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Certificate parameters')">Configure</button>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Total ECTS Credits</span>
+                  <div class="fs-4 fw-bold text-purple">480 <span class="small fw-normal text-muted fs-6">Accredited</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Studio Workstations</span>
+                  <div class="fs-4 fw-bold text-coral">185 / 200 <span class="small fw-normal text-muted fs-6">Allocated</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Program Cards Grid (6 Full Static Programs) -->
+          <div class="row g-4 mb-4">
+            <!-- Program 1: Master Residency -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-purple-glow"><i class="bi bi-award"></i></div>
+                  <span class="badge bg-dark border border-secondary text-purple small">Postgraduate Atelier</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Master Residency Atelier</h4>
+                <p class="text-coral small mb-2"><i class="bi bi-clock me-1"></i>24 Months • Limit: 12 Fellows</p>
+                <p class="text-white-50 small mb-3 flex-grow-1">Dedicated private atelier pod, 1-on-1 executive mentorship, biennial European gallery showcase, and MoCap suite keycard.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Tuition:</span>
+                    <strong class="text-white">₹1,60,000 / Semester</strong>
                   </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Studio Head:</span>
+                    <strong class="text-white">Julian Vance</strong>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="badge bg-success">11 / 12 Enrolled</span>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Master Residency parameters')">Configure</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 2: Diploma in Fine Art -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-coral-glow"><i class="bi bi-mortarboard"></i></div>
+                  <span class="badge bg-dark border border-secondary text-coral small">Undergraduate Diploma</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Diploma in Fine Art &amp; Design</h4>
+                <p class="text-coral small mb-2"><i class="bi bi-clock me-1"></i>36 Months • Limit: 45 Students</p>
+                <p class="text-white-50 small mb-3 flex-grow-1">Rigorous foundation in drawing, spatial geometry, printmaking workshops, Swiss typography, and agency internships.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Tuition:</span>
+                    <strong class="text-white">₹1,25,000 / Semester</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Studio Head:</span>
+                    <strong class="text-white">Elena Rostova</strong>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="badge bg-success">38 / 45 Enrolled</span>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Diploma parameters')">Configure</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 3: Spatial XR & Computational Design -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-green-glow"><i class="bi bi-box"></i></div>
+                  <span class="badge bg-dark border border-secondary text-success small">Immersive Media</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Spatial XR &amp; 3D Computing</h4>
+                <p class="text-coral small mb-2"><i class="bi bi-clock me-1"></i>18 Months • Limit: 25 Students</p>
+                <p class="text-white-50 small mb-3 flex-grow-1">Real-time volumetric simulation in Unreal Engine 5, VisionOS spatial interfaces, shaders, and procedural worldbuilding.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Tuition:</span>
+                    <strong class="text-white">₹1,45,000 / Semester</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Studio Head:</span>
+                    <strong class="text-white">Dr. Sarah Jenkins</strong>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="badge bg-success">21 / 25 Enrolled</span>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Spatial XR parameters')">Configure</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 4: Brand Systems & Editorial Typography -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-coral-glow"><i class="bi bi-fonts"></i></div>
+                  <span class="badge bg-dark border border-secondary text-coral small">Visual Identity</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Brand Systems &amp; Type Foundry</h4>
+                <p class="text-coral small mb-2"><i class="bi bi-clock me-1"></i>12 Months • Limit: 30 Students</p>
+                <p class="text-white-50 small mb-3 flex-grow-1">Corporate visual strategy, custom font development, variable OpenType design, and holistic print collateral production.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Tuition:</span>
+                    <strong class="text-white">₹1,10,000 / Semester</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Studio Head:</span>
+                    <strong class="text-white">Marcus Sterling</strong>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="badge bg-success">28 / 30 Enrolled</span>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Brand Systems parameters')">Configure</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 5: Kinetic Motion & Title Design -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-purple-glow"><i class="bi bi-film"></i></div>
+                  <span class="badge bg-dark border border-secondary text-purple small">CGI &amp; Cinema</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Kinetic Motion &amp; 3D CGI</h4>
+                <p class="text-coral small mb-2"><i class="bi bi-clock me-1"></i>12 Months • Limit: 30 Students</p>
+                <p class="text-white-50 small mb-3 flex-grow-1">Procedural particle physics, cinema title direction, sound-reactive kinetic typography, and Redshift lighting.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Tuition:</span>
+                    <strong class="text-white">₹1,20,000 / Semester</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Studio Head:</span>
+                    <strong class="text-white">Sophia Chen</strong>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="badge bg-warning text-dark">26 / 30 Enrolled</span>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Kinetic Motion parameters')">Configure</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 6: Professional Creative Bootcamp -->
+            <div class="col-md-6 col-lg-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-green-glow"><i class="bi bi-lightning-charge"></i></div>
+                  <span class="badge bg-dark border border-secondary text-success small">Accelerated Track</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Professional Studio Bootcamp</h4>
+                <p class="text-coral small mb-2"><i class="bi bi-clock me-1"></i>6 Months • Limit: 50 Students</p>
+                <p class="text-white-50 small mb-3 flex-grow-1">Fast-track immersion in UI/UX systems, commercial portfolio building, live client critiques, and career placement.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Tuition:</span>
+                    <strong class="text-white">₹95,000 / One-time</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Studio Head:</span>
+                    <strong class="text-white">Aria Thorne</strong>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                  <span class="badge bg-success">47 / 50 Enrolled</span>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Editing Bootcamp parameters')">Configure</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Equipment & Lab Access Matrix (Static Section) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Studio Laboratories &amp; Workshop Facilities (Cross-Program Allocation)</h4>
+                <p class="dash-panel-sub">Specialized production environments reserved for respective curriculum modules.</p>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Facility Atelier</th>
+                    <th>Hardware &amp; Tooling Stems</th>
+                    <th>Weekly Lab Hours</th>
+                    <th>Primary Disciplines</th>
+                    <th>Safety Protocol</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Atelier 01: Oil Glazing &amp; Darkroom</strong></td>
+                    <td>Fume extraction hoods, daylight-balanced north light, optical enlargers</td>
+                    <td>08:00 – 22:00 Daily</td>
+                    <td>Master Residency, Fine Art</td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Level 1 Certified</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Lab 02: Spatial XR Volumetric Stage</strong></td>
+                    <td>OptiTrack 16-cam MoCap rig, HTC Vive Focus 3, Apple Vision Pro kits</td>
+                    <td>24/7 Access (Keycard)</td>
+                    <td>Spatial XR, Kinetic Motion</td>
+                    <td><span class="badge bg-primary bg-opacity-25 text-purple">VR Certified</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Atelier 03: Letterpress &amp; Screenprint</strong></td>
+                    <td>Heidelberg cylinder press, Vandercook proof press, silkscreen washout</td>
+                    <td>09:00 – 20:00 Mon–Sat</td>
+                    <td>Brand Systems, Diploma</td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">Shop Tech Supervised</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Lab 04: GPU Render Farm Cluster</strong></td>
+                    <td>8x NVIDIA RTX 4090 render nodes, 10Gbps fiber intranet, Deadline cluster</td>
+                    <td>Continuous Queue</td>
+                    <td>All Active Enrollees</td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Automated Queue</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Academic Calendar & Semester Milestone Protocol -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Academic Milestones &amp; Jury Examination Schedule (2026/27)</h4>
+                <p class="dash-panel-sub">Deadlines for syllabus revision, midterm critiques, and public thesis defense.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-coral fs-4 fw-bold mb-1">Nov 20</div>
+                  <div class="fw-semibold text-white small">Midterm Faculty Jury</div>
+                  <p class="small text-muted mb-0 mt-1">Cross-atelier blind review of mid-term portfolio stems.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-purple fs-4 fw-bold mb-1">Dec 15</div>
+                  <div class="fw-semibold text-white small">Syllabus Winter Revision</div>
+                  <p class="small text-muted mb-0 mt-1">Curriculum updates and new software token allocation.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-success fs-4 fw-bold mb-1">Jan 08</div>
+                  <div class="fw-semibold text-white small">Spring Term Induction</div>
+                  <p class="small text-muted mb-0 mt-1">New cohort studio orientation &amp; keycard issuance.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-warning fs-4 fw-bold mb-1">Apr 22</div>
+                  <div class="fw-semibold text-white small">Annual Public Thesis Expo</div>
+                  <p class="small text-muted mb-0 mt-1">Graduation showcase open to international gallery directors.</p>
                 </div>
               </div>
             </div>
@@ -380,52 +831,322 @@
 
         <!-- ==================== TAB 4: FACULTY DIRECTORY (PREMIUM CARDS) ==================== -->
         <div id="admin-faculty" class="dash-view-pane">
+          <!-- Main Header & Action Panel -->
           <div class="dash-panel mb-4">
             <div class="dash-panel-header">
               <div>
-                <h3 class="dash-panel-title">Faculty Roster & Atelier Leadership</h3>
-                <p class="dash-panel-sub">Manage resident master artists, supervise workloads, and reallocate mentorship fellows.</p>
+                <span class="badge bg-primary bg-opacity-25 text-purple border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-people-fill me-1"></i> Academic Leadership &amp; Mentorship Allocations
+                </span>
+                <h3 class="dash-panel-title">Faculty Roster, Teaching Load &amp; Studio Supervision</h3>
+                <p class="dash-panel-sub">Oversee resident department chairs, balance master fellow allocations, audit critique attendance, and configure advisory office hours.</p>
               </div>
-              <button class="btn-dash-primary" onclick="alert('Add faculty modal triggered.')"><i class="bi bi-person-plus"></i> Add Faculty Member</button>
+              <div class="d-flex gap-2">
+                <button class="btn-dash-outline" onclick="alert('Exporting Teaching Workload Audit Spreadsheet...')">
+                  <i class="bi bi-file-earmark-spreadsheet me-1"></i> Workload Audit
+                </button>
+                <button class="btn-dash-primary" onclick="alert('Add faculty modal triggered.')">
+                  <i class="bi bi-person-plus me-1"></i> Add Faculty Member
+                </button>
+              </div>
             </div>
 
-            <div class="row g-4 mt-2">
-              <div class="col-md-6 col-lg-4">
-                <div class="faculty-premium-card">
-                  <div class="faculty-avatar-wrap">
-                    <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="faculty-avatar-img">
-                    <span class="faculty-status-dot"></span>
-                  </div>
-                  <h4 class="faculty-card-name">Julian Vance</h4>
-                  <div class="faculty-card-role">Chair of Classical Painting</div>
-                  <p class="faculty-card-bio">8 Master Fellows • Teaching Load: 92% • Specializing in oil glazing & chiaroscuro study.</p>
-                  <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Julian Vance')">Manage Workload</button>
+            <!-- Faculty Operations Metrics Strip -->
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Total Faculty Count</span>
+                  <div class="fs-4 fw-bold text-white">24 <span class="small fw-normal text-muted fs-6">Professors</span></div>
                 </div>
               </div>
-
-              <div class="col-md-6 col-lg-4">
-                <div class="faculty-premium-card">
-                  <div class="faculty-avatar-wrap">
-                    <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Rostova" class="faculty-avatar-img">
-                    <span class="faculty-status-dot"></span>
-                  </div>
-                  <h4 class="faculty-card-name">Elena Rostova</h4>
-                  <div class="faculty-card-role">Director of Spatial Systems</div>
-                  <p class="faculty-card-bio">6 Master Fellows • Teaching Load: 85% • Leading the Unreal Engine 5 spatial lab.</p>
-                  <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Elena Rostova')">Manage Workload</button>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Average Studio Load</span>
+                  <div class="fs-4 fw-bold text-coral">86.2% <span class="small fw-normal text-muted fs-6">Optimal</span></div>
                 </div>
               </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Master Fellows Supervised</span>
+                  <div class="fs-4 fw-bold text-purple">54 <span class="small fw-normal text-muted fs-6">Scholars</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Critique Satisfaction</span>
+                  <div class="fs-4 fw-bold text-success">4.92 / 5.0 <span class="small fw-normal text-muted fs-6">Score</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-              <div class="col-md-6 col-lg-4">
-                <div class="faculty-premium-card">
-                  <div class="faculty-avatar-wrap">
-                    <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Sterling" class="faculty-avatar-img">
-                    <span class="faculty-status-dot"></span>
+          <!-- Faculty Roster Cards Grid (6 Full Static Profiles) -->
+          <div class="row g-4 mb-4">
+            <!-- Faculty 1: Julian Vance -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-julian.webp" alt="Julian Vance" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Active on Campus"></span>
+                </div>
+                <h4 class="faculty-card-name">Julian Vance</h4>
+                <div class="faculty-card-role">Chair of Classical Painting &amp; Oil Glazing</div>
+                <div class="small text-coral mb-2"><i class="bi bi-geo-alt me-1"></i>Atelier 04 • Historical Technique</div>
+                <p class="faculty-card-bio flex-grow-1">8 Master Fellows • Teaching Load: 92% • Specializing in Flemish multi-layer oil glazing and dramatic chiaroscuro.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Office Hours:</span>
+                    <strong class="text-white">Tues &amp; Thurs (14:00 GMT)</strong>
                   </div>
-                  <h4 class="faculty-card-name">Marcus Sterling</h4>
-                  <div class="faculty-card-role">Prof. of Visual Communication</div>
-                  <p class="faculty-card-bio">10 Master Fellows • Teaching Load: 100% (Cap) • Editorial design systems lead.</p>
-                  <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Marcus Sterling')">Manage Workload</button>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Research Grant:</span>
+                    <strong class="text-success">Active ($45,000)</strong>
+                  </div>
+                </div>
+                <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Julian Vance')">Manage Workload</button>
+              </div>
+            </div>
+
+            <!-- Faculty 2: Elena Rostova -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-elena.webp" alt="Elena Rostova" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Active on Campus"></span>
+                </div>
+                <h4 class="faculty-card-name">Elena Rostova</h4>
+                <div class="faculty-card-role">Director of Spatial Systems &amp; Computing</div>
+                <div class="small text-purple mb-2"><i class="bi bi-geo-alt me-1"></i>Lab 09 • Immersive Media</div>
+                <p class="faculty-card-bio flex-grow-1">6 Master Fellows • Teaching Load: 85% • Leading the Unreal Engine 5 volumetric lab and spatial UI systems.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Office Hours:</span>
+                    <strong class="text-white">Wed &amp; Fri (11:00 GMT)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Research Grant:</span>
+                    <strong class="text-success">Active ($62,000)</strong>
+                  </div>
+                </div>
+                <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Elena Rostova')">Manage Workload</button>
+              </div>
+            </div>
+
+            <!-- Faculty 3: Marcus Sterling -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-marcus.webp" alt="Marcus Sterling" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Active on Campus"></span>
+                </div>
+                <h4 class="faculty-card-name">Marcus Sterling</h4>
+                <div class="faculty-card-role">Prof. of Visual Communication &amp; Typography</div>
+                <div class="small text-coral mb-2"><i class="bi bi-geo-alt me-1"></i>Atelier 02 • Editorial Design</div>
+                <p class="faculty-card-bio flex-grow-1">10 Master Fellows • Teaching Load: 100% (Cap) • Directing typography foundries, Swiss grid architectures, and brand design.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Office Hours:</span>
+                    <strong class="text-white">Mon &amp; Wed (15:30 GMT)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Research Grant:</span>
+                    <strong class="text-success">Active ($38,000)</strong>
+                  </div>
+                </div>
+                <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Marcus Sterling')">Manage Workload</button>
+              </div>
+            </div>
+
+            <!-- Faculty 4: Sophia Chen -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-sophia.webp" alt="Sophia Chen" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Active on Campus"></span>
+                </div>
+                <h4 class="faculty-card-name">Sophia Chen</h4>
+                <div class="faculty-card-role">Senior Lecturer in Kinetic Sculpture</div>
+                <div class="small text-purple mb-2"><i class="bi bi-geo-alt me-1"></i>Atelier 07 • Kinetic Robotics</div>
+                <p class="faculty-card-bio flex-grow-1">7 Master Fellows • Teaching Load: 80% • Motion kinetics, servo motor mechanics, and physical algorithmic installations.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Office Hours:</span>
+                    <strong class="text-white">Thurs &amp; Fri (10:00 GMT)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Research Grant:</span>
+                    <strong class="text-success">Active ($50,000)</strong>
+                  </div>
+                </div>
+                <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Sophia Chen')">Manage Workload</button>
+              </div>
+            </div>
+
+            <!-- Faculty 5: David Thorne -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-david.webp" alt="David Thorne" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Active on Campus"></span>
+                </div>
+                <h4 class="faculty-card-name">David Thorne</h4>
+                <div class="faculty-card-role">Head of Photographic Direction &amp; Optics</div>
+                <div class="small text-coral mb-2"><i class="bi bi-geo-alt me-1"></i>Darkroom 01 • Optical Physics</div>
+                <p class="faculty-card-bio flex-grow-1">8 Master Fellows • Teaching Load: 88% • Large format film photography, lighting geometry, and architectural archiving.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Office Hours:</span>
+                    <strong class="text-white">Mon &amp; Thurs (16:00 GMT)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Research Grant:</span>
+                    <strong class="text-success">Active ($34,000)</strong>
+                  </div>
+                </div>
+                <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for David Thorne')">Manage Workload</button>
+              </div>
+            </div>
+
+            <!-- Faculty 6: Amara Okafor -->
+            <div class="col-md-6 col-lg-4">
+              <div class="faculty-premium-card h-100 d-flex flex-column">
+                <div class="faculty-avatar-wrap">
+                  <img src="assets/images/faculty/faculty-amara.webp" alt="Amara Okafor" class="faculty-avatar-img">
+                  <span class="faculty-status-dot" title="Active on Campus"></span>
+                </div>
+                <h4 class="faculty-card-name">Amara Okafor</h4>
+                <div class="faculty-card-role">Professor of Experimental Ceramics</div>
+                <div class="small text-purple mb-2"><i class="bi bi-geo-alt me-1"></i>Kiln Atelier 03 • Ceramic Glazes</div>
+                <p class="faculty-card-bio flex-grow-1">5 Master Fellows • Teaching Load: 72% • Computational glaze formulas, thermal firing kinetics, and material alchemy.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Office Hours:</span>
+                    <strong class="text-white">Tuesday (11:30 GMT)</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Research Grant:</span>
+                    <strong class="text-success">Active ($42,000)</strong>
+                  </div>
+                </div>
+                <button class="btn-dash-outline w-100" onclick="alert('Editing faculty parameters for Amara Okafor')">Manage Workload</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Faculty Workload Distribution Table (Static Operational View) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Faculty Supervision Workload &amp; Committee Assignments</h4>
+                <p class="dash-panel-sub">Operational distribution of studio crits, thesis defense committees, and research output.</p>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Faculty Member</th>
+                    <th>Department</th>
+                    <th>Assigned Fellows</th>
+                    <th>Weekly Crit Hours</th>
+                    <th>Committee Role</th>
+                    <th>Teaching Load</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Julian Vance</strong></td>
+                    <td>Classical Painting</td>
+                    <td>8 Fellows</td>
+                    <td>14 Hours</td>
+                    <td>Chair, Admissions Panel</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-coral" style="width: 92%;"></div>
+                        </div>
+                        <span class="small text-coral fw-semibold">92%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Elena Rostova</strong></td>
+                    <td>Spatial Systems</td>
+                    <td>6 Fellows</td>
+                    <td>12 Hours</td>
+                    <td>Director, XR Lab</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-purple" style="width: 85%;"></div>
+                        </div>
+                        <span class="small text-purple fw-semibold">85%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Marcus Sterling</strong></td>
+                    <td>Visual Communication</td>
+                    <td>10 Fellows</td>
+                    <td>18 Hours</td>
+                    <td>Curator, Gallery Roster</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-danger" style="width: 100%;"></div>
+                        </div>
+                        <span class="small text-danger fw-semibold">100% (Cap)</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Dr. Sarah Jenkins</strong></td>
+                    <td>Spatial Computing</td>
+                    <td>7 Fellows</td>
+                    <td>14 Hours</td>
+                    <td>Chair, Academic Council</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2" style="min-width: 100px;">
+                        <div class="progress flex-grow-1" style="height: 6px; background: rgba(255,255,255,0.1);">
+                          <div class="progress-bar bg-success" style="width: 78%;"></div>
+                        </div>
+                        <span class="small text-success fw-semibold">78%</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Visiting Scholar & Sabbatical Exchange Protocol -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Sabbatical &amp; International Research Exchange (Term 2026/27)</h4>
+                <p class="dash-panel-sub">Faculty members currently conducting residency fellowships at affiliated global academies.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="text-coral fw-bold mb-1"><i class="bi bi-airplane me-1"></i> Prof. Vincent Laurent</div>
+                  <div class="small text-white">École des Beaux-Arts, Paris</div>
+                  <p class="small text-muted mb-0 mt-2">6-month research fellowship on pigment restoration techniques. Resumes term Spring 2027.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="text-purple fw-bold mb-1"><i class="bi bi-airplane me-1"></i> Dr. Hina Tanaka</div>
+                  <div class="small text-white">Tokyo University of the Arts</div>
+                  <p class="small text-muted mb-0 mt-2">Joint publication on Japanese woodblock prints and generative algorithmic linework.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <div class="text-success fw-bold mb-1"><i class="bi bi-airplane me-1"></i> Matteo Rossi</div>
+                  <div class="small text-white">Politecnico di Milano</div>
+                  <p class="small text-muted mb-0 mt-2">Advanced kinetic architecture monograph and computational pavilion prototyping.</p>
                 </div>
               </div>
             </div>
@@ -434,30 +1155,241 @@
 
         <!-- ==================== TAB 5: TUITION & GRANTS ==================== -->
         <div id="admin-finance" class="dash-view-pane">
+          <!-- Main Header & Action Panel -->
           <div class="dash-panel mb-4">
-            <h3 class="dash-panel-title">Endowment, Tuition & Studio Grants</h3>
-            <p class="dash-panel-sub">Institutional balance sheet, scholarship allocations, and operational budget.</p>
+            <div class="dash-panel-header">
+              <div>
+                <span class="badge bg-primary bg-opacity-25 text-purple border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-bank me-1"></i> Institutional Endowment &amp; Fiscal Governance
+                </span>
+                <h3 class="dash-panel-title">Endowment, Tuition &amp; Studio Grants Registry</h3>
+                <p class="dash-panel-sub">Institutional balance sheet, fellowship allocations, hardware lab capitalization, and semester tuition inflow tracking.</p>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn-dash-outline" onclick="alert('Exporting FY2026/27 Fiscal Audit Dossier...')">
+                  <i class="bi bi-file-earmark-spreadsheet me-1"></i> Export Financials
+                </button>
+                <button class="btn-dash-primary" onclick="alert('Grant disbursement approval queue opened.')">
+                  <i class="bi bi-cash-stack me-1"></i> Disburse Grants
+                </button>
+              </div>
+            </div>
             
+            <!-- Financial Headline Metrics Strip -->
             <div class="row g-4 my-2">
-              <div class="col-md-4">
+              <div class="col-md-3 col-6">
                 <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
                   <span class="text-white-50 small text-uppercase fw-semibold">Gross Term Tuition</span>
-                  <h3 class="text-white fw-bold mb-1 mt-2">$2,140,000</h3>
-                  <span class="text-success small"><i class="bi bi-arrow-up-right"></i> +14% YoY Revenue</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">₹4,25,80,000</h3>
+                  <span class="text-success small"><i class="bi bi-arrow-up-right"></i> +16.4% YoY Inflow</span>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3 col-6">
                 <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
-                  <span class="text-white-50 small text-uppercase fw-semibold">Allocated Grant Scholarships</span>
-                  <h3 class="text-white fw-bold mb-1 mt-2">$480,000</h3>
-                  <span class="text-coral small">32 Artists Funded in 2026</span>
+                  <span class="text-white-50 small text-uppercase fw-semibold">Allocated Fellowships</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">₹96,50,000</h3>
+                  <span class="text-coral small"><i class="bi bi-award me-1"></i>48 Artists Funded in 2026</span>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3 col-6">
                 <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
-                  <span class="text-white-50 small text-uppercase fw-semibold">Studio Facilities Reserve</span>
-                  <h3 class="text-white fw-bold mb-1 mt-2">$750,000</h3>
-                  <span class="text-success small">Healthy Capitalization Buffer</span>
+                  <span class="text-white-50 small text-uppercase fw-semibold">Facilities Reserve</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">₹1,50,00,000</h3>
+                  <span class="text-success small">GPU &amp; MoCap Capital Buffer</span>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-4 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-white-50 small text-uppercase fw-semibold">Fee Collection Rate</span>
+                  <h3 class="text-white fw-bold mb-1 mt-2">94.8%</h3>
+                  <span class="text-purple small"><i class="bi bi-check-circle me-1"></i>Term Installments Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tuition Structure & Fellowship Disbursements (Static Table) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Curriculum Program Tuition &amp; Scholarship Allocation Matrix</h4>
+                <p class="dash-panel-sub">Breakdown of gross fee revenue, institutional aid, and net term receipts per atelier.</p>
+              </div>
+              <span class="badge bg-dark border border-secondary text-success small">Term 2026/27 Audited</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Academic Program</th>
+                    <th>Fee Structure</th>
+                    <th>Active Enrollees</th>
+                    <th>Gross Tuition</th>
+                    <th>Grant Aid Awarded</th>
+                    <th>Net Inflow</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Master Residency Atelier</strong></td>
+                    <td>₹1,60,000 / Sem</td>
+                    <td>11 Fellows</td>
+                    <td>₹35,20,000</td>
+                    <td><span class="text-coral fw-semibold">- ₹14,50,000</span> (4 Fellows)</td>
+                    <td><strong class="text-success">₹20,70,000</strong></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">100% Collected</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Diploma in Fine Art &amp; Design</strong></td>
+                    <td>₹1,25,000 / Sem</td>
+                    <td>38 Students</td>
+                    <td>₹95,00,000</td>
+                    <td><span class="text-coral fw-semibold">- ₹28,00,000</span> (12 Grants)</td>
+                    <td><strong class="text-success">₹67,00,000</strong></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">96% Collected</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Spatial XR &amp; 3D Computing</strong></td>
+                    <td>₹1,45,000 / Sem</td>
+                    <td>21 Students</td>
+                    <td>₹60,90,000</td>
+                    <td><span class="text-coral fw-semibold">- ₹18,00,000</span> (6 Grants)</td>
+                    <td><strong class="text-success">₹42,90,000</strong></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">92% Collected</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Brand Systems &amp; Type Foundry</strong></td>
+                    <td>₹1,10,000 / Sem</td>
+                    <td>28 Students</td>
+                    <td>₹61,60,000</td>
+                    <td><span class="text-coral fw-semibold">- ₹12,00,000</span> (8 Grants)</td>
+                    <td><strong class="text-success">₹49,60,000</strong></td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">88% (Installments)</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Professional Studio Bootcamp</strong></td>
+                    <td>₹95,000 / One-time</td>
+                    <td>47 Students</td>
+                    <td>₹44,65,000</td>
+                    <td><span class="text-coral fw-semibold">- ₹8,00,000</span> (10 Partial)</td>
+                    <td><strong class="text-success">₹36,65,000</strong></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">100% Collected</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Fellowship Funds & Endowment Allocations (Static 3-Column Split) -->
+          <div class="row g-4 mb-4">
+            <div class="col-md-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-coral-glow"><i class="bi bi-award-fill"></i></div>
+                  <span class="badge bg-dark border border-secondary text-coral small">Founder Endowment</span>
+                </div>
+                <h5 class="text-white fw-bold mb-1">Founder Merit Fellowships</h5>
+                <p class="text-white-50 small mb-3 flex-grow-1">Up to 75% tuition fellowship awarded to candidates demonstrating exceptional technical craft and distinctive conceptual maturity.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Total Fund Pool:</span>
+                    <strong class="text-white">₹45,00,000</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Active Recipients:</span>
+                    <strong class="text-coral">16 Fellows</strong>
+                  </div>
+                </div>
+                <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                  <div class="progress-bar bg-coral" style="width: 82%;"></div>
+                </div>
+                <span class="small text-muted">82% of Merit Pool Allocated</span>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-purple-glow"><i class="bi bi-heart-pulse"></i></div>
+                  <span class="badge bg-dark border border-secondary text-purple small">Equity &amp; Inclusion</span>
+                </div>
+                <h5 class="text-white fw-bold mb-1">Need-Cum-Merit Grants</h5>
+                <p class="text-white-50 small mb-3 flex-grow-1">Subsidized studio housing stipends and 50% tuition coverage for underrepresented creatives and global regional scholars.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Total Fund Pool:</span>
+                    <strong class="text-white">₹32,50,000</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Active Recipients:</span>
+                    <strong class="text-purple">22 Scholars</strong>
+                  </div>
+                </div>
+                <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                  <div class="progress-bar bg-purple" style="width: 75%;"></div>
+                </div>
+                <span class="small text-muted">75% of Need Pool Allocated</span>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="dash-panel h-100 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="stat-icon-wrap icon-green-glow"><i class="bi bi-cpu-fill"></i></div>
+                  <span class="badge bg-dark border border-secondary text-success small">Tech Infrastructure</span>
+                </div>
+                <h5 class="text-white fw-bold mb-1">Hardware &amp; Foundry Stipends</h5>
+                <p class="text-white-50 small mb-3 flex-grow-1">Dedicated compute allocations for rendering cloud hours, commercial typography licenses, and physical bronze foundry casting costs.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted">Total Fund Pool:</span>
+                    <strong class="text-white">₹19,00,000</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-muted">Active Allocations:</span>
+                    <strong class="text-success">10 Specialized Grants</strong>
+                  </div>
+                </div>
+                <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.1);">
+                  <div class="progress-bar bg-success" style="width: 65%;"></div>
+                </div>
+                <span class="small text-muted">65% of Hardware Pool Allocated</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Institutional Audit & Compliance Notes -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Fiscal Governance &amp; Audit Protocols (FY 2026/27)</h4>
+                <p class="dash-panel-sub">Statutory compliance standards maintained by STACKLY Foundation Board of Trustees.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <strong class="text-coral d-block small mb-1"><i class="bi bi-shield-check me-1"></i> Independent Audit</strong>
+                  <p class="small text-muted mb-0">Bi-annual statutory fiscal audit conducted by Deloitte India Assurance LLP.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <strong class="text-purple d-block small mb-1"><i class="bi bi-percent me-1"></i> 0% EMI Banking</strong>
+                  <p class="small text-muted mb-0">Institutional tie-ups with HDFC &amp; ICICI Bank for zero-interest fee installments.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <strong class="text-success d-block small mb-1"><i class="bi bi-receipt-cutoff me-1"></i> Tax Transparency</strong>
+                  <p class="small text-muted mb-0">GST &amp; Section 80G tax certificates generated automatically for donors &amp; guardians.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <strong class="text-warning d-block small mb-1"><i class="bi bi-arrow-clockwise me-1"></i> Emergency Reserves</strong>
+                  <p class="small text-muted mb-0">Mandatory 6-month operational liquidity reserve locked in secure government bonds.</p>
                 </div>
               </div>
             </div>
@@ -466,31 +1398,258 @@
 
         <!-- ==================== TAB 6: PORTFOLIO REVIEWS ==================== -->
         <div id="admin-portfolios" class="dash-view-pane">
+          <!-- Main Header & Action Panel -->
           <div class="dash-panel mb-4">
-            <h3 class="dash-panel-title">Master Atelier Portfolio Audits</h3>
-            <p class="dash-panel-sub">Evaluate senior thesis collections and degree showcase exhibition proposals.</p>
+            <div class="dash-panel-header">
+              <div>
+                <span class="badge bg-primary bg-opacity-25 text-purple border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block">
+                  <i class="bi bi-images me-1"></i> Studio Audits &amp; Graduation Thesis Defense
+                </span>
+                <h3 class="dash-panel-title">Master Atelier Portfolio Audits &amp; Thesis Defense</h3>
+                <p class="dash-panel-sub">Evaluate senior thesis collections, blind portfolio scores, graduation honors nominations, and degree showcase curation proposals.</p>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn-dash-outline" onclick="alert('Exporting Term Portfolio Assessment Report...')">
+                  <i class="bi bi-file-earmark-bar-graph me-1"></i> Audit Report
+                </button>
+                <button class="btn-dash-primary" onclick="alert('Jury evaluation deliberation session convened.')">
+                  <i class="bi bi-person-video3 me-1"></i> Convene Jury Panel
+                </button>
+              </div>
+            </div>
 
-            <div class="row g-4 mt-2">
-              <div class="col-md-6">
-                <div class="dash-panel h-100">
-                  <span class="badge bg-danger mb-2">Graduation Defense</span>
-                  <h4 class="text-white fw-bold mb-2">Klaus Müller — "Monoliths of Void"</h4>
-                  <p class="text-white-50 small mb-4">12 high-resolution bronze-cast digital asset composites with physical bronze casting.</p>
-                  <div class="d-flex gap-2">
-                    <button class="btn-dash-outline" onclick="alert('Opening Klaus Müller portfolio preview gallery...')">Preview Works</button>
-                    <button class="btn btn-sm btn-success px-3" onclick="alert('Portfolio approved with Honors!')">Award Honors</button>
-                  </div>
+            <!-- Portfolio Audit Metrics Strip -->
+            <div class="row g-3">
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Dossiers Submitted</span>
+                  <div class="fs-4 fw-bold text-white">128 <span class="small fw-normal text-muted fs-6">Portfolios</span></div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="dash-panel h-100">
-                  <span class="badge bg-secondary mb-2">Mid-Year Review</span>
-                  <h4 class="text-white fw-bold mb-2">Aria Thorne — "Chromatics of the Neural"</h4>
-                  <p class="text-white-50 small mb-4">Spatial volumetric projections exploring sensory synesthesia and artificial light.</p>
-                  <div class="d-flex gap-2">
-                    <button class="btn-dash-outline" onclick="alert('Opening Aria Thorne portfolio preview gallery...')">Preview Works</button>
-                    <button class="btn-dash-primary" onclick="alert('Critique notes submitted to Aria Thorne.')">Submit Notes</button>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Graduation Defense</span>
+                  <div class="fs-4 fw-bold text-coral">18 <span class="small fw-normal text-muted fs-6">Candidates</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Honors Nominated</span>
+                  <div class="fs-4 fw-bold text-warning">08 <span class="small fw-normal text-muted fs-6">Distinctions</span></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50">
+                  <span class="text-muted small d-block mb-1">Average Thesis Score</span>
+                  <div class="fs-4 fw-bold text-success">91.4 / 100 <span class="small fw-normal text-muted fs-6">GPA</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Thesis Collections in Defense (4 Cards Grid) -->
+          <div class="row g-4 mb-4">
+            <!-- Project 1 -->
+            <div class="col-md-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid var(--electric-coral);">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-danger bg-opacity-75 text-white">Graduation Defense</span>
+                  <span class="text-coral small fw-bold"><i class="bi bi-star-fill me-1"></i>Score: 98/100</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Klaus Müller — "Monoliths of Void"</h4>
+                <div class="small text-muted mb-3">Master Residency Atelier • Primary Advisor: Julian Vance</div>
+                <p class="text-white-50 small mb-3 flex-grow-1">12 monumental bronze-cast digital composites with physical lost-wax bronze casting, investigating negative space and architectural brutality.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Committee Status:</span>
+                    <strong class="text-success">Approved with Summa Cum Laude</strong>
                   </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn-dash-outline py-1 px-3 flex-grow-1" onclick="alert('Opening Klaus Müller portfolio preview gallery...')">Preview Works</button>
+                  <button class="btn btn-sm btn-success px-3" onclick="alert('Portfolio approved with Honors!')">Award Honors</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid var(--creative-purple);">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary bg-opacity-25 text-purple border border-primary border-opacity-50">Mid-Year Review</span>
+                  <span class="text-purple small fw-bold"><i class="bi bi-star-fill me-1"></i>Score: 94/100</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Aria Thorne — "Chromatics of the Neural"</h4>
+                <div class="small text-muted mb-3">Spatial XR &amp; 3D Computing • Primary Advisor: Dr. Sarah Jenkins</div>
+                <p class="text-white-50 small mb-3 flex-grow-1">Real-time volumetric projection mapping exploring sensory synesthesia, EEG-reactive shaders, and procedural soundscapes in Unreal Engine 5.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Committee Status:</span>
+                    <strong class="text-warning">Revisions on Frame Cadence Requested</strong>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn-dash-outline py-1 px-3 flex-grow-1" onclick="alert('Opening Aria Thorne portfolio preview gallery...')">Preview Works</button>
+                  <button class="btn-dash-primary py-1 px-3" onclick="alert('Critique notes submitted to Aria Thorne.')">Submit Notes</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid #198754;">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50">Final Jury Screen</span>
+                  <span class="text-success small fw-bold"><i class="bi bi-star-fill me-1"></i>Score: 96/100</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Leila Benali — "Neo-Kufic Typographic Cartography"</h4>
+                <div class="small text-muted mb-3">Brand Systems &amp; Type Foundry • Primary Advisor: Marcus Sterling</div>
+                <p class="text-white-50 small mb-3 flex-grow-1">A 24-weight variable OpenType typeface blending 10th-century classical Maghrebi calligraphy with Swiss modernist baseline grids.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Committee Status:</span>
+                    <strong class="text-success">Recommended for Venice Biennale Entry</strong>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn-dash-outline py-1 px-3 flex-grow-1" onclick="alert('Opening Leila Benali type specimen specimen PDF...')">Specimen Proof</button>
+                  <button class="btn btn-sm btn-success px-3" onclick="alert('Nominated for TDC Type Directors Club Award!')">Nominate Award</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-md-6">
+              <div class="dash-panel h-100 d-flex flex-column" style="border-left: 4px solid #ffc107;">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50">Studio Audit</span>
+                  <span class="text-warning small fw-bold"><i class="bi bi-star-fill me-1"></i>Score: 89/100</span>
+                </div>
+                <h4 class="text-white fw-bold mb-1">Henri Dubois — "Kinetic Tensegrity Pavilions"</h4>
+                <div class="small text-muted mb-3">Kinetic Sculpture Atelier • Primary Advisor: Sophia Chen</div>
+                <p class="text-white-50 small mb-3 flex-grow-1">Self-balancing carbon-fiber tensegrity structures actuated by micro-stepper motors reacting to ambient pedestrian airflow.</p>
+                <div class="p-2 rounded bg-dark border border-secondary border-opacity-50 mb-3 small">
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>Committee Status:</span>
+                    <strong class="text-white">Structural Stress Simulation In Review</strong>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn-dash-outline py-1 px-3 flex-grow-1" onclick="alert('Opening Henri Dubois physical CAD simulations...')">Inspect CAD</button>
+                  <button class="btn-dash-outline py-1 px-3" onclick="alert('Engineering safety check requested.')">Safety Check</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Master Atelier Portfolio Review Table (Static Audited Cohort) -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Cohort 2026 Comprehensive Portfolio Scoring Register</h4>
+                <p class="dash-panel-sub">Complete audit log of double-blind faculty evaluations across all departments.</p>
+              </div>
+              <span class="badge bg-dark border border-secondary text-white small">Live Term Registry</span>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Candidate</th>
+                    <th>Thesis Project</th>
+                    <th>Department</th>
+                    <th>Jury Reviewers</th>
+                    <th>Rubric Score</th>
+                    <th>Honors Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong class="text-white">Klaus Müller</strong></td>
+                    <td>Monoliths of Void</td>
+                    <td>Classical Sculpture</td>
+                    <td>Julian Vance, Arthur P.</td>
+                    <td><strong class="text-success">98 / 100</strong></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Highest Honors</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-2" onclick="alert('Opening thesis audit file')">Audit File</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Aria Thorne</strong></td>
+                    <td>Chromatics of the Neural</td>
+                    <td>Spatial XR &amp; 3D</td>
+                    <td>Dr. Sarah Jenkins, Kenji T.</td>
+                    <td><strong class="text-warning">94 / 100</strong></td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">Dean Distinction</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-2" onclick="alert('Opening thesis audit file')">Audit File</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Leila Benali</strong></td>
+                    <td>Neo-Kufic Cartography</td>
+                    <td>Brand &amp; Typography</td>
+                    <td>Marcus Sterling, Elena R.</td>
+                    <td><strong class="text-success">96 / 100</strong></td>
+                    <td><span class="badge bg-success bg-opacity-25 text-success">Biennale Selection</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-2" onclick="alert('Opening thesis audit file')">Audit File</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Henri Dubois</strong></td>
+                    <td>Kinetic Tensegrity Pavilions</td>
+                    <td>Kinetic Robotics</td>
+                    <td>Sophia Chen, Matteo R.</td>
+                    <td><strong class="text-white">89 / 100</strong></td>
+                    <td><span class="badge bg-secondary bg-opacity-25 text-white">Satisfactory Pass</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-2" onclick="alert('Opening thesis audit file')">Audit File</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong class="text-white">Soren Kierk</strong></td>
+                    <td>Sub-Surface Glaze Kinetics</td>
+                    <td>Experimental Ceramics</td>
+                    <td>Amara Okafor, Julian V.</td>
+                    <td><strong class="text-success">93 / 100</strong></td>
+                    <td><span class="badge bg-warning bg-opacity-25 text-warning">Dean Distinction</span></td>
+                    <td class="text-end"><button class="btn-dash-outline py-1 px-2" onclick="alert('Opening thesis audit file')">Audit File</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Evaluation Rubric Criteria Standards (Static Bottom Panel) -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h4 class="dash-panel-title">Graduation Defense Assessment Weighting Rubric</h4>
+                <p class="dash-panel-sub">Mandatory faculty scoring matrix required for institutional accreditation.</p>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-coral fs-3 fw-bold mb-1">35%</div>
+                  <div class="fw-semibold text-white small">Material Mastery &amp; Craft</div>
+                  <p class="small text-muted mb-0 mt-1">Flawless execution in physical or computational medium.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-purple fs-3 fw-bold mb-1">30%</div>
+                  <div class="fw-semibold text-white small">Originality &amp; Discourse</div>
+                  <p class="small text-muted mb-0 mt-1">Novel theoretical premise and cultural dialogue impact.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-success fs-3 fw-bold mb-1">20%</div>
+                  <div class="fw-semibold text-white small">Exhibition Staging &amp; Polish</div>
+                  <p class="small text-muted mb-0 mt-1">Spatial curation, lighting design, and public presentation.</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="p-3 rounded-3 bg-dark border border-secondary border-opacity-50 text-center">
+                  <div class="text-warning fs-3 fw-bold mb-1">15%</div>
+                  <div class="fw-semibold text-white small">Defense Oral Articulation</div>
+                  <p class="small text-muted mb-0 mt-1">Scholarly response to external jury critique questions.</p>
                 </div>
               </div>
             </div>

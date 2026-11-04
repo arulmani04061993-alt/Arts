@@ -301,8 +301,8 @@ body.dashboard-body {
 .dash-user-pill {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 6px 14px 6px 8px;
+  gap: 10px;
+  padding: 8px 18px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--dash-border);
   border-radius: 9999px;
@@ -310,7 +310,7 @@ body.dashboard-body {
 }
 
 .dash-user-pill:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -334,10 +334,11 @@ body.dashboard-body {
 }
 
 .dash-user-email {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
 .dash-user-role-label {
@@ -358,15 +359,29 @@ body.dashboard-body {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--dash-border);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 28px;
   margin-bottom: 26px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              background 0.3s ease;
+  position: relative;
 }
 
-.dash-panel:hover {
-  border-color: rgba(255, 255, 255, 0.14);
+/* Card Hover Animation Effect for Grid Panels */
+.row .dash-panel:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 91, 77, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 91, 77, 0.12);
+  background: rgba(22, 22, 30, 0.95);
+}
+
+/* Main Top/Full Width Panels (Gentle Lift Hover) */
+.dash-view-pane > .dash-panel:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.48);
 }
 
 .dash-panel-header {
@@ -396,18 +411,26 @@ body.dashboard-body {
 .dash-stat-card {
   background: var(--dash-card-bg);
   border: 1px solid var(--dash-border);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   height: 100%;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              background 0.3s ease;
 }
 
 .dash-stat-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  transform: translateY(-6px);
+  border-color: rgba(255, 91, 77, 0.4);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 91, 77, 0.15);
+  background: rgba(24, 24, 32, 0.95);
+}
+
+.dash-stat-card:hover .stat-icon-wrap {
+  transform: scale(1.08);
 }
 
 .stat-icon-wrap {
@@ -419,6 +442,7 @@ body.dashboard-body {
   justify-content: center;
   font-size: 1.35rem;
   margin-bottom: 16px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .icon-coral-glow {
@@ -689,4 +713,32 @@ body.dashboard-body {
   .dashboard-content {
     padding: 20px 16px;
   }
+}
+
+/* ==================== GLOBAL DASHBOARD CARD HOVER SYSTEM ==================== */
+/* Stat mini-cards (e.g. Total Applications, Metric indicators) */
+.dash-panel .p-3.rounded-3.bg-dark,
+.dash-panel .p-4.rounded-3.bg-dark {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background 0.25s ease;
+  position: relative;
+}
+
+.dash-panel .p-3.rounded-3.bg-dark:hover,
+.dash-panel .p-4.rounded-3.bg-dark:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 91, 77, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  background: #15151e !important;
+}
+
+/* Table rows smooth hover */
+.dash-table tbody tr {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dash-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.045) !important;
 }
