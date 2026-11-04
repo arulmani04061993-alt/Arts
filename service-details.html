@@ -55,25 +55,88 @@
       <div class="row g-5">
         <!-- Main Content Column -->
         <div class="col-lg-8">
-          <div class="rounded overflow-hidden mb-5 border border-secondary" style="max-height: 480px;">
-            <img src="assets/images/courses/service-graphic.webp" alt="Service Showcase" id="service-details-img" class="w-100 h-100 object-fit-cover" width="800" height="550">
+          
+          <!-- Dual Visual Gallery (Primary + Secondary Showcase) -->
+          <div class="service-gallery-grid" data-aos="fade-up">
+            <div class="service-gallery-main">
+              <img src="assets/images/courses/service-graphic.webp" alt="Primary Atelier Facility" id="service-details-img" width="800" height="550">
+            </div>
+            <div class="service-gallery-secondary">
+              <div class="service-gallery-sub">
+                <img src="assets/images/services/showcase-graphic.webp" alt="Production Showcase" id="service-secondary-img" width="800" height="450">
+                <span class="service-showcase-badge" id="service-secondary-badge">Portfolio Artifact</span>
+              </div>
+              <div class="service-gallery-sub">
+                <img src="assets/images/about/about-facilities.webp" alt="Laboratory Workstations" width="800" height="450">
+                <span class="service-showcase-badge"><i class="bi bi-cpu me-1"></i> Studio Workstation</span>
+              </div>
+            </div>
           </div>
 
-          <h2 class="h3 mb-3">Studio Overview & Approach</h2>
-          <p>
+          <!-- Key Quantitative Metrics -->
+          <div class="service-metrics-row" data-aos="fade-up">
+            <div class="service-metric-card">
+              <div class="service-metric-num text-coral" id="service-metric-1">100%</div>
+              <div class="service-metric-label" id="service-metric-label-1">Production Ready</div>
+            </div>
+            <div class="service-metric-card">
+              <div class="service-metric-num text-purple" id="service-metric-2">1:8</div>
+              <div class="service-metric-label" id="service-metric-label-2">Faculty Mentorship</div>
+            </div>
+            <div class="service-metric-card">
+              <div class="service-metric-num" style="color: #4ed286;" id="service-metric-3">48 Hrs</div>
+              <div class="service-metric-label" id="service-metric-label-3">Review Turnaround</div>
+            </div>
+          </div>
+
+          <h2 class="h3 mb-3">Studio Overview &amp; Approach</h2>
+          <p id="service-details-overview">
             Our dedicated ateliers are built to give emerging creatives and partner agencies direct access to high-end infrastructure and expert feedback loops. Every project undertaken in our labs undergoes rigorous conceptual deconstruction, typography exploration, and prototyping before final realization.
           </p>
 
-          <h3 class="h4 mt-5 mb-3">Tools & Production Techniques</h3>
+          <h3 class="h4 mt-5 mb-3">Tools &amp; Production Techniques</h3>
           <p id="service-details-tools" class="fw-semibold text-coral">
             Adobe Creative Cloud, Risograph Printing, Letterpress, Figma, Protopie
           </p>
-          <p>
+          <p id="service-details-specs">
             Whether executing spot color silkscreen prints or developing fluid design tokens for multi-platform digital systems, our workstations are tuned to meet the most demanding international studio specifications.
           </p>
 
+          <!-- Studio Production Workflow Steps -->
+          <h3 class="h4 mt-5 mb-3">4-Stage Atelier Methodology</h3>
+          <div class="mb-4" id="service-workflow-container">
+            <div class="service-workflow-step">
+              <div class="service-step-num">01</div>
+              <div>
+                <h5 class="h6 text-white mb-1">Brief Deconstruction &amp; Research Audit</h5>
+                <p class="small text-muted mb-0">Deconstructing cultural precedents, user behavior models, and visual constraints before opening software.</p>
+              </div>
+            </div>
+            <div class="service-workflow-step">
+              <div class="service-step-num">02</div>
+              <div>
+                <h5 class="h6 text-white mb-1">Iterative Prototyping &amp; Stress Testing</h5>
+                <p class="small text-muted mb-0">Rapid analog sketching, grid formulation, and multi-state functional mockups with direct peer critiques.</p>
+              </div>
+            </div>
+            <div class="service-workflow-step">
+              <div class="service-step-num">03</div>
+              <div>
+                <h5 class="h6 text-white mb-1">Specialized Lab Production</h5>
+                <p class="small text-muted mb-0">High-fidelity asset compilation in dedicated Apple Silicon, printmaking, or spatial render clusters.</p>
+              </div>
+            </div>
+            <div class="service-workflow-step">
+              <div class="service-step-num">04</div>
+              <div>
+                <h5 class="h6 text-white mb-1">Documentation &amp; Agency Presentation</h5>
+                <p class="small text-muted mb-0">Packaging artifacts into comprehensive case studies, design guidelines, and pitch decks.</p>
+              </div>
+            </div>
+          </div>
+
           <h3 class="h4 mt-5 mb-3">What You Will Achieve</h3>
-          <ul class="document-check-list mb-4">
+          <ul class="document-check-list mb-4" id="service-deliverables-list">
             <li><i class="bi bi-check-circle-fill"></i> Complete end-to-end design brief execution suitable for international agency review</li>
             <li><i class="bi bi-check-circle-fill"></i> Thorough understanding of color spaces, prepress checks, and digital token architectures</li>
             <li><i class="bi bi-check-circle-fill"></i> In-depth portfolio artifact with documentation of iterations, user feedback, and rationale</li>
@@ -83,24 +146,24 @@
           <div class="accordion accordion-custom" id="serviceFaqAccordion">
             <div class="accordion-item">
               <h4 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sf1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sf1" id="service-faq-q1">
                   How can students or external partners book atelier time?
                 </button>
               </h4>
               <div id="sf1" class="accordion-collapse collapse show" data-bs-parent="#serviceFaqAccordion">
-                <div class="accordion-body">
+                <div class="accordion-body" id="service-faq-a1">
                   Enrolled students receive dedicated lab slots. External clients and commercial partners can schedule studio time and project consultation by submitting an inquiry via our contact form.
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h4 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sf2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sf2" id="service-faq-q2">
                   Are materials and specialized papers provided?
                 </button>
               </h4>
               <div id="sf2" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
-                <div class="accordion-body">
+                <div class="accordion-body" id="service-faq-a2">
                   Yes, our printmaking and fabrication studios stock European paper stocks, specialty inks, and prototyping substrates available at subsidized academic rates.
                 </div>
               </div>
@@ -114,25 +177,38 @@
             <h4 class="h5 mb-4 pb-2 border-bottom border-secondary">Consultation Inquiry</h4>
             <div class="detail-meta-row">
               <span class="detail-meta-label">Format</span>
-              <span class="detail-meta-val">Studio / Hybrid</span>
+              <span class="detail-meta-val" id="service-meta-format">Studio / Hybrid</span>
             </div>
             <div class="detail-meta-row">
               <span class="detail-meta-label">Supervising Mentor</span>
-              <span class="detail-meta-val">Senior Art Director</span>
+              <span class="detail-meta-val" id="service-meta-mentor">Senior Art Director</span>
             </div>
             <div class="detail-meta-row">
               <span class="detail-meta-label">Equipment Access</span>
-              <span class="detail-meta-val">Full Ateliers</span>
+              <span class="detail-meta-val" id="service-meta-access">Full Ateliers</span>
             </div>
             <div class="detail-meta-row">
               <span class="detail-meta-label">Certification</span>
-              <span class="detail-meta-val">STACKLY Studio Credential</span>
+              <span class="detail-meta-val" id="service-meta-cert">STACKLY Studio Credential</span>
             </div>
 
             <div class="mt-4 pt-2">
               <a href="contact.html" class="btn-custom btn-coral w-100 mb-2">Book a Studio Consultation</a>
               <a href="admissions.html" class="btn-custom btn-outline-ivory w-100">Explore Admissions 2026</a>
             </div>
+          </div>
+
+          <!-- Quick Navigation to Other 5 Services -->
+          <div class="details-sidebar-card mt-4">
+            <h5 class="h6 mb-3 text-white pb-2 border-bottom border-secondary">Explore Other Disciplines</h5>
+            <ul class="footer-ref-links">
+              <li><a href="service-details.html?service=graphic-design">Graphic Design Studio</a></li>
+              <li><a href="service-details.html?service=ui-ux-design">UI/UX Product Lab</a></li>
+              <li><a href="service-details.html?service=branding-identity">Brand Identity Studio</a></li>
+              <li><a href="service-details.html?service=digital-illustration">Digital Illustration Atelier</a></li>
+              <li><a href="service-details.html?service=motion-graphics">Motion Graphics &amp; VFX</a></li>
+              <li><a href="service-details.html?service=web-design">Creative Web Design</a></li>
+            </ul>
           </div>
         </div>
       </div>
