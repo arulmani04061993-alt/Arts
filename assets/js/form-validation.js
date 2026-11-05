@@ -140,8 +140,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (hasError) return;
 
       // Save authenticated session details with manually entered email
+      const normalizedEmail = emailVal.toLowerCase();
       localStorage.setItem('stackly_user_email', emailVal);
       localStorage.setItem('stackly_user_role', selectedRole);
+
+      // Check registered users for matching name
+      let users = {};
+      try {
+        users = JSON.parse(localStorage.getItem('stackly_registered_users') || '{}');
+      } catch (err) {
+        users = {};
+      }
+
+      if (users[normalizedEmail]) {
+        localStorage.setItem('stackly_user_fullname', users[normalizedEmail].fullName);
+        localStorage.setItem('stackly_user_firstname', users[normalizedEmail].firstName);
+        localStorage.setItem('stackly_user_lastname', users[normalizedEmail].lastName);
+      } else {
+        // Vera email irundhal: client or admin
+        const defaultName = selectedRole === 'admin' ? 'admin' : 'client';
+        localStorage.setItem('stackly_user_fullname', defaultName);
+        localStorage.setItem('stackly_user_firstname', defaultName);
+        localStorage.setItem('stackly_user_lastname', '');
+      }
 
       const targetDashboard = selectedRole === 'admin' ? 'admin-dashboard.html' : 'client-dashboard.html';
 
@@ -221,11 +242,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isValid && feedbackAlert) {
         const roleLabel = selectedRole === 'admin' ? 'Administrator' : 'Client';
         const emailVal = email.value.trim();
+        const fnameVal = fname.value.trim();
+        const lnameVal = lname.value.trim();
+        const fullName = `${fnameVal} ${lnameVal}`.trim();
+        const normalizedEmail = emailVal.toLowerCase();
+
+        let users = {};
+        try {
+          users = JSON.parse(localStorage.getItem('stackly_registered_users') || '{}');
+        } catch (err) {
+          users = {};
+        }
+
+        users[normalizedEmail] = {
+          firstName: fnameVal,
+          lastName: lnameVal,
+          fullName: fullName,
+          role: selectedRole
+        };
+        localStorage.setItem('stackly_registered_users', JSON.stringify(users));
+
         localStorage.setItem('stackly_user_email', emailVal);
         localStorage.setItem('stackly_user_role', selectedRole);
+        localStorage.setItem('stackly_user_fullname', fullName);
+        localStorage.setItem('stackly_user_firstname', fnameVal);
+        localStorage.setItem('stackly_user_lastname', lnameVal);
 
         feedbackAlert.className = 'alert alert-success d-flex align-items-center gap-2 mb-3';
-        feedbackAlert.innerHTML = `<i class="bi bi-check-circle-fill fs-5"></i> <div><strong>${roleLabel} Account Created:</strong> Welcome, ${fname.value}! Redirecting to Login page...</div>`;
+        feedbackAlert.innerHTML = `<i class="bi bi-check-circle-fill fs-5"></i> <div><strong>${roleLabel} Account Created:</strong> Welcome, ${fullName}! Redirecting to Login page...</div>`;
         feedbackAlert.classList.remove('d-none');
         signupForm.reset();
 

@@ -130,7 +130,7 @@
                 <span class="badge bg-primary bg-opacity-25 text-white border border-primary border-opacity-50 px-3 py-1 rounded-pill small mb-2 d-inline-block" style="color: #c4bbfd !important;">
                   <i class="bi bi-cpu me-1"></i> Academy Infrastructure Node • Term 2026/27
                 </span>
-                <h2 class="display-6 fw-bold text-white mb-2">Institutional Command Center</h2>
+                <h2 class="display-6 fw-bold text-white mb-2" id="admin-welcome-heading">Welcome back to STACKLY Command Center</h2>
                 <p class="text-white-50 mb-0">Oversee studio allocations, applicant reviews, financial endowments, and faculty mentorship workloads.</p>
               </div>
               <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
@@ -1763,14 +1763,43 @@
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Retrieve user authentication data from localStorage
       const storedEmail = localStorage.getItem('stackly_user_email') || 'admin@stackly.edu';
+      const storedFullName = localStorage.getItem('stackly_user_fullname');
       const emailDisplay = document.getElementById('display-user-email');
       const avatarInitials = document.getElementById('user-avatar-initials');
+      const welcomeHeading = document.getElementById('admin-welcome-heading');
 
       if (emailDisplay) emailDisplay.textContent = storedEmail;
 
-      if (avatarInitials && storedEmail) {
-        const initial = storedEmail.substring(0, 2).toUpperCase();
-        avatarInitials.textContent = initial;
+      // Check registered users registry
+      let users = {};
+      try {
+        users = JSON.parse(localStorage.getItem('stackly_registered_users') || '{}');
+      } catch (err) {
+        users = {};
+      }
+
+      const normalizedEmail = (storedEmail || '').toLowerCase();
+      let displayName = 'admin';
+      if (users[normalizedEmail] && users[normalizedEmail].fullName) {
+        displayName = users[normalizedEmail].fullName;
+      } else if (storedFullName && storedFullName.toLowerCase() !== 'client' && storedFullName.toLowerCase() !== 'admin') {
+        displayName = storedFullName;
+      } else {
+        displayName = 'admin';
+      }
+
+      if (welcomeHeading) {
+        welcomeHeading.textContent = `Welcome back ${displayName}`;
+      }
+
+      if (avatarInitials) {
+        if (displayName && displayName !== 'admin') {
+          const parts = displayName.split(' ').filter(Boolean);
+          const initials = parts.length > 1 ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase() : parts[0].slice(0, 2).toUpperCase();
+          avatarInitials.textContent = initials;
+        } else if (storedEmail) {
+          avatarInitials.textContent = storedEmail.substring(0, 2).toUpperCase();
+        }
       }
 
       // 2. Mobile Sidebar Toggle
