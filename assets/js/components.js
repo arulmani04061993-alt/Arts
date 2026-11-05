@@ -319,14 +319,17 @@ function initFooterFeatures() {
   }
 }
 
-// Reset form inputs (newsletter email etc.) when returning back via browser history or bfcache
+// Reset form inputs (newsletter email, contact form etc.) when returning back via browser history or bfcache
 window.addEventListener('pageshow', function () {
-  document.querySelectorAll('#footer-newsletter-form, #blog-newsletter-form, form.footer-ref-form').forEach(form => {
+  document.querySelectorAll('#footer-newsletter-form, #blog-newsletter-form, #stackly-contact-form, form.footer-ref-form').forEach(form => {
     form.reset();
   });
-  document.querySelectorAll('#footer-newsletter-email, #blog-newsletter-email, input[type="email"]').forEach(input => {
+  document.querySelectorAll('#footer-newsletter-email, #blog-newsletter-email, #contact-name, #contact-email, #contact-message, #contact-phone, input[type="email"]').forEach(input => {
     input.value = '';
+    input.classList.remove('is-invalid');
   });
+  const contactFeedback = document.getElementById('contact-feedback-alert');
+  if (contactFeedback) contactFeedback.classList.add('d-none');
 });
 
 document.addEventListener('DOMContentLoaded', loadComponents);

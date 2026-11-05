@@ -312,11 +312,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (email && !validateField(email)) isValid = false;
       if (message && !validateField(message)) isValid = false;
 
-      if (isValid && feedbackAlert) {
-        feedbackAlert.className = 'alert alert-success d-flex align-items-center gap-2 mb-3';
-        feedbackAlert.innerHTML = '<i class="bi bi-check-circle-fill"></i> Thank you! Your inquiry has been received. Our studio coordinators will respond shortly.';
-        feedbackAlert.classList.remove('d-none');
+      if (!isValid) {
+        if (feedbackAlert) {
+          feedbackAlert.className = 'alert alert-danger d-flex align-items-center gap-2 mb-3';
+          feedbackAlert.innerHTML = '<i class="bi bi-exclamation-triangle-fill fs-5 text-danger"></i> <div><strong>Important:</strong> Please fill out all required fields before transmitting your inquiry.</div>';
+          feedbackAlert.classList.remove('d-none');
+          feedbackAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (name && !name.value.trim()) {
+          name.focus();
+        } else if (email && !email.value.trim()) {
+          email.focus();
+        } else if (message && !message.value.trim()) {
+          message.focus();
+        }
+        return;
+      }
+
+      if (isValid) {
+        if (feedbackAlert) {
+          feedbackAlert.classList.add('d-none');
+        }
         contactForm.reset();
+        window.location.href = '404.html';
       }
     });
   }
