@@ -1815,19 +1815,32 @@
         document.body.appendChild(overlay);
       }
 
+      let scrollPosition = 0;
+
       function openSidebar() {
         if (!sidebar) return;
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
         sidebar.classList.add('sidebar-open');
         overlay.classList.add('active');
+        document.documentElement.classList.add('sidebar-open-locked');
         document.body.classList.add('sidebar-open-locked');
+        document.body.style.top = `-${scrollPosition}px`;
       }
 
       function closeSidebar() {
         if (!sidebar) return;
         sidebar.classList.remove('sidebar-open');
         overlay.classList.remove('active');
+        document.documentElement.classList.remove('sidebar-open-locked');
         document.body.classList.remove('sidebar-open-locked');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollPosition);
       }
+
+      // Prevent background touchmove scrolling when sidebar is open
+      overlay?.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+      }, { passive: false });
 
       if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener('click', () => {

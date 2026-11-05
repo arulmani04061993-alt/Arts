@@ -6,12 +6,17 @@
 /* ===================================================================
    1. GLOBAL RESPONSIVE RESET & OVERFLOW PREVENTION
    =================================================================== */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-img, video, iframe, canvas, svg {
+img,
+video,
+iframe,
+canvas,
+svg {
   max-width: 100%;
   height: auto;
 }
@@ -30,9 +35,11 @@ img, video, iframe, canvas, svg {
   .container {
     max-width: 1320px;
   }
+
   .hero-main-img-box {
     height: 560px;
   }
+
   .hero-editorial-title {
     font-size: 4.8rem;
   }
@@ -45,12 +52,15 @@ img, video, iframe, canvas, svg {
   .stackly-nav-list {
     gap: 16px;
   }
+
   .stackly-nav-link {
     font-size: 0.88rem;
   }
+
   .hero-editorial-title {
     font-size: 4.2rem;
   }
+
   .hero-main-img-box {
     height: 500px;
   }
@@ -63,18 +73,23 @@ img, video, iframe, canvas, svg {
   .stackly-nav-list {
     gap: 12px;
   }
+
   .stackly-nav-link {
     font-size: 0.84rem;
   }
+
   .hero-editorial-title {
     font-size: 3.4rem;
   }
+
   .hero-main-img-box {
     height: 440px;
   }
+
   .page-hero .page-title {
     font-size: 3.2rem;
   }
+
   .details-hero-title {
     font-size: 2.8rem;
   }
@@ -84,13 +99,14 @@ img, video, iframe, canvas, svg {
    5. TABLETS & LARGE PHONES (991px and below)
    =================================================================== */
 @media (max-width: 991px) {
+
   /* Hide desktop menu, desktop login, and mobile top-bar signup button */
   .stackly-nav-center,
   .stackly-nav-actions .nav-login-link,
   .stackly-nav-actions .btn-custom {
     display: none !important;
   }
-  
+
   .mobile-nav-toggle {
     display: inline-flex !important;
     align-items: center;
@@ -121,6 +137,7 @@ img, video, iframe, canvas, svg {
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     padding: 24px 20px !important;
   }
+
   .stackly-mobile-drawer.open {
     transform: translateX(0) !important;
   }
@@ -135,13 +152,16 @@ img, video, iframe, canvas, svg {
     padding: 40px 0 60px;
     min-height: auto;
   }
+
   .hero-editorial-title {
     font-size: 3rem;
     line-height: 1.1;
   }
+
   .hero-visual-frame {
     margin-top: 40px;
   }
+
   .hero-main-img-box {
     height: 380px;
   }
@@ -150,6 +170,7 @@ img, video, iframe, canvas, svg {
     top: -15px;
     left: 10px;
   }
+
   .floating-hero-card.card-bottom {
     bottom: -15px;
     right: 10px;
@@ -166,10 +187,12 @@ img, video, iframe, canvas, svg {
     flex-direction: column;
     min-height: auto;
   }
+
   .auth-visual-col {
     min-height: 240px;
     padding: 30px 24px;
   }
+
   .auth-form-col {
     max-width: 100%;
     width: 100%;
@@ -180,9 +203,11 @@ img, video, iframe, canvas, svg {
   .page-hero {
     padding: 60px 0 40px;
   }
+
   .page-hero .page-title {
     font-size: 2.6rem;
   }
+
   .page-hero .page-subtitle {
     font-size: 1.05rem;
   }
@@ -262,10 +287,12 @@ img, video, iframe, canvas, svg {
   .page-hero {
     padding: 45px 0 30px;
   }
+
   .page-hero .page-title {
     font-size: 2.1rem;
     line-height: 1.15;
   }
+
   .page-hero .page-subtitle {
     font-size: 0.95rem;
     line-height: 1.5;
@@ -275,22 +302,27 @@ img, video, iframe, canvas, svg {
   .hero-editorial {
     padding: 30px 0 50px;
   }
+
   .hero-editorial-title {
     font-size: 2.3rem;
     line-height: 1.12;
   }
+
   .hero-editorial-subtitle {
     font-size: 1rem;
     line-height: 1.5;
   }
+
   .hero-main-img-box {
     height: 300px;
   }
+
   .hero-cta-group {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
   }
+
   .hero-cta-group .btn-custom {
     width: 100%;
     text-align: center;
@@ -307,6 +339,7 @@ img, video, iframe, canvas, svg {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .split-about-visual {
     height: 280px;
   }
@@ -319,6 +352,7 @@ img, video, iframe, canvas, svg {
     -webkit-overflow-scrolling: touch;
     gap: 8px;
   }
+
   .filter-btn {
     flex-shrink: 0;
     padding: 8px 16px;
@@ -337,6 +371,7 @@ img, video, iframe, canvas, svg {
     gap: 16px;
     padding: 20px;
   }
+
   .event-date-box {
     width: 64px;
     height: 64px;
@@ -352,28 +387,35 @@ img, video, iframe, canvas, svg {
   .stackly-footer {
     padding: 0 0 24px;
   }
+
   .footer-pre-banner {
     padding: 40px 0 30px;
     text-align: center;
   }
+
   .footer-pre-banner .studio-status-badge {
     margin: 0 auto;
   }
+
   .footer-pre-banner-subtitle {
     margin-left: auto;
     margin-right: auto;
   }
+
   .footer-pre-banner .btn-custom {
     width: 100%;
     justify-content: center;
   }
+
   .footer-main-grid {
     padding: 40px 0 25px;
   }
+
   .footer-newsletter-box {
     padding: 20px;
     margin-top: 16px;
   }
+
   .footer-newsletter-input-group {
     flex-direction: column;
     border-radius: var(--radius-md);
@@ -381,17 +423,20 @@ img, video, iframe, canvas, svg {
     padding: 8px;
     gap: 8px;
   }
+
   .footer-subscribe-btn {
     width: 100%;
     justify-content: center;
     padding: 10px 0;
   }
+
   .footer-bottom {
     flex-direction: column;
     gap: 14px;
     text-align: center;
     align-items: center;
   }
+
   .footer-legal-links {
     justify-content: center;
     flex-wrap: wrap;
@@ -422,16 +467,20 @@ img, video, iframe, canvas, svg {
   .hero-editorial-title {
     font-size: 1.95rem;
   }
+
   .page-hero .page-title {
     font-size: 1.85rem;
   }
+
   .navbar-brand-stackly img {
     height: 32px;
     width: auto;
   }
+
   .stackly-card {
     padding: 18px 14px;
   }
+
   .btn-custom {
     padding: 9px 16px;
     font-size: 0.82rem;
@@ -444,13 +493,18 @@ img, video, iframe, canvas, svg {
 
 /* --- TABLET VIEW (768px to 991px) & MOBILE VIEW (< 992px) --- */
 @media (max-width: 991px) {
-  body.dashboard-body {
-    padding-top: 0 !important;
-  }
-
+  html.sidebar-open-locked,
   body.sidebar-open-locked {
     overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
     touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  body.dashboard-body {
+    padding-top: 0 !important;
   }
 
   /* Full Screen Backdrop Overlay */
@@ -525,8 +579,8 @@ img, video, iframe, canvas, svg {
   }
 
   /* Tablet Row & Card Adjustments */
-  .dash-panel .row.g-3 > [class*="col-"],
-  .dash-panel .row.g-4 > [class*="col-"] {
+  .dash-panel .row.g-3>[class*="col-"],
+  .dash-panel .row.g-4>[class*="col-"] {
     margin-bottom: 6px;
   }
 
@@ -695,7 +749,7 @@ img, video, iframe, canvas, svg {
   .dashboard-content {
     max-width: 1680px;
   }
-  
+
   .dashboard-navbar {
     padding: 0 40px !important;
   }

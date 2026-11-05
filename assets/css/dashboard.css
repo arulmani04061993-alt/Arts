@@ -702,9 +702,14 @@ body.dashboard-body {
 
 /* Mobile Responsiveness */
 @media (max-width: 991px) {
+  html.sidebar-open-locked,
   body.sidebar-open-locked {
     overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
     touch-action: none !important;
+    -webkit-overflow-scrolling: auto !important;
   }
   .dashboard-sidebar-overlay {
     position: fixed;
