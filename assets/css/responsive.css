@@ -439,64 +439,248 @@ img, video, iframe, canvas, svg {
 }
 
 /* ===================================================================
-   8. CLIENT & ADMIN DASHBOARDS RESPONSIVENESS
+   8. CLIENT & ADMIN DASHBOARDS RESPONSIVENESS (Mobile, Tablet, Desktop)
    =================================================================== */
+
+/* --- TABLET VIEW (768px to 991px) & MOBILE VIEW (< 992px) --- */
 @media (max-width: 991px) {
   body.dashboard-body {
     padding-top: 0 !important;
   }
 
+  body.sidebar-open-locked {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  /* Full Screen Backdrop Overlay */
+  .dashboard-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1025;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .dashboard-sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .dashboard-sidebar {
     transform: translateX(-100%);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.85);
+    z-index: 1030;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
   .dashboard-sidebar.sidebar-open {
     transform: translateX(0);
   }
+
   .dashboard-main {
     margin-left: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-top: 64px !important;
   }
+
   .dashboard-navbar {
-    padding: 0 16px !important;
+    left: 0 !important;
+    padding: 0 20px !important;
+    height: 64px !important;
   }
+
   .dash-page-title {
-    font-size: 1.05rem !important;
+    font-size: 1.12rem !important;
   }
+
   .dashboard-content {
-    padding: 20px 14px !important;
+    padding: 22px 18px !important;
+    overflow-x: hidden;
   }
+
   .dash-panel {
-    padding: 20px 16px !important;
-    border-radius: 12px !important;
+    padding: 22px 18px !important;
+    border-radius: 14px !important;
+    margin-bottom: 20px !important;
   }
+
   .dash-stat-val {
-    font-size: 1.75rem !important;
+    font-size: 1.85rem !important;
   }
+
   .dash-user-email {
-    max-width: 130px;
+    max-width: 160px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  /* Tablet Row & Card Adjustments */
+  .dash-panel .row.g-3 > [class*="col-"],
+  .dash-panel .row.g-4 > [class*="col-"] {
+    margin-bottom: 6px;
+  }
+
+  /* Table Horizontal Scrolling with indicator */
+  .table-responsive {
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto !important;
+  }
+
+  .dash-table {
+    min-width: 600px;
+  }
 }
 
+/* --- MOBILE LANDSCAPE & SMALL TABLETS (577px to 767px) --- */
+@media (max-width: 767px) {
+  .dashboard-main {
+    padding-top: 60px !important;
+  }
+
+  .dashboard-navbar {
+    left: 0 !important;
+    padding: 0 16px !important;
+    height: 60px !important;
+  }
+
+  .dash-page-title {
+    font-size: 1rem !important;
+  }
+
+  .dashboard-content {
+    padding: 16px 12px !important;
+  }
+
+  .dash-panel {
+    padding: 18px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .dash-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .dash-panel-header .d-flex {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+
+  .dash-panel-header .d-flex .btn,
+  .dash-panel-header .d-flex .btn-dash-primary,
+  .dash-panel-header .d-flex .btn-dash-outline {
+    flex: 1 1 auto;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .dash-stat-card {
+    padding: 18px 16px !important;
+  }
+
+  .dash-stat-val {
+    font-size: 1.6rem !important;
+  }
+
+  .dash-table th,
+  .dash-table td {
+    padding: 12px 14px !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* --- MOBILE PORTRAIT PHONES (< 576px) --- */
 @media (max-width: 576px) {
+  .dashboard-navbar {
+    padding: 0 12px !important;
+  }
+
   .dash-user-meta {
     display: none !important;
   }
+
   .dash-user-pill {
     padding: 4px !important;
+    border: none !important;
+    background: transparent !important;
   }
+
+  .dash-user-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .dash-page-title {
+    font-size: 0.95rem !important;
+    max-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .dash-panel-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
+
   .dash-panel-header .btn,
   .dash-panel-header .btn-dash-primary,
   .dash-panel-header .btn-dash-outline {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .dash-panel-title {
+    font-size: 1.05rem !important;
+  }
+
+  .dash-panel-sub {
+    font-size: 0.78rem !important;
+  }
+
+  .faculty-avatar-wrap,
+  .faculty-avatar-img {
+    width: 76px !important;
+    height: 76px !important;
+  }
+
+  .faculty-card-name {
+    font-size: 1.02rem !important;
+  }
+
+  .faculty-card-bio {
+    font-size: 0.8rem !important;
+  }
+
+  /* Modal & Alert Responsiveness */
+  .modal-dialog {
+    margin: 12px !important;
+  }
+}
+
+/* --- LARGE DESKTOPS & HIGH-RES MONITORS (min-width: 1200px) --- */
+@media (min-width: 1200px) {
+  .dashboard-content {
+    max-width: 1680px;
+  }
+  
+  .dashboard-navbar {
+    padding: 0 40px !important;
   }
 }

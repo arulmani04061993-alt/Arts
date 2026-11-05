@@ -20,6 +20,7 @@
   <!-- Custom Project Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body class="dashboard-body">
 
@@ -1778,15 +1779,51 @@
         }
       }
 
-      // 2. Mobile Sidebar Toggle
+      // 2. Mobile Sidebar Toggle & Scroll Lock
       const sidebarToggle = document.getElementById('sidebar-toggle');
       const sidebar = document.getElementById('dashboard-sidebar');
+      
+      // Inject sidebar overlay for mobile if not present
+      let overlay = document.querySelector('.dashboard-sidebar-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'dashboard-sidebar-overlay';
+        document.body.appendChild(overlay);
+      }
+
+      function openSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.add('sidebar-open');
+        overlay.classList.add('active');
+        document.body.classList.add('sidebar-open-locked');
+      }
+
+      function closeSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.remove('sidebar-open');
+        overlay.classList.remove('active');
+        document.body.classList.remove('sidebar-open-locked');
+      }
 
       if (sidebarToggle && sidebar) {
         sidebarToggle.addEventListener('click', () => {
-          sidebar.classList.toggle('sidebar-open');
+          if (sidebar.classList.contains('sidebar-open')) {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
         });
       }
+
+      if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 992) {
+          closeSidebar();
+        }
+      });
 
       // 3. Static Sidebar Tab Switching
       const navItems = document.querySelectorAll('.sidebar-nav-item[data-tab]');
@@ -1814,8 +1851,8 @@
           pageTitle.textContent = newTitle;
         }
 
-        if (sidebar && window.innerWidth < 992) {
-          sidebar.classList.remove('sidebar-open');
+        if (window.innerWidth < 992) {
+          closeSidebar();
         }
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
