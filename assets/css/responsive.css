@@ -552,10 +552,24 @@ img, video, iframe, canvas, svg {
     left: 0 !important;
     padding: 0 16px !important;
     height: 60px !important;
+    justify-content: space-between !important;
   }
 
-  .dash-page-title {
-    font-size: 1rem !important;
+  /* In mobile view: navbar la email mattum show akkanum, title hide aagum */
+  .dashboard-navbar .dash-page-title {
+    display: none !important;
+  }
+
+  .dashboard-navbar .dash-nav-right {
+    margin-left: auto;
+  }
+
+  .dash-user-email {
+    max-width: none !important;
+    font-size: 0.88rem !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: nowrap;
   }
 
   .dashboard-content {
@@ -605,7 +619,12 @@ img, video, iframe, canvas, svg {
 /* --- MOBILE PORTRAIT PHONES (< 576px) --- */
 @media (max-width: 576px) {
   .dashboard-navbar {
-    padding: 0 12px !important;
+    padding: 0 14px !important;
+  }
+
+  /* In mobile view: navbar la email mattum show akkanum, title hide aagum */
+  .dashboard-navbar .dash-page-title {
+    display: none !important;
   }
 
   .dash-user-meta {
@@ -613,23 +632,20 @@ img, video, iframe, canvas, svg {
   }
 
   .dash-user-pill {
-    padding: 4px !important;
-    border: none !important;
-    background: transparent !important;
+    padding: 6px 12px !important;
+    border: 1px solid var(--dash-border) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-radius: 9999px !important;
   }
 
   .dash-user-avatar {
-    width: 34px !important;
-    height: 34px !important;
-    font-size: 0.8rem !important;
+    display: none !important;
   }
 
-  .dash-page-title {
-    font-size: 0.95rem !important;
-    max-width: 170px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .dash-user-email {
+    font-size: 0.85rem !important;
+    max-width: none !important;
+    white-space: nowrap !important;
   }
 
   .dash-panel-header {
