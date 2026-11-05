@@ -7,13 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper: Show Input Error
   function setInputError(input, message) {
     input.classList.add('is-invalid');
-    const feedback = input.parentElement.querySelector('.invalid-feedback-custom');
-    if (feedback) feedback.textContent = message;
+    const feedback = input.parentElement.querySelector('.invalid-feedback-custom') ||
+                     input.closest('.form-group-custom')?.querySelector('.invalid-feedback-custom');
+    if (feedback) {
+      feedback.textContent = message;
+      feedback.style.display = 'block';
+    }
   }
 
   // Helper: Clear Input Error
   function clearInputError(input) {
     input.classList.remove('is-invalid');
+    const feedback = input.parentElement.querySelector('.invalid-feedback-custom') ||
+                     input.closest('.form-group-custom')?.querySelector('.invalid-feedback-custom');
+    if (feedback) {
+      feedback.style.display = '';
+    }
   }
 
   // Generic Field Validator
@@ -50,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (type === 'password' && isRequired && value.length < 6) {
-      setInputError(input, 'Password must be at least 6 characters.');
+    if (type === 'password' && isRequired && value.length < 8) {
+      setInputError(input, 'Password must be at least 8 characters.');
       return false;
     }
 
@@ -121,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!passVal) {
         setInputError(passInput, 'Please enter your password.');
         hasError = true;
-      } else if (passVal.length < 4) {
-        setInputError(passInput, 'Password must be at least 4 characters.');
+      } else if (passVal.length < 8) {
+        setInputError(passInput, 'Password must be at least 8 characters.');
         hasError = true;
       } else {
         clearInputError(passInput);
@@ -215,16 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('stackly_user_email', emailVal);
         localStorage.setItem('stackly_user_role', selectedRole);
 
-        const targetDashboard = selectedRole === 'admin' ? 'admin-dashboard.html' : 'client-dashboard.html';
-
         feedbackAlert.className = 'alert alert-success d-flex align-items-center gap-2 mb-3';
-        feedbackAlert.innerHTML = `<i class="bi bi-check-circle-fill fs-5"></i> <div><strong>${roleLabel} Account Created:</strong> Welcome, ${fname.value}! Logging into ${roleLabel} Dashboard...</div>`;
+        feedbackAlert.innerHTML = `<i class="bi bi-check-circle-fill fs-5"></i> <div><strong>${roleLabel} Account Created:</strong> Welcome, ${fname.value}! Redirecting to Login page...</div>`;
         feedbackAlert.classList.remove('d-none');
         signupForm.reset();
 
         setTimeout(() => {
-          window.location.href = targetDashboard;
-        }, 900);
+          window.location.href = 'login.html';
+        }, 800);
       }
     });
   }

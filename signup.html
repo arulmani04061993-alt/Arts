@@ -161,24 +161,33 @@
             <div class="col-md-6 form-group-custom">
               <label class="form-label-custom" for="signup-password">Password *</label>
               <div class="password-input-wrap">
-                <input type="password" class="form-control-custom" id="signup-password" placeholder="••••••••" required>
+                <input type="password" class="form-control-custom" id="signup-password" placeholder="••••••••" required
+                  minlength="8">
                 <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
                   <i class="bi bi-eye-slash"></i>
                 </button>
               </div>
-              <div class="invalid-feedback-custom">Password must be at least 6 characters.</div>
+              <div class="invalid-feedback-custom">Password must be at least 8 characters.</div>
+              <div class="small text-white-50 mt-1 d-flex align-items-center gap-1">
+                <i class="bi bi-shield-lock text-coral"></i>
+                <span>Minimum 8 characters required</span>
+              </div>
             </div>
 
             <div class="col-md-6 form-group-custom">
               <label class="form-label-custom" for="signup-password-confirm">Confirm Password *</label>
               <div class="password-input-wrap">
                 <input type="password" class="form-control-custom" id="signup-password-confirm" placeholder="••••••••"
-                  required>
+                  required minlength="8">
                 <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
                   <i class="bi bi-eye-slash"></i>
                 </button>
               </div>
               <div class="invalid-feedback-custom">Passwords do not match.</div>
+              <div class="small text-white-50 mt-1 d-flex align-items-center gap-1">
+                <i class="bi bi-shield-check text-coral"></i>
+                <span>Re-enter minimum 8 characters</span>
+              </div>
             </div>
 
             <div class="col-12 mb-3">
