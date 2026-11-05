@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    if (type === 'url' && value) {
+      if (!value.startsWith('http://') && !value.startsWith('https://')) {
+        setInputError(input, 'Please enter a valid URL (e.g. https://...).');
+        return false;
+      }
+    }
+
     if (type === 'password' && isRequired && value.length < 6) {
       setInputError(input, 'Password must be at least 6 characters.');
       return false;
@@ -269,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('app-email');
       const phone = document.getElementById('app-phone');
       const course = document.getElementById('app-course');
+      const portfolio = document.getElementById('app-portfolio-link');
       const statement = document.getElementById('app-statement');
       const feedbackAlert = document.getElementById('admission-feedback-alert');
 
@@ -282,17 +290,31 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (course) {
         clearInputError(course);
       }
+      if (portfolio && !validateField(portfolio)) isValid = false;
       if (statement && !validateField(statement)) isValid = false;
 
-      if (isValid && feedbackAlert) {
-        feedbackAlert.className = 'alert alert-success p-3 rounded mb-4';
-        feedbackAlert.innerHTML = `
-          <h5><i class="bi bi-check-circle-fill text-success"></i> Application Submitted Successfully!</h5>
-          <p class="mb-0 small">Thank you, <strong>${name.value}</strong>. Your portfolio and admissions dossier for <strong>${course.options[course.selectedIndex].text}</strong> has been logged for review. Our admissions board evaluates submissions within 3 to 5 academic days. <em>(Frontend demonstration — not sent to server)</em>.</p>
-        `;
-        feedbackAlert.classList.remove('d-none');
-        feedbackAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (!isValid) {
+        if (feedbackAlert) {
+          feedbackAlert.className = 'alert alert-danger d-flex align-items-center gap-2 mb-4';
+          feedbackAlert.innerHTML = '<i class="bi bi-exclamation-triangle-fill fs-5 text-danger"></i> <div><strong>Important:</strong> Please fill out all required fields marked with * before submitting your admissions dossier.</div>';
+          feedbackAlert.classList.remove('d-none');
+          feedbackAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (name && !name.value.trim()) name.focus();
+        else if (email && !email.value.trim()) email.focus();
+        else if (phone && !phone.value.trim()) phone.focus();
+        else if (course && !course.value) course.focus();
+        else if (portfolio && !portfolio.value.trim()) portfolio.focus();
+        else if (statement && !statement.value.trim()) statement.focus();
+        return;
+      }
+
+      if (isValid) {
+        if (feedbackAlert) {
+          feedbackAlert.classList.add('d-none');
+        }
         admissionForm.reset();
+        window.location.href = '404.html';
       }
     });
   }
