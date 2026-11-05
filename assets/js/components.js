@@ -308,14 +308,27 @@ function initFooterFeatures() {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const input = document.getElementById('footer-newsletter-email');
-      if (input && input.value.trim() && input.checkValidity()) {
+      const val = input ? input.value.trim() : '';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (val && emailRegex.test(val)) {
+        if (newsletterMsg) newsletterMsg.innerHTML = '';
         newsletterForm.reset();
         input.value = '';
         window.location.href = '404.html';
       } else {
-        newsletterMsg.innerHTML = '<span class="text-danger"><i class="bi bi-exclamation-circle-fill"></i> Please enter a valid email address.</span>';
+        if (newsletterMsg) {
+          newsletterMsg.innerHTML = '<span class="text-danger"><i class="bi bi-exclamation-circle-fill"></i> Please enter a valid email address.</span>';
+        }
       }
     });
+
+    const newsletterInput = document.getElementById('footer-newsletter-email');
+    if (newsletterInput) {
+      newsletterInput.addEventListener('input', () => {
+        if (newsletterMsg) newsletterMsg.innerHTML = '';
+      });
+    }
   }
 }
 
@@ -328,6 +341,8 @@ window.addEventListener('pageshow', function () {
     input.value = '';
     input.classList.remove('is-invalid');
   });
+  const footerNewsletterMsg = document.getElementById('footer-newsletter-msg');
+  if (footerNewsletterMsg) footerNewsletterMsg.innerHTML = '';
   const contactFeedback = document.getElementById('contact-feedback-alert');
   if (contactFeedback) contactFeedback.classList.add('d-none');
   const admissionFeedback = document.getElementById('admission-feedback-alert');
