@@ -53,10 +53,10 @@
         <p class="footer-ref-desc mb-3">
           Subscribe to our newsletter for the latest design updates, creative advice, and studio tips.
         </p>
-        <form class="footer-ref-form" id="footer-newsletter-form" novalidate>
+        <form class="footer-ref-form" id="footer-newsletter-form" onsubmit="event.preventDefault(); this.reset(); window.location.href='404.html';" autocomplete="off" novalidate>
           <div class="footer-ref-form-row">
             <input type="email" class="footer-ref-input" id="footer-newsletter-email" placeholder="Email Address"
-              required>
+              autocomplete="off" required>
             <button type="submit" class="footer-ref-submit-btn">Subscribe</button>
           </div>
           <div class="form-feedback-message mt-2 small" id="footer-newsletter-msg"></div>

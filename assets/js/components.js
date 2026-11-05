@@ -144,9 +144,9 @@ const FOOTER_HTML_FALLBACK = `
         <p class="footer-ref-desc mb-3">
           Subscribe to our newsletter for the latest design updates, creative advice, and studio tips.
         </p>
-        <form class="footer-ref-form" id="footer-newsletter-form" novalidate>
+        <form class="footer-ref-form" id="footer-newsletter-form" autocomplete="off" novalidate>
           <div class="footer-ref-form-row">
-            <input type="email" class="footer-ref-input" id="footer-newsletter-email" placeholder="Email Address" required>
+            <input type="email" class="footer-ref-input" id="footer-newsletter-email" placeholder="Email Address" autocomplete="off" required>
             <button type="submit" class="footer-ref-submit-btn">Subscribe</button>
           </div>
           <div class="form-feedback-message mt-2 small" id="footer-newsletter-msg"></div>
@@ -309,14 +309,25 @@ function initFooterFeatures() {
       e.preventDefault();
       const input = document.getElementById('footer-newsletter-email');
       if (input && input.value.trim() && input.checkValidity()) {
-        newsletterMsg.innerHTML = '<span class="text-success"><i class="bi bi-check-circle-fill"></i> Welcome! You have been granted access to The Curated Dispatch.</span>';
+        newsletterForm.reset();
         input.value = '';
+        window.location.href = '404.html';
       } else {
         newsletterMsg.innerHTML = '<span class="text-danger"><i class="bi bi-exclamation-circle-fill"></i> Please enter a valid email address.</span>';
       }
     });
   }
 }
+
+// Reset form inputs (newsletter email etc.) when returning back via browser history or bfcache
+window.addEventListener('pageshow', function () {
+  document.querySelectorAll('#footer-newsletter-form, #blog-newsletter-form, form.footer-ref-form').forEach(form => {
+    form.reset();
+  });
+  document.querySelectorAll('#footer-newsletter-email, #blog-newsletter-email, input[type="email"]').forEach(input => {
+    input.value = '';
+  });
+});
 
 document.addEventListener('DOMContentLoaded', loadComponents);
 
